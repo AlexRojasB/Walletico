@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Walletico.Models;
 
 namespace Walletico.ViewModels
 {
     public class DetailListViewModel : FreshMvvm.FreshBasePageModel
     {
+        private Transaction transactionSelected;
+
         public DetailListViewModel()
         {
             this.Transactions = new List<Transaction>
@@ -29,6 +32,21 @@ namespace Walletico.ViewModels
 
         #region Properties
         public List<Transaction> Transactions { get; set; }
+
+        public Transaction TransactionSelected
+        {
+            get => transactionSelected;
+            set
+            {
+                transactionSelected = value;
+                foreach (Transaction item in this.Transactions.Where(x => x.IsSelected))
+                {
+                    item.IsSelected = false;
+                }
+                transactionSelected.IsSelected = true;
+                RaisePropertyChanged();
+            }
+        }
         #endregion
     }
 }
