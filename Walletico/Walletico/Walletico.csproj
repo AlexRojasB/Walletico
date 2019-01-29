@@ -14,4 +14,10 @@
     <PackageReference Include="FreshMvvm" Version="2.2.4" />
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.62955-pre2" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\DetailListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

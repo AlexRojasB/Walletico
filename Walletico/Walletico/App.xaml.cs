@@ -1,4 +1,5 @@
 ﻿using System;
+using Walletico.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace Walletico
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new DetailListPage());
         }
 
         protected override void OnStart()
