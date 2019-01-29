@@ -16,5 +16,10 @@ namespace Walletico.Pages
         {
             InitializeComponent();
         }
+
+        private void CollectionView_DescendantAdded(object sender, ElementEventArgs e)
+        {
+
+        }
     }
 }

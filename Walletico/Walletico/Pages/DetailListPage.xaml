@@ -1,11 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Walletico.ViewModels"
              x:Class="Walletico.Pages.DetailListPage"
              Title="Walletico"
              BackgroundColor="{StaticResource Primary}">
+    <ContentPage.BindingContext>
+        <vm:DetailListViewModel />
+    </ContentPage.BindingContext>
+    
+    <Grid ColumnSpacing="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-    <ContentView ControlTemplate="{StaticResource CurrentBalance}">
-        
-    </ContentView>
+        <ContentView Grid.ColumnSpan="2" ControlTemplate="{StaticResource CurrentBalance}"/>
+
+        <CollectionView Grid.Row="1" Grid.ColumnSpan="2"  ItemsSource="{Binding Transactions}" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0"  Source="up_arrow.png" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="Fill">
+                                <Label Text="{Binding Description}" TextColor="{StaticResource PrimaryText}" FontSize="16"/>
+                                <Label Text="{Binding EntryDate}" TextColor="{StaticResource PrimaryText}" FontSize="12" Opacity="72" />
+                            </StackLayout>
+                            <Label Grid.Column="2" Text="{Binding Amount}" TextColor="{StaticResource PrimaryText}" FontSize="16" HorizontalOptions="End" HorizontalTextAlignment="End" VerticalOptions="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <StackLayout Grid.Row="2" Grid.Column="0" Orientation="Horizontal" BackgroundColor="#101F2C" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
+                <Label HorizontalOptions="Center" VerticalOptions="Start" Text="Income" TextColor="{StaticResource SecondaryText}" FontSize="8" Margin="5,5,0,0" />
+                <Image Source="up_arrow.png" BackgroundColor="#83FE6D" HorizontalOptions="Center" VerticalOptions="Center" />
+            </StackLayout>
+            <Label TextColor="{StaticResource PrimaryText}" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Text="₡ 5,500" />
+        </StackLayout>
+        <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" BackgroundColor="#162935" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
+                <Label HorizontalOptions="Center" VerticalOptions="Start" Text="Expense" TextColor="{StaticResource SecondaryText}" FontSize="8" Margin="5,5,0,0" />
+                <Image Source="down_arrow.png" BackgroundColor="#FE6D6D" HorizontalOptions="Center" VerticalOptions="Center" />
+            </StackLayout>
+            <Label TextColor="{StaticResource PrimaryText}" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Text="₡ 8,550"/>
+        </StackLayout>
+    </Grid>
 </ContentPage>
