@@ -12,12 +12,14 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converts:HighlightItemConverter x:Key="cnvHighlight"></converts:HighlightItemConverter>
+            <converts:HighlightFrameConverter x:Key="cnvHighlightFrame"></converts:HighlightFrameConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid ColumnSpacing="0" RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*" />
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -27,7 +29,22 @@
 
         <ContentView Grid.ColumnSpan="2" ControlTemplate="{StaticResource CurrentBalance}"/>
 
-        <CollectionView Grid.Row="1" Grid.ColumnSpan="2" SelectedItem="{Binding TransactionSelected, Mode=TwoWay}" ItemsSource="{Binding Transactions}" SelectionMode="Single">
+        <CollectionView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Transparent" HeightRequest="50" ItemsSource="{Binding Periods}" SelectedItem="{Binding PeriodSelected, Mode=TwoWay}"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill" SelectionMode="Single" ItemsLayout="{x:Static ListItemsLayout.HorizontalList}" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!--<StackLayout Orientation="Horizontal" WidthRequest="70" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Label FontSize="14" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" Text="{Binding .}" TextColor="{StaticResource SecondaryText}" />
+                    </StackLayout>-->
+                    <Frame CornerRadius="50" HasShadow="{Binding IsSelected}" Padding="0"  BackgroundColor="{Binding IsSelected, Converter={StaticResource cnvHighlightFrame}}" Margin="0,5,0,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" WidthRequest="70" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label FontSize="14" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" Text="{Binding Month}" TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <CollectionView Grid.Row="2" Grid.ColumnSpan="2" SelectedItem="{Binding TransactionSelected, Mode=TwoWay}" ItemsSource="{Binding Transactions}" SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="10">
@@ -36,25 +53,25 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0"  Source="up_arrow.png" VerticalOptions="Center" HorizontalOptions="Center"/>
-                            <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="Fill">
-                                <Label Text="{Binding Description}" TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}}" FontSize="16"/>
+                        <Image Grid.Column="0"  Source="up_arrow.png" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="Fill">
+                            <Label Text="{Binding Description}" TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}}" FontSize="16"/>
                             <Label Text="{Binding EntryDate}" TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}}" FontSize="12" Opacity="72" />
-                            </StackLayout>
+                        </StackLayout>
                         <Label Grid.Column="2" Text="{Binding Amount}" TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}}" FontSize="16" HorizontalOptions="End" HorizontalTextAlignment="End" VerticalOptions="Center"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <StackLayout Grid.Row="2" Grid.Column="0" Orientation="Horizontal" BackgroundColor="#101F2C" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+        <StackLayout Grid.Row="3" Grid.Column="0" Orientation="Horizontal" BackgroundColor="#101F2C" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
                 <Label HorizontalOptions="Center" VerticalOptions="Start" Text="Income" TextColor="{StaticResource SecondaryText}" FontSize="8" Margin="5,5,0,0" />
                 <Image Source="up_arrow.png" BackgroundColor="#83FE6D" HorizontalOptions="Center" VerticalOptions="Center" />
             </StackLayout>
             <Label TextColor="{StaticResource PrimaryText}" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Text="₡ 5,500" />
         </StackLayout>
-        <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" BackgroundColor="#162935" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal" BackgroundColor="#162935" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
                 <Label HorizontalOptions="Center" VerticalOptions="Start" Text="Expense" TextColor="{StaticResource SecondaryText}" FontSize="8" Margin="5,5,0,0" />
                 <Image Source="down_arrow.png" BackgroundColor="#FE6D6D" HorizontalOptions="Center" VerticalOptions="Center" />

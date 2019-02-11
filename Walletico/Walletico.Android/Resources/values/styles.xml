@@ -23,7 +23,8 @@
 
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
     
-    <item name="android:colorActivatedHighlight" >#1E3444</item >
+    <!--<item name="android:colorActivatedHighlight" >#1E3444</item >-->
+    <item name="android:colorActivatedHighlight" >@android:color/transparent</item >
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
