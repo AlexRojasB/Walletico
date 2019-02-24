@@ -4,7 +4,7 @@
              x:Class="Walletico.App">
     <Application.Resources>
         <ResourceDictionary>
-            <ControlTemplate x:Key="CurrentBalance">
+            <!--<ControlTemplate x:Key="CurrentBalance">
                 <StackLayout Margin="10,0,0,0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
                     <Label FontSize="Large">
                         <Label.FormattedText>
@@ -16,7 +16,7 @@
                     </Label>
                     <Label Text="Your Balance" TextColor="{StaticResource SecondaryText}" FontSize="14" />
                 </StackLayout>
-            </ControlTemplate>
+            </ControlTemplate>-->
             
             <Color x:Key="Primary">#213C4C</Color>
             <Color x:Key="PrimaryDark">#213C4C</Color>
@@ -26,8 +26,9 @@
             <Color x:Key="SecondaryText">#9CB6C6</Color>
             <Color x:Key="Icons">#212121</Color>
             <Color x:Key="Divider">#BDBDBD</Color>
+            <Color x:Key="Transparent">#FFFFFF00</Color>
+            <Color x:Key="FrameHighlight">#314B5B</Color>
             <Color x:Key="FacebookColor">#375287</Color>
-
             <Color x:Key="LightBackgroundColor">#FAFAFA</Color>
             <Color x:Key="DarkBackgroundColor">#C0C0C0</Color>
             <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>

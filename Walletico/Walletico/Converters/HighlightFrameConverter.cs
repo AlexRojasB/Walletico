@@ -6,18 +6,15 @@ using Xamarin.Forms;
 
 namespace Walletico.Converters
 {
-    public class HighlightItemConverter : IValueConverter
+    public class HighlightFrameConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string parameterString = parameter as string;
-
-            string[] parameters = parameterString.Split(new char[] { '|' });
             if ((bool)value)
             {
-                return parameters[0];
+                return "#314B5B";
             }
-            return parameters[1];
+            return Color.Transparent;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
