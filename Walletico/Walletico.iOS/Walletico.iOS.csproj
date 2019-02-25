@@ -123,8 +123,8 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FreshMvvm">
-      <Version>2.2.4</Version>
+    <PackageReference Include="Splat">
+      <Version>6.1.7</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.62955-pre2" />
   </ItemGroup>

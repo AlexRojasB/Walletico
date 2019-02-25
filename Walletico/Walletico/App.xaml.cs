@@ -1,6 +1,4 @@
-﻿using System;
-using Walletico.Pages;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -11,8 +9,9 @@ namespace Walletico
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new DetailListPage());
+            var bootstrapper = new AppBootstrapper();
+            MainPage = bootstrapper.CreateMainPage();
+            //MainPage = new NavigationPage(new DetailListPage());
         }
 
         protected override void OnStart()

@@ -1,16 +1,27 @@
-﻿namespace Walletico.Models
+﻿using ReactiveUI;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace Walletico.Models
 {
-    public class SelectableModelBase : FreshMvvm.FreshBasePageModel
+    public class SelectableModelBase : INotifyPropertyChanged
     {
-        private bool isSelected;
+        private bool _isSelected;
 
         public bool IsSelected
         {
-            get => isSelected; set
+            get => _isSelected;
+            set
             {
-                isSelected = value;
-                RaisePropertyChanged();
+                _isSelected = value;
+                this.NotifyPropertyChanged();
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

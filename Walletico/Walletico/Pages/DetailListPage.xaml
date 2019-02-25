@@ -1,14 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<base:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converts="clr-namespace:Walletico.Converters"
-             xmlns:vm="clr-namespace:Walletico.ViewModels"
+                      xmlns:base="clr-namespace:Walletico.Pages"
              x:Class="Walletico.Pages.DetailListPage"
              Title="Walletico"
              BackgroundColor="{StaticResource Primary}">
-    <ContentPage.BindingContext>
-        <vm:DetailListViewModel />
-    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:String x:Key="ItemHighlight">#6DFEFC|#F6FEFE</x:String>
@@ -84,4 +81,4 @@
             <Label TextColor="{StaticResource PrimaryText}" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Text="₡ 8,550"/>
         </StackLayout>
     </Grid>
-</ContentPage>
+</base:BaseContentPage>
