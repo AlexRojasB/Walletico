@@ -1,10 +1,9 @@
-﻿using ReactiveUI;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Walletico.Models
+namespace Walletico.Models.Base
 {
-    public class SelectableModelBase : INotifyPropertyChanged
+    public class SelectableModelBase : INotifyPropertyChanged, ISelectable
     {
         private bool _isSelected;
 
@@ -13,8 +12,11 @@ namespace Walletico.Models
             get => _isSelected;
             set
             {
-                _isSelected = value;
-                this.NotifyPropertyChanged();
+                if (value != _isSelected)
+                {
+                    _isSelected = value;
+                    this.NotifyPropertyChanged();
+                }
             }
         }
 

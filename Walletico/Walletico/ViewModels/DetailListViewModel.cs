@@ -1,22 +1,50 @@
-﻿using ReactiveUI;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reactive;
+using System.Reactive.Linq;
+using System.Threading.Tasks;
 using Walletico.DataServices;
 using Walletico.Models;
+using Walletico.Models.Base;
 
 namespace Walletico.ViewModels
 {
-    public class DetailListViewModel : BaseViewModel
+    public class DetailListViewModel : FreshMvvm.FreshBasePageModel
     {
         private Transaction _transactionSelected;
         private Period _periodSelected;
         private readonly IDataService _dataService;
+        private readonly IObserver<Unit> _test;
 
-        public DetailListViewModel(IDataService dataService, IScreen hostScreen = null): base(hostScreen)
+        public DetailListViewModel()
+        {
+
+        }
+        public DetailListViewModel(IDataService dataService)
         {
             this._dataService = dataService;
             this.Transactions = this._dataService.GetAllPerMonthTransactions(1).ToList();
             this.Periods = this._dataService.GetAllMonths().ToList();
+
+            var propObservable = Observable.FromEventPattern<PropertyChangedEventArgs>(this, nameof(PropertyChanged))
+                .Where(x => x.EventArgs.PropertyName == nameof(this.PeriodSelected) || x.EventArgs.PropertyName == nameof(this.TransactionSelected))
+                .Select(
+                _ =>
+                {
+                    if (_.EventArgs.PropertyName == nameof(this.PeriodSelected))
+                    {
+                        this.ChangeSelectedStatus(this.Periods);
+                        this.PeriodSelected.IsSelected = true;
+                    }
+                    else
+                    {
+                        this.ChangeSelectedStatus(this.Transactions);
+                        this.TransactionSelected.IsSelected = true;
+                    }
+                    return true;
+                }).Subscribe();
         }
 
         #region Properties
@@ -29,13 +57,16 @@ namespace Walletico.ViewModels
         {
             get => _periodSelected;
             set {
-                foreach (Period period in Periods.Where(x => x.IsSelected))
-                {
-                    period.IsSelected = false;
-                }
-                _periodSelected.IsSelected = true;
-                this.RaiseAndSetIfChanged(ref _periodSelected, value);
+                _periodSelected = value;
+                this.RaisePropertyChanged();
+            }
+        }
 
+        protected void ChangeSelectedStatus(IEnumerable<ISelectable> list)
+        {
+            foreach (ISelectable selectable in list.Where(x => x.IsSelected))
+            {
+                selectable.IsSelected = false;
             }
         }
 
@@ -44,12 +75,8 @@ namespace Walletico.ViewModels
             get => _transactionSelected;
             set
             {
-                foreach (Transaction item in this.Transactions.Where(x => x.IsSelected))
-                {
-                    item.IsSelected = false;
-                }
-                _transactionSelected.IsSelected = true;
-                this.RaiseAndSetIfChanged(ref _transactionSelected, value);
+                _transactionSelected = value;
+                this.RaisePropertyChanged();
             }
         }
         #endregion

@@ -1,4 +1,6 @@
-﻿namespace Walletico.Models
+﻿using Walletico.Models.Base;
+
+namespace Walletico.Models
 {
     public class Period : SelectableModelBase
     {

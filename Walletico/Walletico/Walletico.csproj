@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ReactiveUI.XamForms" Version="9.11.1" />
-    <PackageReference Include="Splat" Version="6.1.7" />
+    <PackageReference Include="FreshMvvm" Version="2.2.4" />
+    <PackageReference Include="System.Reactive" Version="4.1.3" />
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.62955-pre2" />
   </ItemGroup>
 

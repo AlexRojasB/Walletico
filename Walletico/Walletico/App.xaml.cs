@@ -1,4 +1,7 @@
-﻿using Xamarin.Forms;
+﻿using FreshMvvm;
+using Walletico.DataServices;
+using Walletico.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -9,9 +12,14 @@ namespace Walletico
         public App()
         {
             InitializeComponent();
-            var bootstrapper = new AppBootstrapper();
-            MainPage = bootstrapper.CreateMainPage();
-            //MainPage = new NavigationPage(new DetailListPage());
+            this.SetupIOC();
+            var page = FreshPageModelResolver.ResolvePageModel<DetailListViewModel>();
+            MainPage = new FreshNavigationContainer(page);
+        }
+
+        private void SetupIOC()
+        {
+            FreshIOC.Container.Register<IDataService, DataService>();
         }
 
         protected override void OnStart()

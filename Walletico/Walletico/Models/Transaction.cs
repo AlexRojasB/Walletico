@@ -1,4 +1,5 @@
 ﻿using System;
+using Walletico.Models.Base;
 
 namespace Walletico.Models
 {

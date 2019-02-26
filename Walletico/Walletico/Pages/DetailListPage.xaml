@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<base:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converts="clr-namespace:Walletico.Converters"
-             xmlns:base="clr-namespace:Walletico.Pages"
-             xmlns:vm="clr-namespace:Walletico.ViewModels"
-             x:TypeArguments="vm:DetailListViewModel"
              x:Class="Walletico.Pages.DetailListPage"
+             xmlns:vm="clr-namespace:Walletico.ViewModels"
              Title="Walletico"
              BackgroundColor="{StaticResource Primary}">
+    <ContentPage.BindingContext>
+        <vm:DetailListViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:String x:Key="ItemHighlight">#6DFEFC|#F6FEFE</x:String>
@@ -27,7 +28,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label  Grid.ColumnSpan="2"  Margin="10,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" FontSize="Large">
+        <Label x:Name="testLabel"  Grid.ColumnSpan="2"  Margin="10,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" FontSize="Large">
             <Label.FormattedText>
                 <FormattedString>
                     <Span Text="25430" TextColor="{StaticResource PrimaryText}" FontSize="72" />
@@ -39,9 +40,9 @@
         <CollectionView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Transparent" HeightRequest="50" ItemsSource="{Binding Periods}" SelectedItem="{Binding PeriodSelected, Mode=TwoWay}"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill" SelectionMode="Single" ItemsLayout="{x:Static ListItemsLayout.HorizontalList}" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame CornerRadius="50" HasShadow="{Binding IsSelected}" Padding="0"  BackgroundColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource FrameHighlight}}" Margin="0,5,0,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Frame x:Name="framePicker" CornerRadius="50" HasShadow="{Binding IsSelected}" Padding="0"  BackgroundColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource FrameHighlight}}" Margin="0,5,0,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <StackLayout Orientation="Horizontal" WidthRequest="70" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label FontSize="14" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" Text="{Binding Month}"  TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" />
+                            <Label x:Name="monthLable" FontSize="14" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" Text="{Binding Month}"  TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" />
                         </StackLayout>
                     </Frame>
                 </DataTemplate>
@@ -83,4 +84,4 @@
             <Label TextColor="{StaticResource PrimaryText}" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Text="₡ 8,550"/>
         </StackLayout>
     </Grid>
-</base:BaseContentPage>
+</ContentPage>
