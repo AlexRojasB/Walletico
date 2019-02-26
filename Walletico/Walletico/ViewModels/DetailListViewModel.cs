@@ -16,8 +16,6 @@ namespace Walletico.ViewModels
         private Transaction _transactionSelected;
         private Period _periodSelected;
         private readonly IDataService _dataService;
-        private readonly IObserver<Unit> _test;
-
         public DetailListViewModel()
         {
 
@@ -34,29 +32,24 @@ namespace Walletico.ViewModels
                 _ =>
                 {
                     if (_.EventArgs.PropertyName == nameof(this.PeriodSelected))
-                    {
                         this.ChangeSelectedStatus(this.Periods);
-                        this.PeriodSelected.IsSelected = true;
-                    }
                     else
-                    {
                         this.ChangeSelectedStatus(this.Transactions);
-                        this.TransactionSelected.IsSelected = true;
-                    }
-                    return true;
-                }).Subscribe();
+                    return _.EventArgs.PropertyName == nameof(this.PeriodSelected);
+                }).Subscribe((isPeriod) => { if (isPeriod) this.PeriodSelected.IsSelected = true; else this.TransactionSelected.IsSelected = true; });
         }
 
         #region Properties
         public List<Transaction> Transactions { get; set; }
-        
+
 
         public List<Period> Periods { get; set; }
 
         public Period PeriodSelected
         {
             get => _periodSelected;
-            set {
+            set
+            {
                 _periodSelected = value;
                 this.RaisePropertyChanged();
             }
