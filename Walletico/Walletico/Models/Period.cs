@@ -2,7 +2,7 @@
 
 namespace Walletico.Models
 {
-    public class Period : SelectableModelBase
+    public class Period : SelectableModel
     {
         public string Month { get; set; }
     }

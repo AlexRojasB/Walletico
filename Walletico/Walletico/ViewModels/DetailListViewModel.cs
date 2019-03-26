@@ -26,7 +26,7 @@ namespace Walletico.ViewModels
             this.Transactions = this._dataService.GetAllPerMonthTransactions(1).ToList();
             this.Periods = this._dataService.GetAllMonths().ToList();
 
-            var propObservable = Observable.FromEventPattern<PropertyChangedEventArgs>(this, nameof(PropertyChanged))
+            Observable.FromEventPattern<PropertyChangedEventArgs>(this, nameof(PropertyChanged))
                 .Where(x => x.EventArgs.PropertyName == nameof(this.PeriodSelected) || x.EventArgs.PropertyName == nameof(this.TransactionSelected))
                 .Select(
                 _ =>
