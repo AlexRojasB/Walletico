@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Reactive;
 using System.Reactive.Linq;
-using System.Threading.Tasks;
 using Walletico.DataServices;
 using Walletico.Models;
 using Walletico.Models.Base;
@@ -15,6 +13,7 @@ namespace Walletico.ViewModels
     {
         private Transaction _transactionSelected;
         private Period _periodSelected;
+        private List<Transaction> _transactions;
         private readonly IDataService _dataService;
         public DetailListViewModel()
         {
@@ -40,7 +39,7 @@ namespace Walletico.ViewModels
         }
 
         #region Properties
-        public List<Transaction> Transactions { get; set; }
+        public List<Transaction> Transactions { get => _transactions ?? (_transactions = new List<Transaction>()); set => _transactions = value; }
 
 
         public List<Period> Periods { get; set; }
@@ -72,6 +71,11 @@ namespace Walletico.ViewModels
                 this.RaisePropertyChanged();
             }
         }
+
+        public decimal Income => this.Transactions.Where(t => t.TransType == 0).Sum(t => t.Amount);
+        public decimal Outcome => this.Transactions.Where(t => t.TransType == 1).Sum(t => t.Amount);
+
+        public decimal Current => this.Income - this.Outcome;
         #endregion
     }
 }

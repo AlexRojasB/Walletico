@@ -10,5 +10,6 @@ namespace Walletico.Models
         public DateTime EntryDate { get; set; }
         public decimal Amount { get; set; }
         public int CategoryId { get; set; }
+        public byte TransType { get; set; }
     }
 }

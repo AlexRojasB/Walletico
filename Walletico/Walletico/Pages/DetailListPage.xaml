@@ -14,6 +14,8 @@
             <x:String x:Key="ItemHighlight">#6DFEFC|#F6FEFE</x:String>
             <x:String x:Key="FrameHighlight">#314B5B|#00000000</x:String>
             <converts:HighlightItemConverter x:Key="cnvHighlight"></converts:HighlightItemConverter>
+            <converts:DecimalToCurrencyConverter x:Key="cnvDecCurr"></converts:DecimalToCurrencyConverter>
+            <converts:TransTypeToSymbolConverter x:Key="cnvTypeSym"></converts:TransTypeToSymbolConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid ColumnSpacing="0" RowSpacing="0">
@@ -31,7 +33,7 @@
         <Label Grid.ColumnSpan="2"  Margin="10,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" FontSize="Large">
             <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="25430" TextColor="{StaticResource PrimaryText}" FontSize="72" />
+                    <Span Text="{Binding Current}" TextColor="{StaticResource PrimaryText}" FontSize="72" />
                     <Span Text="CRC" TextColor="{StaticResource SecondaryText}" FontSize="18"/>
                 </FormattedString>
             </Label.FormattedText>
@@ -63,7 +65,14 @@
                             <Label Text="{Binding Description}"  TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" FontSize="16"/>
                             <Label Text="{Binding EntryDate}"  TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" FontSize="12" Opacity="72" />
                         </StackLayout>
-                        <Label Grid.Column="2" Text="{Binding Amount}"  TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" FontSize="16" HorizontalOptions="End" HorizontalTextAlignment="End" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" FontSize="16" HorizontalOptions="End" HorizontalTextAlignment="End" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span  Text="{Binding TransType,  Converter={StaticResource cnvTypeSym}}" />
+                                    <Span Text="{Binding Amount}"   />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
@@ -74,14 +83,14 @@
                 <Label HorizontalOptions="Center" VerticalOptions="Start" Text="Income" TextColor="{StaticResource SecondaryText}" FontSize="8" Margin="5,5,0,0" />
                 <Image Source="up_arrow.png" BackgroundColor="#83FE6D" HorizontalOptions="Center" VerticalOptions="Center" />
             </StackLayout>
-            <Label TextColor="{StaticResource PrimaryText}" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Text="₡ 5,500" />
+            <Label TextColor="{StaticResource PrimaryText}" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Text="{Binding Income, Converter={StaticResource cnvDecCurr}}" />
         </StackLayout>
         <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal" BackgroundColor="#162935" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
                 <Label HorizontalOptions="Center" VerticalOptions="Start" Text="Expense" TextColor="{StaticResource SecondaryText}" FontSize="8" Margin="5,5,0,0" />
                 <Image Source="down_arrow.png" BackgroundColor="#FE6D6D" HorizontalOptions="Center" VerticalOptions="Center" />
             </StackLayout>
-            <Label TextColor="{StaticResource PrimaryText}" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Text="₡ 8,550"/>
+            <Label TextColor="{StaticResource PrimaryText}" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Text="{Binding Outcome, Converter={StaticResource cnvDecCurr}}"/>
         </StackLayout>
     </Grid>
 </ContentPage>
