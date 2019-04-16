@@ -13,7 +13,7 @@ namespace Walletico.ViewModels
     {
         private Transaction _transactionSelected;
         private Period _periodSelected;
-        private List<Transaction> _transactions;
+        private IEnumerable<Transaction> _transactions;
         private readonly IDataService _dataService;
         public DetailListViewModel()
         {
@@ -39,7 +39,7 @@ namespace Walletico.ViewModels
         }
 
         #region Properties
-        public List<Transaction> Transactions { get => _transactions ?? (_transactions = new List<Transaction>()); set => _transactions = value; }
+        public IEnumerable<Transaction> Transactions { get => _transactions ?? (_transactions = Enumerable.Empty<Transaction>()); set => _transactions = value; }
 
 
         public List<Period> Periods { get; set; }

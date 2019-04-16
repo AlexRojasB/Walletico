@@ -30,7 +30,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.ColumnSpan="2"  Margin="10,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" FontSize="Large">
+        <Label Grid.ColumnSpan="2" Margin="10,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" FontSize="Large">
             <Label.FormattedText>
                 <FormattedString>
                     <Span Text="{Binding Current}" TextColor="{StaticResource PrimaryText}" FontSize="72" />
@@ -38,14 +38,12 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>
-        <Label Margin="10,0,0,0" Text="Your Balance" TextColor="{StaticResource SecondaryText}" FontSize="14" />
-        <CollectionView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Transparent" HeightRequest="50" ItemsSource="{Binding Periods}" SelectedItem="{Binding PeriodSelected, Mode=TwoWay}"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill" SelectionMode="Single" ItemsLayout="{x:Static ListItemsLayout.HorizontalList}" >
+        <Label Margin="10,0,0,0" Text="Your Balance" VerticalOptions="End" TextColor="{StaticResource SecondaryText}" FontSize="14" />
+        <CollectionView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Transparent" ItemsSource="{Binding Periods}" SelectedItem="{Binding PeriodSelected, Mode=TwoWay}"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill" SelectionMode="Single" ItemsLayout="{x:Static ListItemsLayout.HorizontalList}" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame CornerRadius="50" HasShadow="{Binding IsSelected}" Padding="0"  BackgroundColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource FrameHighlight}}" Margin="0,5,0,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <StackLayout Orientation="Horizontal" WidthRequest="70" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label FontSize="14" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" Text="{Binding Month}"  TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" />
-                        </StackLayout>
+                    <Frame CornerRadius="50" WidthRequest="70" HasShadow="{Binding IsSelected}" Padding="0"  BackgroundColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource FrameHighlight}}" Margin="0,5,0,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Label FontSize="14" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" Text="{Binding Month}"  TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" />
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
@@ -63,7 +61,7 @@
                         <Image Grid.Column="0"  Source="up_arrow.png" VerticalOptions="Center" HorizontalOptions="Center"/>
                         <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="Fill">
                             <Label Text="{Binding Description}"  TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" FontSize="16"/>
-                            <Label Text="{Binding EntryDate}"  TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" FontSize="12" Opacity="72" />
+                            <Label Text="{Binding EntryDate}"  TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" FontSize="12"/>
                         </StackLayout>
                         <Label Grid.Column="2" TextColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource ItemHighlight}}" FontSize="16" HorizontalOptions="End" HorizontalTextAlignment="End" VerticalOptions="Center">
                             <Label.FormattedText>
