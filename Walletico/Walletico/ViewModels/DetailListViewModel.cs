@@ -42,7 +42,7 @@ namespace Walletico.ViewModels
         public IEnumerable<Transaction> Transactions { get => _transactions ?? (_transactions = Enumerable.Empty<Transaction>()); set => _transactions = value; }
 
 
-        public List<Period> Periods { get; set; }
+        public IEnumerable<Period> Periods { get; set; }
 
         public Period PeriodSelected
         {
@@ -67,6 +67,7 @@ namespace Walletico.ViewModels
             get => _transactionSelected;
             set
             {
+                CoreMethods.
                 _transactionSelected = value;
                 this.RaisePropertyChanged();
             }
