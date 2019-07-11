@@ -24,6 +24,7 @@ namespace Walletico.ViewModels
             this._dataService = dataService;
             this.Transactions = this._dataService.GetAllPerMonthTransactions(1).ToList();
             this.Periods = this._dataService.GetAllMonths().ToList();
+         
 
             Observable.FromEventPattern<PropertyChangedEventArgs>(this, nameof(PropertyChanged))
                 .Where(x => x.EventArgs.PropertyName == nameof(this.PeriodSelected) || x.EventArgs.PropertyName == nameof(this.TransactionSelected))
@@ -42,7 +43,7 @@ namespace Walletico.ViewModels
         public IEnumerable<Transaction> Transactions { get => _transactions ?? (_transactions = Enumerable.Empty<Transaction>()); set => _transactions = value; }
 
 
-        public IEnumerable<Period> Periods { get; set; }
+        public List<Period> Periods { get; set; }
 
         public Period PeriodSelected
         {
@@ -67,7 +68,6 @@ namespace Walletico.ViewModels
             get => _transactionSelected;
             set
             {
-                CoreMethods.
                 _transactionSelected = value;
                 this.RaisePropertyChanged();
             }

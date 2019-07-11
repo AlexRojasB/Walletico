@@ -39,7 +39,7 @@
             </Label.FormattedText>
         </Label>
         <Label Margin="10,0,0,0" Text="Your Balance" VerticalOptions="End" TextColor="{StaticResource SecondaryText}" FontSize="14" />
-        <CollectionView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Transparent" ItemsSource="{Binding Periods}" SelectedItem="{Binding PeriodSelected, Mode=TwoWay}"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill" SelectionMode="Single" ItemsLayout="{x:Static ListItemsLayout.HorizontalList}" >
+        <CollectionView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Transparent" ItemsSource="{Binding Periods}" SelectedItem="{Binding PeriodSelected, Mode=TwoWay}"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill" SelectionMode="Single" ItemsLayout="{x:Static ListItemsLayout.Horizontal}" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame CornerRadius="50" WidthRequest="70" HasShadow="{Binding IsSelected}" Padding="0"  BackgroundColor="{Binding IsSelected, Converter={StaticResource cnvHighlight}, ConverterParameter={StaticResource FrameHighlight}}" Margin="0,5,0,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
