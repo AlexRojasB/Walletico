@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using Walletico.DataServices;
@@ -24,19 +22,6 @@ namespace Walletico.ViewModels
             this._dataService = dataService;
             this.Transactions = this._dataService.GetAllPerMonthTransactions(1).ToList();
             this.Periods = this._dataService.GetAllMonths().ToList();
-         
-
-            Observable.FromEventPattern<PropertyChangedEventArgs>(this, nameof(PropertyChanged))
-                .Where(x => x.EventArgs.PropertyName == nameof(this.PeriodSelected) || x.EventArgs.PropertyName == nameof(this.TransactionSelected))
-                .Select(
-                _ =>
-                {
-                    if (_.EventArgs.PropertyName == nameof(this.PeriodSelected))
-                        this.ChangeSelectedStatus(this.Periods);
-                    else
-                        this.ChangeSelectedStatus(this.Transactions);
-                    return _.EventArgs.PropertyName == nameof(this.PeriodSelected);
-                }).Subscribe((isPeriod) => { if (isPeriod) this.PeriodSelected.IsSelected = true; else this.TransactionSelected.IsSelected = true; });
         }
 
         #region Properties
@@ -50,7 +35,9 @@ namespace Walletico.ViewModels
             get => _periodSelected;
             set
             {
+                this.ChangeSelectedStatus(this.Periods);
                 _periodSelected = value;
+                _periodSelected.IsSelected = true;
                 this.RaisePropertyChanged();
             }
         }
@@ -68,7 +55,9 @@ namespace Walletico.ViewModels
             get => _transactionSelected;
             set
             {
+                this.ChangeSelectedStatus(this.Transactions);
                 _transactionSelected = value;
+                _transactionSelected.IsSelected = true;
                 this.RaisePropertyChanged();
             }
         }

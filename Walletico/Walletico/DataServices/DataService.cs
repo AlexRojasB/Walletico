@@ -16,7 +16,6 @@ namespace Walletico.DataServices
                 new Transaction
                 {
                     Amount = 1200.63M,
-                    Category = null,
                     Description = "Gasolina",
                     EntryDate = DateTime.Now.AddMinutes(15),
                     TransType = 1
@@ -24,7 +23,6 @@ namespace Walletico.DataServices
                 new Transaction
                 {
                     Amount = 8500.74M,
-                    Category = null,
                     Description = "Salario",
                     EntryDate = DateTime.Now.AddMonths(2),
                     TransType = 0
