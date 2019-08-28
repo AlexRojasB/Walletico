@@ -864,9 +864,9 @@ namespace Walletico.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Id.listMode = global::Walletico.Droid.Resource.Id.listMode;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.list_item = global::Walletico.Droid.Resource.Id.list_item;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.main_appbar = global::Walletico.Droid.Resource.Id.main_appbar;
-			global::Xamarin.Forms.Platform.Android.Resource.Id.main_scrollview = global::Walletico.Droid.Resource.Id.main_scrollview;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.main_tablayout = global::Walletico.Droid.Resource.Id.main_tablayout;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.main_toolbar = global::Walletico.Droid.Resource.Id.main_toolbar;
+			global::Xamarin.Forms.Platform.Android.Resource.Id.main_viewpager = global::Walletico.Droid.Resource.Id.main_viewpager;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.masked = global::Walletico.Droid.Resource.Id.masked;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.media_actions = global::Walletico.Droid.Resource.Id.media_actions;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.message = global::Walletico.Droid.Resource.Id.message;
@@ -911,7 +911,6 @@ namespace Walletico.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Id.search_voice_btn = global::Walletico.Droid.Resource.Id.search_voice_btn;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.select_dialog_listview = global::Walletico.Droid.Resource.Id.select_dialog_listview;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.shellcontent_appbar = global::Walletico.Droid.Resource.Id.shellcontent_appbar;
-			global::Xamarin.Forms.Platform.Android.Resource.Id.shellcontent_scrollview = global::Walletico.Droid.Resource.Id.shellcontent_scrollview;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.shellcontent_toolbar = global::Walletico.Droid.Resource.Id.shellcontent_toolbar;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.shortcut = global::Walletico.Droid.Resource.Id.shortcut;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.showCustom = global::Walletico.Droid.Resource.Id.showCustom;
@@ -1459,6 +1458,7 @@ namespace Walletico.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Style.Widget_Design_Snackbar = global::Walletico.Droid.Resource.Style.Widget_Design_Snackbar;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.Widget_Design_TabLayout = global::Walletico.Droid.Resource.Style.Widget_Design_TabLayout;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.Widget_Design_TextInputLayout = global::Walletico.Droid.Resource.Style.Widget_Design_TextInputLayout;
+			global::Xamarin.Forms.Platform.Android.Resource.Style.collectionViewStyle = global::Walletico.Droid.Resource.Style.collectionViewStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActionBar = global::Walletico.Droid.Resource.Styleable.ActionBar;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActionBar_background = global::Walletico.Droid.Resource.Styleable.ActionBar_background;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActionBar_backgroundSplit = global::Walletico.Droid.Resource.Styleable.ActionBar_backgroundSplit;
@@ -5292,13 +5292,13 @@ namespace Walletico.Droid
 			public const int main_appbar = 2131230811;
 			
 			// aapt resource value: 0x7F08005C
-			public const int main_scrollview = 2131230812;
+			public const int main_tablayout = 2131230812;
 			
 			// aapt resource value: 0x7F08005D
-			public const int main_tablayout = 2131230813;
+			public const int main_toolbar = 2131230813;
 			
 			// aapt resource value: 0x7F08005E
-			public const int main_toolbar = 2131230814;
+			public const int main_viewpager = 2131230814;
 			
 			// aapt resource value: 0x7F08005F
 			public const int masked = 2131230815;
@@ -5511,160 +5511,157 @@ namespace Walletico.Droid
 			public const int shellcontent_appbar = 2131230883;
 			
 			// aapt resource value: 0x7F0800A4
-			public const int shellcontent_scrollview = 2131230884;
-			
-			// aapt resource value: 0x7F0800A5
-			public const int shellcontent_toolbar = 2131230885;
+			public const int shellcontent_toolbar = 2131230884;
 			
 			// aapt resource value: 0x7F080004
 			public const int SHIFT = 2131230724;
 			
+			// aapt resource value: 0x7F0800A5
+			public const int shortcut = 2131230885;
+			
 			// aapt resource value: 0x7F0800A6
-			public const int shortcut = 2131230886;
+			public const int showCustom = 2131230886;
 			
 			// aapt resource value: 0x7F0800A7
-			public const int showCustom = 2131230887;
+			public const int showHome = 2131230887;
 			
 			// aapt resource value: 0x7F0800A8
-			public const int showHome = 2131230888;
+			public const int showTitle = 2131230888;
 			
 			// aapt resource value: 0x7F0800A9
-			public const int showTitle = 2131230889;
+			public const int sliding_tabs = 2131230889;
 			
 			// aapt resource value: 0x7F0800AA
-			public const int sliding_tabs = 2131230890;
+			public const int smallLabel = 2131230890;
 			
 			// aapt resource value: 0x7F0800AB
-			public const int smallLabel = 2131230891;
+			public const int snackbar_action = 2131230891;
 			
 			// aapt resource value: 0x7F0800AC
-			public const int snackbar_action = 2131230892;
+			public const int snackbar_text = 2131230892;
 			
 			// aapt resource value: 0x7F0800AD
-			public const int snackbar_text = 2131230893;
+			public const int snap = 2131230893;
 			
 			// aapt resource value: 0x7F0800AE
-			public const int snap = 2131230894;
+			public const int spacer = 2131230894;
 			
 			// aapt resource value: 0x7F0800AF
-			public const int spacer = 2131230895;
+			public const int split_action_bar = 2131230895;
 			
 			// aapt resource value: 0x7F0800B0
-			public const int split_action_bar = 2131230896;
+			public const int src_atop = 2131230896;
 			
 			// aapt resource value: 0x7F0800B1
-			public const int src_atop = 2131230897;
+			public const int src_in = 2131230897;
 			
 			// aapt resource value: 0x7F0800B2
-			public const int src_in = 2131230898;
+			public const int src_over = 2131230898;
 			
 			// aapt resource value: 0x7F0800B3
-			public const int src_over = 2131230899;
+			public const int start = 2131230899;
 			
 			// aapt resource value: 0x7F0800B4
-			public const int start = 2131230900;
+			public const int status_bar_latest_event_content = 2131230900;
 			
 			// aapt resource value: 0x7F0800B5
-			public const int status_bar_latest_event_content = 2131230901;
+			public const int submenuarrow = 2131230901;
 			
 			// aapt resource value: 0x7F0800B6
-			public const int submenuarrow = 2131230902;
-			
-			// aapt resource value: 0x7F0800B7
-			public const int submit_area = 2131230903;
+			public const int submit_area = 2131230902;
 			
 			// aapt resource value: 0x7F080005
 			public const int SYM = 2131230725;
 			
+			// aapt resource value: 0x7F0800B7
+			public const int tabMode = 2131230903;
+			
 			// aapt resource value: 0x7F0800B8
-			public const int tabMode = 2131230904;
+			public const int tag_transition_group = 2131230904;
 			
 			// aapt resource value: 0x7F0800B9
-			public const int tag_transition_group = 2131230905;
+			public const int text = 2131230905;
 			
 			// aapt resource value: 0x7F0800BA
-			public const int text = 2131230906;
-			
-			// aapt resource value: 0x7F0800BB
-			public const int text2 = 2131230907;
-			
-			// aapt resource value: 0x7F0800BF
-			public const int textinput_counter = 2131230911;
-			
-			// aapt resource value: 0x7F0800C0
-			public const int textinput_error = 2131230912;
-			
-			// aapt resource value: 0x7F0800BC
-			public const int textSpacerNoButtons = 2131230908;
-			
-			// aapt resource value: 0x7F0800BD
-			public const int textSpacerNoTitle = 2131230909;
+			public const int text2 = 2131230906;
 			
 			// aapt resource value: 0x7F0800BE
-			public const int text_input_password_toggle = 2131230910;
+			public const int textinput_counter = 2131230910;
+			
+			// aapt resource value: 0x7F0800BF
+			public const int textinput_error = 2131230911;
+			
+			// aapt resource value: 0x7F0800BB
+			public const int textSpacerNoButtons = 2131230907;
+			
+			// aapt resource value: 0x7F0800BC
+			public const int textSpacerNoTitle = 2131230908;
+			
+			// aapt resource value: 0x7F0800BD
+			public const int text_input_password_toggle = 2131230909;
+			
+			// aapt resource value: 0x7F0800C0
+			public const int time = 2131230912;
 			
 			// aapt resource value: 0x7F0800C1
-			public const int time = 2131230913;
+			public const int title = 2131230913;
 			
 			// aapt resource value: 0x7F0800C2
-			public const int title = 2131230914;
+			public const int titleDividerNoCustom = 2131230914;
 			
 			// aapt resource value: 0x7F0800C3
-			public const int titleDividerNoCustom = 2131230915;
+			public const int title_template = 2131230915;
 			
 			// aapt resource value: 0x7F0800C4
-			public const int title_template = 2131230916;
+			public const int toolbar = 2131230916;
 			
 			// aapt resource value: 0x7F0800C5
-			public const int toolbar = 2131230917;
+			public const int top = 2131230917;
 			
 			// aapt resource value: 0x7F0800C6
-			public const int top = 2131230918;
+			public const int topPanel = 2131230918;
 			
 			// aapt resource value: 0x7F0800C7
-			public const int topPanel = 2131230919;
+			public const int touch_outside = 2131230919;
 			
 			// aapt resource value: 0x7F0800C8
-			public const int touch_outside = 2131230920;
+			public const int transition_current_scene = 2131230920;
 			
 			// aapt resource value: 0x7F0800C9
-			public const int transition_current_scene = 2131230921;
+			public const int transition_layout_save = 2131230921;
 			
 			// aapt resource value: 0x7F0800CA
-			public const int transition_layout_save = 2131230922;
+			public const int transition_position = 2131230922;
 			
 			// aapt resource value: 0x7F0800CB
-			public const int transition_position = 2131230923;
+			public const int transition_scene_layoutid_cache = 2131230923;
 			
 			// aapt resource value: 0x7F0800CC
-			public const int transition_scene_layoutid_cache = 2131230924;
+			public const int transition_transform = 2131230924;
 			
 			// aapt resource value: 0x7F0800CD
-			public const int transition_transform = 2131230925;
+			public const int uniform = 2131230925;
 			
 			// aapt resource value: 0x7F0800CE
-			public const int uniform = 2131230926;
+			public const int up = 2131230926;
 			
 			// aapt resource value: 0x7F0800CF
-			public const int up = 2131230927;
+			public const int useLogo = 2131230927;
 			
 			// aapt resource value: 0x7F0800D0
-			public const int useLogo = 2131230928;
+			public const int view_offset_helper = 2131230928;
 			
 			// aapt resource value: 0x7F0800D1
-			public const int view_offset_helper = 2131230929;
+			public const int visible = 2131230929;
 			
 			// aapt resource value: 0x7F0800D2
-			public const int visible = 2131230930;
+			public const int volume_item_container = 2131230930;
 			
 			// aapt resource value: 0x7F0800D3
-			public const int volume_item_container = 2131230931;
+			public const int withText = 2131230931;
 			
 			// aapt resource value: 0x7F0800D4
-			public const int withText = 2131230932;
-			
-			// aapt resource value: 0x7F0800D5
-			public const int wrap_content = 2131230933;
+			public const int wrap_content = 2131230932;
 			
 			static Id()
 			{
@@ -6716,6 +6713,9 @@ namespace Walletico.Droid
 			// aapt resource value: 0x7F0E00AD
 			public const int CardView_Light = 2131624109;
 			
+			// aapt resource value: 0x7F0E0192
+			public const int collectionViewStyle = 2131624338;
+			
 			// aapt resource value: 0x7F0E00AE
 			public const int MainTheme = 2131624110;
 			
@@ -7413,6 +7413,7 @@ namespace Walletico.Droid
 		public partial class Styleable
 		{
 			
+			// aapt resource value: { 0x7F030031,0x7F030032,0x7F030033,0x7F030066,0x7F030067,0x7F030068,0x7F030069,0x7F03006A,0x7F03006B,0x7F030077,0x7F03007B,0x7F03007C,0x7F030087,0x7F0300A8,0x7F0300A9,0x7F0300AD,0x7F0300AE,0x7F0300AF,0x7F0300B4,0x7F0300BA,0x7F0300D5,0x7F0300EB,0x7F0300FB,0x7F0300FF,0x7F030100,0x7F030124,0x7F030127,0x7F030153,0x7F03015D }
 			public static int[] ActionBar = new int[] {
 					2130903089,
 					2130903090,
@@ -7444,14 +7445,15 @@ namespace Walletico.Droid
 					2130903379,
 					2130903389};
 			
+			// aapt resource value: { 0x10100B3 }
 			public static int[] ActionBarLayout = new int[] {
 					16842931};
 			
-			// aapt resource value: 0x7F010033
-			public const int ActionBarLayout_android_layout_gravity = 2130772019;
+			// aapt resource value: 0x0
+			public const int ActionBarLayout_android_layout_gravity = 0;
 			
-			// aapt resource value: 0x7F010003
-			public const int ActionBar_background = 2130771971;
+			// aapt resource value: 0x0
+			public const int ActionBar_background = 0;
 			
 			// aapt resource value: 0x1
 			public const int ActionBar_backgroundSplit = 1;
@@ -7537,15 +7539,18 @@ namespace Walletico.Droid
 			// aapt resource value: 0x28
 			public const int ActionBar_titleTextStyle = 40;
 			
+			// aapt resource value: { 0x101013F }
 			public static int[] ActionMenuItemView = new int[] {
 					16843071};
 			
-			// aapt resource value: 0x7F010035
-			public const int ActionMenuItemView_android_minWidth = 2130772021;
+			// aapt resource value: 0x0
+			public const int ActionMenuItemView_android_minWidth = 0;
 			
+			// aapt resource value: { 0xFFFFFFFF }
 			public static int[] ActionMenuView = new int[] {
-					0};
+					-1};
 			
+			// aapt resource value: { 0x7F030031,0x7F030032,0x7F030054,0x7F0300A8,0x7F030127,0x7F03015D }
 			public static int[] ActionMode = new int[] {
 					2130903089,
 					2130903090,
@@ -7554,8 +7559,8 @@ namespace Walletico.Droid
 					2130903335,
 					2130903389};
 			
-			// aapt resource value: 0x7F010038
-			public const int ActionMode_background = 2130772024;
+			// aapt resource value: 0x0
+			public const int ActionMode_background = 0;
 			
 			// aapt resource value: 0x1
 			public const int ActionMode_backgroundSplit = 1;
@@ -7572,16 +7577,18 @@ namespace Walletico.Droid
 			// aapt resource value: 0x5
 			public const int ActionMode_titleTextStyle = 5;
 			
+			// aapt resource value: { 0x7F03008A,0x7F0300B5 }
 			public static int[] ActivityChooserView = new int[] {
 					2130903178,
 					2130903221};
 			
-			// aapt resource value: 0x7F010045
-			public const int ActivityChooserView_expandActivityOverflowButtonDrawable = 2130772037;
+			// aapt resource value: 0x0
+			public const int ActivityChooserView_expandActivityOverflowButtonDrawable = 0;
 			
 			// aapt resource value: 0x1
 			public const int ActivityChooserView_initialActivityCount = 1;
 			
+			// aapt resource value: { 0x10100F2,0x7F030046,0x7F0300CC,0x7F0300CD,0x7F0300E8,0x7F030114,0x7F030115 }
 			public static int[] AlertDialog = new int[] {
 					16842994,
 					2130903110,
@@ -7591,8 +7598,8 @@ namespace Walletico.Droid
 					2130903316,
 					2130903317};
 			
-			// aapt resource value: 0x7F010048
-			public const int AlertDialog_android_layout = 2130772040;
+			// aapt resource value: 0x0
+			public const int AlertDialog_android_layout = 0;
 			
 			// aapt resource value: 0x1
 			public const int AlertDialog_buttonPanelSideLayout = 1;
@@ -7612,6 +7619,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x6
 			public const int AlertDialog_singleChoiceItemLayout = 6;
 			
+			// aapt resource value: { 0x10100D4,0x101048F,0x1010540,0x7F030087,0x7F03008B }
 			public static int[] AppBarLayout = new int[] {
 					16842964,
 					16843919,
@@ -7619,18 +7627,19 @@ namespace Walletico.Droid
 					2130903175,
 					2130903179};
 			
+			// aapt resource value: { 0x7F03011E,0x7F03011F }
 			public static int[] AppBarLayoutStates = new int[] {
 					2130903326,
 					2130903327};
 			
-			// aapt resource value: 0x7F010062
-			public const int AppBarLayoutStates_state_collapsed = 2130772066;
+			// aapt resource value: 0x0
+			public const int AppBarLayoutStates_state_collapsed = 0;
 			
 			// aapt resource value: 0x1
 			public const int AppBarLayoutStates_state_collapsible = 1;
 			
-			// aapt resource value: 0x7F010056
-			public const int AppBarLayout_android_background = 2130772054;
+			// aapt resource value: 0x0
+			public const int AppBarLayout_android_background = 0;
 			
 			// aapt resource value: 0x2
 			public const int AppBarLayout_android_keyboardNavigationCluster = 2;
@@ -7644,24 +7653,26 @@ namespace Walletico.Droid
 			// aapt resource value: 0x4
 			public const int AppBarLayout_expanded = 4;
 			
+			// aapt resource value: { 0x7F0300C8,0x7F0300C9 }
 			public static int[] AppBarLayout_Layout = new int[] {
 					2130903240,
 					2130903241};
 			
-			// aapt resource value: 0x7F010065
-			public const int AppBarLayout_Layout_layout_scrollFlags = 2130772069;
+			// aapt resource value: 0x0
+			public const int AppBarLayout_Layout_layout_scrollFlags = 0;
 			
 			// aapt resource value: 0x1
 			public const int AppBarLayout_Layout_layout_scrollInterpolator = 1;
 			
+			// aapt resource value: { 0x1010119,0x7F03011B,0x7F030151,0x7F030152 }
 			public static int[] AppCompatImageView = new int[] {
 					16843033,
 					2130903323,
 					2130903377,
 					2130903378};
 			
-			// aapt resource value: 0x7F010068
-			public const int AppCompatImageView_android_src = 2130772072;
+			// aapt resource value: 0x0
+			public const int AppCompatImageView_android_src = 0;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatImageView_srcCompat = 1;
@@ -7672,14 +7683,15 @@ namespace Walletico.Droid
 			// aapt resource value: 0x3
 			public const int AppCompatImageView_tintMode = 3;
 			
+			// aapt resource value: { 0x1010142,0x7F03014E,0x7F03014F,0x7F030150 }
 			public static int[] AppCompatSeekBar = new int[] {
 					16843074,
 					2130903374,
 					2130903375,
 					2130903376};
 			
-			// aapt resource value: 0x7F010073
-			public const int AppCompatSeekBar_android_thumb = 2130772083;
+			// aapt resource value: 0x0
+			public const int AppCompatSeekBar_android_thumb = 0;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatSeekBar_tickMark = 1;
@@ -7690,6 +7702,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x3
 			public const int AppCompatSeekBar_tickMarkTintMode = 3;
 			
+			// aapt resource value: { 0x1010034,0x101016D,0x101016E,0x101016F,0x1010170,0x1010392,0x1010393 }
 			public static int[] AppCompatTextHelper = new int[] {
 					16842804,
 					16843117,
@@ -7717,9 +7730,10 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int AppCompatTextHelper_android_drawableTop = 1;
 			
-			// aapt resource value: 0x7F010078
-			public const int AppCompatTextHelper_android_textAppearance = 2130772088;
+			// aapt resource value: 0x0
+			public const int AppCompatTextHelper_android_textAppearance = 0;
 			
+			// aapt resource value: { 0x1010034,0x7F03002C,0x7F03002D,0x7F03002E,0x7F03002F,0x7F030030,0x7F03009B,0x7F03013D }
 			public static int[] AppCompatTextView = new int[] {
 					16842804,
 					2130903084,
@@ -7730,8 +7744,8 @@ namespace Walletico.Droid
 					2130903195,
 					2130903357};
 			
-			// aapt resource value: 0x7F010086
-			public const int AppCompatTextView_android_textAppearance = 2130772102;
+			// aapt resource value: 0x0
+			public const int AppCompatTextView_android_textAppearance = 0;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatTextView_autoSizeMaxTextSize = 1;
@@ -7754,6 +7768,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x7
 			public const int AppCompatTextView_textAllCaps = 7;
 			
+			// aapt resource value: { 0x1010057,0x10100AE,0x7F030000,0x7F030001,0x7F030002,0x7F030003,0x7F030004,0x7F030005,0x7F030006,0x7F030007,0x7F030008,0x7F030009,0x7F03000A,0x7F03000B,0x7F03000C,0x7F03000E,0x7F03000F,0x7F030010,0x7F030011,0x7F030012,0x7F030013,0x7F030014,0x7F030015,0x7F030016,0x7F030017,0x7F030018,0x7F030019,0x7F03001A,0x7F03001B,0x7F03001C,0x7F03001D,0x7F03001E,0x7F030021,0x7F030022,0x7F030023,0x7F030024,0x7F030025,0x7F03002B,0x7F03003D,0x7F030040,0x7F030041,0x7F030042,0x7F030043,0x7F030044,0x7F030047,0x7F030048,0x7F030051,0x7F030052,0x7F03005A,0x7F03005B,0x7F03005C,0x7F03005D,0x7F03005E,0x7F03005F,0x7F030060,0x7F030061,0x7F030062,0x7F030063,0x7F030072,0x7F030079,0x7F03007A,0x7F03007D,0x7F03007F,0x7F030082,0x7F030083,0x7F030084,0x7F030085,0x7F030086,0x7F0300AD,0x7F0300B3,0x7F0300CA,0x7F0300CB,0x7F0300CE,0x7F0300CF,0x7F0300D0,0x7F0300D1,0x7F0300D2,0x7F0300D3,0x7F0300D4,0x7F0300F2,0x7F0300F3,0x7F0300F4,0x7F0300FA,0x7F0300FC,0x7F030103,0x7F030104,0x7F030105,0x7F030106,0x7F03010D,0x7F03010E,0x7F03010F,0x7F030110,0x7F030118,0x7F030119,0x7F03012B,0x7F03013E,0x7F03013F,0x7F030140,0x7F030141,0x7F030142,0x7F030143,0x7F030144,0x7F030145,0x7F030146,0x7F030148,0x7F03015F,0x7F030160,0x7F030161,0x7F030162,0x7F030169,0x7F03016A,0x7F03016B,0x7F03016C,0x7F03016D,0x7F03016E,0x7F03016F,0x7F030170,0x7F030171,0x7F030172 }
 			public static int[] AppCompatTheme = new int[] {
 					16842839,
 					16842926,
@@ -7983,8 +7998,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int AppCompatTheme_android_windowAnimationStyle = 1;
 			
-			// aapt resource value: 0x7F010095
-			public const int AppCompatTheme_android_windowIsFloating = 2130772117;
+			// aapt resource value: 0x0
+			public const int AppCompatTheme_android_windowIsFloating = 0;
 			
 			// aapt resource value: 0x37
 			public const int AppCompatTheme_autoCompleteTextViewStyle = 55;
@@ -8232,6 +8247,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x118
 			public const int AppCompatTheme_windowNoTitle = 280;
 			
+			// aapt resource value: { 0x7F030087,0x7F0300B8,0x7F0300B9,0x7F0300BC,0x7F0300E7 }
 			public static int[] BottomNavigationView = new int[] {
 					2130903175,
 					2130903224,
@@ -8239,8 +8255,8 @@ namespace Walletico.Droid
 					2130903228,
 					2130903271};
 			
-			// aapt resource value: 0x7F010215
-			public const int BottomNavigationView_elevation = 2130772501;
+			// aapt resource value: 0x0
+			public const int BottomNavigationView_elevation = 0;
 			
 			// aapt resource value: 0x1
 			public const int BottomNavigationView_itemBackground = 1;
@@ -8254,13 +8270,14 @@ namespace Walletico.Droid
 			// aapt resource value: 0x4
 			public const int BottomNavigationView_menu = 4;
 			
+			// aapt resource value: { 0x7F030038,0x7F03003A,0x7F03003B }
 			public static int[] BottomSheetBehavior_Layout = new int[] {
 					2130903096,
 					2130903098,
 					2130903099};
 			
-			// aapt resource value: 0x7F010221
-			public const int BottomSheetBehavior_Layout_behavior_hideable = 2130772513;
+			// aapt resource value: 0x0
+			public const int BottomSheetBehavior_Layout_behavior_hideable = 0;
 			
 			// aapt resource value: 0x1
 			public const int BottomSheetBehavior_Layout_behavior_peekHeight = 1;
@@ -8268,12 +8285,14 @@ namespace Walletico.Droid
 			// aapt resource value: 0x2
 			public const int BottomSheetBehavior_Layout_behavior_skipCollapsed = 2;
 			
+			// aapt resource value: { 0x7F030026 }
 			public static int[] ButtonBarLayout = new int[] {
 					2130903078};
 			
-			// aapt resource value: 0x7F010225
-			public const int ButtonBarLayout_allowStacking = 2130772517;
+			// aapt resource value: 0x0
+			public const int ButtonBarLayout_allowStacking = 0;
 			
+			// aapt resource value: { 0x101013F,0x1010140,0x7F03004B,0x7F03004C,0x7F03004D,0x7F03004E,0x7F03004F,0x7F030050,0x7F03006C,0x7F03006D,0x7F03006E,0x7F03006F,0x7F030070 }
 			public static int[] CardView = new int[] {
 					16843071,
 					16843072,
@@ -8292,8 +8311,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int CardView_android_minHeight = 1;
 			
-			// aapt resource value: 0x7F010227
-			public const int CardView_android_minWidth = 2130772519;
+			// aapt resource value: 0x0
+			public const int CardView_android_minWidth = 0;
 			
 			// aapt resource value: 0x2
 			public const int CardView_cardBackgroundColor = 2;
@@ -8328,6 +8347,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x12
 			public const int CardView_contentPaddingTop = 18;
 			
+			// aapt resource value: { 0x7F030057,0x7F030058,0x7F030071,0x7F03008C,0x7F03008D,0x7F03008E,0x7F03008F,0x7F030090,0x7F030091,0x7F030092,0x7F030109,0x7F03010A,0x7F030121,0x7F030153,0x7F030154,0x7F03015E }
 			public static int[] CollapsingToolbarLayout = new int[] {
 					2130903127,
 					2130903128,
@@ -8346,8 +8366,8 @@ namespace Walletico.Droid
 					2130903380,
 					2130903390};
 			
-			// aapt resource value: 0x7F010241
-			public const int CollapsingToolbarLayout_collapsedTitleGravity = 2130772545;
+			// aapt resource value: 0x0
+			public const int CollapsingToolbarLayout_collapsedTitleGravity = 0;
 			
 			// aapt resource value: 0x1
 			public const int CollapsingToolbarLayout_collapsedTitleTextAppearance = 1;
@@ -8376,12 +8396,13 @@ namespace Walletico.Droid
 			// aapt resource value: 0x9
 			public const int CollapsingToolbarLayout_expandedTitleTextAppearance = 9;
 			
+			// aapt resource value: { 0x7F0300C3,0x7F0300C4 }
 			public static int[] CollapsingToolbarLayout_Layout = new int[] {
 					2130903235,
 					2130903236};
 			
-			// aapt resource value: 0x7F010258
-			public const int CollapsingToolbarLayout_Layout_layout_collapseMode = 2130772568;
+			// aapt resource value: 0x0
+			public const int CollapsingToolbarLayout_Layout_layout_collapseMode = 0;
 			
 			// aapt resource value: 0x1
 			public const int CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier = 1;
@@ -8404,6 +8425,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x15
 			public const int CollapsingToolbarLayout_toolbarId = 21;
 			
+			// aapt resource value: { 0x10101A5,0x101031F,0x7F030027 }
 			public static int[] ColorStateListItem = new int[] {
 					16843173,
 					16843551,
@@ -8415,16 +8437,17 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int ColorStateListItem_android_alpha = 1;
 			
-			// aapt resource value: 0x7F010261
-			public const int ColorStateListItem_android_color = 2130772577;
+			// aapt resource value: 0x0
+			public const int ColorStateListItem_android_color = 0;
 			
+			// aapt resource value: { 0x1010107,0x7F030049,0x7F03004A }
 			public static int[] CompoundButton = new int[] {
 					16843015,
 					2130903113,
 					2130903114};
 			
-			// aapt resource value: 0x7F010265
-			public const int CompoundButton_android_button = 2130772581;
+			// aapt resource value: 0x0
+			public const int CompoundButton_android_button = 0;
 			
 			// aapt resource value: 0x1
 			public const int CompoundButton_buttonTint = 1;
@@ -8432,13 +8455,15 @@ namespace Walletico.Droid
 			// aapt resource value: 0x2
 			public const int CompoundButton_buttonTintMode = 2;
 			
+			// aapt resource value: { 0x7F0300BD,0x7F030120 }
 			public static int[] CoordinatorLayout = new int[] {
 					2130903229,
 					2130903328};
 			
-			// aapt resource value: 0x7F010269
-			public const int CoordinatorLayout_keylines = 2130772585;
+			// aapt resource value: 0x0
+			public const int CoordinatorLayout_keylines = 0;
 			
+			// aapt resource value: { 0x10100B3,0x7F0300C0,0x7F0300C1,0x7F0300C2,0x7F0300C5,0x7F0300C6,0x7F0300C7 }
 			public static int[] CoordinatorLayout_Layout = new int[] {
 					16842931,
 					2130903232,
@@ -8448,8 +8473,8 @@ namespace Walletico.Droid
 					2130903238,
 					2130903239};
 			
-			// aapt resource value: 0x7F010272
-			public const int CoordinatorLayout_Layout_android_layout_gravity = 2130772594;
+			// aapt resource value: 0x0
+			public const int CoordinatorLayout_Layout_android_layout_gravity = 0;
 			
 			// aapt resource value: 0x1
 			public const int CoordinatorLayout_Layout_layout_anchor = 1;
@@ -8472,13 +8497,14 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int CoordinatorLayout_statusBarBackground = 1;
 			
+			// aapt resource value: { 0x7F03003E,0x7F03003F,0x7F030147 }
 			public static int[] DesignTheme = new int[] {
 					2130903102,
 					2130903103,
 					2130903367};
 			
-			// aapt resource value: 0x7F010280
-			public const int DesignTheme_bottomSheetDialogTheme = 2130772608;
+			// aapt resource value: 0x0
+			public const int DesignTheme_bottomSheetDialogTheme = 0;
 			
 			// aapt resource value: 0x1
 			public const int DesignTheme_bottomSheetStyle = 1;
@@ -8486,6 +8512,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x2
 			public const int DesignTheme_textColorError = 2;
 			
+			// aapt resource value: { 0x7F030029,0x7F03002A,0x7F030036,0x7F030059,0x7F030080,0x7F0300A5,0x7F030117,0x7F03014A }
 			public static int[] DrawerArrowToggle = new int[] {
 					2130903081,
 					2130903082,
@@ -8496,8 +8523,8 @@ namespace Walletico.Droid
 					2130903319,
 					2130903370};
 			
-			// aapt resource value: 0x7F010284
-			public const int DrawerArrowToggle_arrowHeadLength = 2130772612;
+			// aapt resource value: 0x0
+			public const int DrawerArrowToggle_arrowHeadLength = 0;
 			
 			// aapt resource value: 0x1
 			public const int DrawerArrowToggle_arrowShaftLength = 1;
@@ -8520,6 +8547,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x7
 			public const int DrawerArrowToggle_thickness = 7;
 			
+			// aapt resource value: { 0x7F030034,0x7F030035,0x7F03003C,0x7F030087,0x7F030094,0x7F0300FE,0x7F030108,0x7F030167 }
 			public static int[] FloatingActionButton = new int[] {
 					2130903092,
 					2130903093,
@@ -8530,17 +8558,18 @@ namespace Walletico.Droid
 					2130903304,
 					2130903399};
 			
-			// aapt resource value: 0x7F010293
-			public const int FloatingActionButton_backgroundTint = 2130772627;
+			// aapt resource value: 0x0
+			public const int FloatingActionButton_backgroundTint = 0;
 			
 			// aapt resource value: 0x1
 			public const int FloatingActionButton_backgroundTintMode = 1;
 			
+			// aapt resource value: { 0x7F030037 }
 			public static int[] FloatingActionButton_Behavior_Layout = new int[] {
 					2130903095};
 			
-			// aapt resource value: 0x7F010302
-			public const int FloatingActionButton_Behavior_Layout_behavior_autoHide = 2130772738;
+			// aapt resource value: 0x0
+			public const int FloatingActionButton_Behavior_Layout_behavior_autoHide = 0;
 			
 			// aapt resource value: 0x2
 			public const int FloatingActionButton_borderWidth = 2;
@@ -8560,6 +8589,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x7
 			public const int FloatingActionButton_useCompatPadding = 7;
 			
+			// aapt resource value: { 0x7F03009C,0x7F03009D,0x7F03009E,0x7F03009F,0x7F0300A0,0x7F0300A1 }
 			public static int[] FontFamily = new int[] {
 					2130903196,
 					2130903197,
@@ -8568,6 +8598,7 @@ namespace Walletico.Droid
 					2130903200,
 					2130903201};
 			
+			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x7F03009A,0x7F0300A2,0x7F0300A3 }
 			public static int[] FontFamilyFont = new int[] {
 					16844082,
 					16844083,
@@ -8576,8 +8607,8 @@ namespace Walletico.Droid
 					2130903202,
 					2130903203};
 			
-			// aapt resource value: 0x7F010311
-			public const int FontFamilyFont_android_font = 2130772753;
+			// aapt resource value: 0x0
+			public const int FontFamilyFont_android_font = 0;
 			
 			// aapt resource value: 0x2
 			public const int FontFamilyFont_android_fontStyle = 2;
@@ -8594,8 +8625,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x5
 			public const int FontFamilyFont_fontWeight = 5;
 			
-			// aapt resource value: 0x7F010304
-			public const int FontFamily_fontProviderAuthority = 2130772740;
+			// aapt resource value: 0x0
+			public const int FontFamily_fontProviderAuthority = 0;
 			
 			// aapt resource value: 0x1
 			public const int FontFamily_fontProviderCerts = 1;
@@ -8612,13 +8643,14 @@ namespace Walletico.Droid
 			// aapt resource value: 0x5
 			public const int FontFamily_fontProviderQuery = 5;
 			
+			// aapt resource value: { 0x1010109,0x1010200,0x7F0300A4 }
 			public static int[] ForegroundLinearLayout = new int[] {
 					16843017,
 					16843264,
 					2130903204};
 			
-			// aapt resource value: 0x7F010318
-			public const int ForegroundLinearLayout_android_foreground = 2130772760;
+			// aapt resource value: 0x0
+			public const int ForegroundLinearLayout_android_foreground = 0;
 			
 			// aapt resource value: 0x1
 			public const int ForegroundLinearLayout_android_foregroundGravity = 1;
@@ -8626,6 +8658,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x2
 			public const int ForegroundLinearLayout_foregroundInsidePadding = 2;
 			
+			// aapt resource value: { 0x10100AF,0x10100C4,0x1010126,0x1010127,0x1010128,0x7F03007C,0x7F03007E,0x7F0300D9,0x7F030112 }
 			public static int[] LinearLayoutCompat = new int[] {
 					16842927,
 					16842948,
@@ -8643,8 +8676,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x3
 			public const int LinearLayoutCompat_android_baselineAlignedChildIndex = 3;
 			
-			// aapt resource value: 0x7F010322
-			public const int LinearLayoutCompat_android_gravity = 2130772770;
+			// aapt resource value: 0x0
+			public const int LinearLayoutCompat_android_gravity = 0;
 			
 			// aapt resource value: 0x1
 			public const int LinearLayoutCompat_android_orientation = 1;
@@ -8658,14 +8691,15 @@ namespace Walletico.Droid
 			// aapt resource value: 0x6
 			public const int LinearLayoutCompat_dividerPadding = 6;
 			
+			// aapt resource value: { 0x10100B3,0x10100F4,0x10100F5,0x1010181 }
 			public static int[] LinearLayoutCompat_Layout = new int[] {
 					16842931,
 					16842996,
 					16842997,
 					16843137};
 			
-			// aapt resource value: 0x7F010332
-			public const int LinearLayoutCompat_Layout_android_layout_gravity = 2130772786;
+			// aapt resource value: 0x0
+			public const int LinearLayoutCompat_Layout_android_layout_gravity = 0;
 			
 			// aapt resource value: 0x2
 			public const int LinearLayoutCompat_Layout_android_layout_height = 2;
@@ -8682,16 +8716,18 @@ namespace Walletico.Droid
 			// aapt resource value: 0x8
 			public const int LinearLayoutCompat_showDividers = 8;
 			
+			// aapt resource value: { 0x10102AC,0x10102AD }
 			public static int[] ListPopupWindow = new int[] {
 					16843436,
 					16843437};
 			
-			// aapt resource value: 0x7F010337
-			public const int ListPopupWindow_android_dropDownHorizontalOffset = 2130772791;
+			// aapt resource value: 0x0
+			public const int ListPopupWindow_android_dropDownHorizontalOffset = 0;
 			
 			// aapt resource value: 0x1
 			public const int ListPopupWindow_android_dropDownVerticalOffset = 1;
 			
+			// aapt resource value: { 0x101013F,0x1010140,0x7F030093,0x7F0300DC }
 			public static int[] MediaRouteButton = new int[] {
 					16843071,
 					16843072,
@@ -8701,8 +8737,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int MediaRouteButton_android_minHeight = 1;
 			
-			// aapt resource value: 0x7F010340
-			public const int MediaRouteButton_android_minWidth = 2130772800;
+			// aapt resource value: 0x0
+			public const int MediaRouteButton_android_minWidth = 0;
 			
 			// aapt resource value: 0x2
 			public const int MediaRouteButton_externalRouteEnabledDrawable = 2;
@@ -8710,6 +8746,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x3
 			public const int MediaRouteButton_mediaRouteButtonTint = 3;
 			
+			// aapt resource value: { 0x101000E,0x10100D0,0x1010194,0x10101DE,0x10101DF,0x10101E0 }
 			public static int[] MenuGroup = new int[] {
 					16842766,
 					16842960,
@@ -8721,8 +8758,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x5
 			public const int MenuGroup_android_checkableBehavior = 5;
 			
-			// aapt resource value: 0x7F010345
-			public const int MenuGroup_android_enabled = 2130772805;
+			// aapt resource value: 0x0
+			public const int MenuGroup_android_enabled = 0;
 			
 			// aapt resource value: 0x1
 			public const int MenuGroup_android_id = 1;
@@ -8736,6 +8773,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x2
 			public const int MenuGroup_android_visible = 2;
 			
+			// aapt resource value: { 0x1010002,0x101000E,0x10100D0,0x1010106,0x1010194,0x10101DE,0x10101DF,0x10101E1,0x10101E2,0x10101E3,0x10101E4,0x10101E5,0x101026F,0x7F03000D,0x7F03001F,0x7F030020,0x7F030028,0x7F030065,0x7F0300B0,0x7F0300B1,0x7F0300EC,0x7F030111,0x7F030163 }
 			public static int[] MenuItem = new int[] {
 					16842754,
 					16842766,
@@ -8785,8 +8823,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int MenuItem_android_enabled = 1;
 			
-			// aapt resource value: 0x7F010352
-			public const int MenuItem_android_icon = 2130772818;
+			// aapt resource value: 0x0
+			public const int MenuItem_android_icon = 0;
 			
 			// aapt resource value: 0x2
 			public const int MenuItem_android_id = 2;
@@ -8830,6 +8868,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x22
 			public const int MenuItem_tooltipText = 34;
 			
+			// aapt resource value: { 0x10100AE,0x101012C,0x101012D,0x101012E,0x101012F,0x1010130,0x1010131,0x7F0300FD,0x7F030122 }
 			public static int[] MenuView = new int[] {
 					16842926,
 					16843052,
@@ -8859,8 +8898,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x3
 			public const int MenuView_android_verticalDivider = 3;
 			
-			// aapt resource value: 0x7F010376
-			public const int MenuView_android_windowAnimationStyle = 2130772854;
+			// aapt resource value: 0x0
+			public const int MenuView_android_windowAnimationStyle = 0;
 			
 			// aapt resource value: 0x7
 			public const int MenuView_preserveIconSpacing = 7;
@@ -8868,6 +8907,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x8
 			public const int MenuView_subMenuArrow = 8;
 			
+			// aapt resource value: { 0x10100D4,0x10100DD,0x101011F,0x7F030087,0x7F0300A7,0x7F0300B8,0x7F0300B9,0x7F0300BB,0x7F0300BC,0x7F0300E7 }
 			public static int[] NavigationView = new int[] {
 					16842964,
 					16842973,
@@ -8880,8 +8920,8 @@ namespace Walletico.Droid
 					2130903228,
 					2130903271};
 			
-			// aapt resource value: 0x7F010386
-			public const int NavigationView_android_background = 2130772870;
+			// aapt resource value: 0x0
+			public const int NavigationView_android_background = 0;
 			
 			// aapt resource value: 0x1
 			public const int NavigationView_android_fitsSystemWindows = 1;
@@ -8910,36 +8950,40 @@ namespace Walletico.Droid
 			// aapt resource value: 0x9
 			public const int NavigationView_menu = 9;
 			
+			// aapt resource value: { 0x1010176,0x10102C9,0x7F0300ED }
 			public static int[] PopupWindow = new int[] {
 					16843126,
 					16843465,
 					2130903277};
 			
+			// aapt resource value: { 0x7F03011D }
 			public static int[] PopupWindowBackgroundState = new int[] {
 					2130903325};
 			
-			// aapt resource value: 0x7F010401
-			public const int PopupWindowBackgroundState_state_above_anchor = 2130772993;
+			// aapt resource value: 0x0
+			public const int PopupWindowBackgroundState_state_above_anchor = 0;
 			
 			// aapt resource value: 0x1
 			public const int PopupWindow_android_popupAnimationStyle = 1;
 			
-			// aapt resource value: 0x7F010397
-			public const int PopupWindow_android_popupBackground = 2130772887;
+			// aapt resource value: 0x0
+			public const int PopupWindow_android_popupBackground = 0;
 			
 			// aapt resource value: 0x2
 			public const int PopupWindow_overlapAnchor = 2;
 			
+			// aapt resource value: { 0x7F0300EE,0x7F0300F1 }
 			public static int[] RecycleListView = new int[] {
 					2130903278,
 					2130903281};
 			
-			// aapt resource value: 0x7F010403
-			public const int RecycleListView_paddingBottomNoButtons = 2130772995;
+			// aapt resource value: 0x0
+			public const int RecycleListView_paddingBottomNoButtons = 0;
 			
 			// aapt resource value: 0x1
 			public const int RecycleListView_paddingTopNoTitle = 1;
 			
+			// aapt resource value: { 0x10100C4,0x10100F1,0x7F030095,0x7F030096,0x7F030097,0x7F030098,0x7F030099,0x7F0300BF,0x7F030107,0x7F030116,0x7F03011C }
 			public static int[] RecyclerView = new int[] {
 					16842948,
 					16842993,
@@ -8956,8 +9000,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int RecyclerView_android_descendantFocusability = 1;
 			
-			// aapt resource value: 0x7F010406
-			public const int RecyclerView_android_orientation = 2130772998;
+			// aapt resource value: 0x0
+			public const int RecyclerView_android_orientation = 0;
 			
 			// aapt resource value: 0x2
 			public const int RecyclerView_fastScrollEnabled = 2;
@@ -8986,18 +9030,21 @@ namespace Walletico.Droid
 			// aapt resource value: 0x10
 			public const int RecyclerView_stackFromEnd = 16;
 			
+			// aapt resource value: { 0x7F0300B6 }
 			public static int[] ScrimInsetsFrameLayout = new int[] {
 					2130903222};
 			
-			// aapt resource value: 0x7F010418
-			public const int ScrimInsetsFrameLayout_insetForeground = 2130773016;
+			// aapt resource value: 0x0
+			public const int ScrimInsetsFrameLayout_insetForeground = 0;
 			
+			// aapt resource value: { 0x7F030039 }
 			public static int[] ScrollingViewBehavior_Layout = new int[] {
 					2130903097};
 			
-			// aapt resource value: 0x7F010420
-			public const int ScrollingViewBehavior_Layout_behavior_overlapTop = 2130773024;
+			// aapt resource value: 0x0
+			public const int ScrollingViewBehavior_Layout_behavior_overlapTop = 0;
 			
+			// aapt resource value: { 0x10100DA,0x101011F,0x1010220,0x1010264,0x7F030053,0x7F030064,0x7F030078,0x7F0300A6,0x7F0300B2,0x7F0300BE,0x7F030101,0x7F030102,0x7F03010B,0x7F03010C,0x7F030123,0x7F030128,0x7F030168 }
 			public static int[] SearchView = new int[] {
 					16842970,
 					16843039,
@@ -9017,8 +9064,8 @@ namespace Walletico.Droid
 					2130903336,
 					2130903400};
 			
-			// aapt resource value: 0x7F010422
-			public const int SearchView_android_focusable = 2130773026;
+			// aapt resource value: 0x0
+			public const int SearchView_android_focusable = 0;
 			
 			// aapt resource value: 0x3
 			public const int SearchView_android_imeOptions = 3;
@@ -9068,13 +9115,14 @@ namespace Walletico.Droid
 			// aapt resource value: 0x16
 			public const int SearchView_voiceIcon = 22;
 			
+			// aapt resource value: { 0x101011F,0x7F030087,0x7F0300D7 }
 			public static int[] SnackbarLayout = new int[] {
 					16843039,
 					2130903175,
 					2130903255};
 			
-			// aapt resource value: 0x7F010440
-			public const int SnackbarLayout_android_maxWidth = 2130773056;
+			// aapt resource value: 0x0
+			public const int SnackbarLayout_android_maxWidth = 0;
 			
 			// aapt resource value: 0x1
 			public const int SnackbarLayout_elevation = 1;
@@ -9082,6 +9130,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x2
 			public const int SnackbarLayout_maxActionInlineWidth = 2;
 			
+			// aapt resource value: { 0x10100B2,0x1010176,0x101017B,0x1010262,0x7F0300FB }
 			public static int[] Spinner = new int[] {
 					16842930,
 					16843126,
@@ -9092,8 +9141,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x3
 			public const int Spinner_android_dropDownWidth = 3;
 			
-			// aapt resource value: 0x7F010444
-			public const int Spinner_android_entries = 2130773060;
+			// aapt resource value: 0x0
+			public const int Spinner_android_entries = 0;
 			
 			// aapt resource value: 0x1
 			public const int Spinner_android_popupBackground = 1;
@@ -9104,6 +9153,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x4
 			public const int Spinner_popupTheme = 4;
 			
+			// aapt resource value: { 0x1010124,0x1010125,0x1010142,0x7F030113,0x7F03011A,0x7F030129,0x7F03012A,0x7F03012C,0x7F03014B,0x7F03014C,0x7F03014D,0x7F030164,0x7F030165,0x7F030166 }
 			public static int[] SwitchCompat = new int[] {
 					16843044,
 					16843045,
@@ -9123,8 +9173,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int SwitchCompat_android_textOff = 1;
 			
-			// aapt resource value: 0x7F010450
-			public const int SwitchCompat_android_textOn = 2130773072;
+			// aapt resource value: 0x0
+			public const int SwitchCompat_android_textOn = 0;
 			
 			// aapt resource value: 0x2
 			public const int SwitchCompat_android_thumb = 2;
@@ -9162,13 +9212,14 @@ namespace Walletico.Droid
 			// aapt resource value: 0x13
 			public const int SwitchCompat_trackTintMode = 19;
 			
+			// aapt resource value: { 0x1010002,0x10100F2,0x101014F }
 			public static int[] TabItem = new int[] {
 					16842754,
 					16842994,
 					16843087};
 			
-			// aapt resource value: 0x7F010465
-			public const int TabItem_android_icon = 2130773093;
+			// aapt resource value: 0x0
+			public const int TabItem_android_icon = 0;
 			
 			// aapt resource value: 0x1
 			public const int TabItem_android_layout = 1;
@@ -9176,6 +9227,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x2
 			public const int TabItem_android_text = 2;
 			
+			// aapt resource value: { 0x7F03012D,0x7F03012E,0x7F03012F,0x7F030130,0x7F030131,0x7F030132,0x7F030133,0x7F030134,0x7F030135,0x7F030136,0x7F030137,0x7F030138,0x7F030139,0x7F03013A,0x7F03013B,0x7F03013C }
 			public static int[] TabLayout = new int[] {
 					2130903341,
 					2130903342,
@@ -9194,8 +9246,8 @@ namespace Walletico.Droid
 					2130903355,
 					2130903356};
 			
-			// aapt resource value: 0x7F010469
-			public const int TabLayout_tabBackground = 2130773097;
+			// aapt resource value: 0x0
+			public const int TabLayout_tabBackground = 0;
 			
 			// aapt resource value: 0x1
 			public const int TabLayout_tabContentStart = 1;
@@ -9242,6 +9294,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x15
 			public const int TabLayout_tabTextColor = 21;
 			
+			// aapt resource value: { 0x1010095,0x1010096,0x1010097,0x1010098,0x101009A,0x101009B,0x1010161,0x1010162,0x1010163,0x1010164,0x10103AC,0x7F03009B,0x7F03013D }
 			public static int[] TextAppearance = new int[] {
 					16842901,
 					16842902,
@@ -9281,8 +9334,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x5
 			public const int TextAppearance_android_textColorLink = 5;
 			
-			// aapt resource value: 0x7F010486
-			public const int TextAppearance_android_textSize = 2130773126;
+			// aapt resource value: 0x0
+			public const int TextAppearance_android_textSize = 0;
 			
 			// aapt resource value: 0x2
 			public const int TextAppearance_android_textStyle = 2;
@@ -9296,6 +9349,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x12
 			public const int TextAppearance_textAllCaps = 18;
 			
+			// aapt resource value: { 0x101009A,0x1010150,0x7F030073,0x7F030074,0x7F030075,0x7F030076,0x7F030088,0x7F030089,0x7F0300AA,0x7F0300AB,0x7F0300AC,0x7F0300F5,0x7F0300F6,0x7F0300F7,0x7F0300F8,0x7F0300F9 }
 			public static int[] TextInputLayout = new int[] {
 					16842906,
 					16843088,
@@ -9317,8 +9371,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int TextInputLayout_android_hint = 1;
 			
-			// aapt resource value: 0x7F010500
-			public const int TextInputLayout_android_textColorHint = 2130773248;
+			// aapt resource value: 0x0
+			public const int TextInputLayout_android_textColorHint = 0;
 			
 			// aapt resource value: 0x2
 			public const int TextInputLayout_counterEnabled = 2;
@@ -9362,6 +9416,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x15
 			public const int TextInputLayout_passwordToggleTintMode = 21;
 			
+			// aapt resource value: { 0x10100AF,0x1010140,0x7F030045,0x7F030055,0x7F030056,0x7F030066,0x7F030067,0x7F030068,0x7F030069,0x7F03006A,0x7F03006B,0x7F0300D5,0x7F0300D6,0x7F0300D8,0x7F0300E9,0x7F0300EA,0x7F0300FB,0x7F030124,0x7F030125,0x7F030126,0x7F030153,0x7F030155,0x7F030156,0x7F030157,0x7F030158,0x7F030159,0x7F03015A,0x7F03015B,0x7F03015C }
 			public static int[] Toolbar = new int[] {
 					16842927,
 					16843072,
@@ -9393,8 +9448,8 @@ namespace Walletico.Droid
 					2130903387,
 					2130903388};
 			
-			// aapt resource value: 0x7F010517
-			public const int Toolbar_android_gravity = 2130773271;
+			// aapt resource value: 0x0
+			public const int Toolbar_android_gravity = 0;
 			
 			// aapt resource value: 0x1
 			public const int Toolbar_android_minHeight = 1;
@@ -9480,6 +9535,7 @@ namespace Walletico.Droid
 			// aapt resource value: 0x28
 			public const int Toolbar_titleTextColor = 40;
 			
+			// aapt resource value: { 0x1010000,0x10100DA,0x7F0300EF,0x7F0300F0,0x7F030149 }
 			public static int[] View = new int[] {
 					16842752,
 					16842970,
@@ -9487,13 +9543,14 @@ namespace Walletico.Droid
 					2130903280,
 					2130903369};
 			
+			// aapt resource value: { 0x10100D4,0x7F030034,0x7F030035 }
 			public static int[] ViewBackgroundHelper = new int[] {
 					16842964,
 					2130903092,
 					2130903093};
 			
-			// aapt resource value: 0x7F010553
-			public const int ViewBackgroundHelper_android_background = 2130773331;
+			// aapt resource value: 0x0
+			public const int ViewBackgroundHelper_android_background = 0;
 			
 			// aapt resource value: 0x1
 			public const int ViewBackgroundHelper_backgroundTint = 1;
@@ -9501,13 +9558,14 @@ namespace Walletico.Droid
 			// aapt resource value: 0x2
 			public const int ViewBackgroundHelper_backgroundTintMode = 2;
 			
+			// aapt resource value: { 0x10100D0,0x10100F2,0x10100F3 }
 			public static int[] ViewStubCompat = new int[] {
 					16842960,
 					16842994,
 					16842995};
 			
-			// aapt resource value: 0x7F010557
-			public const int ViewStubCompat_android_id = 2130773335;
+			// aapt resource value: 0x0
+			public const int ViewStubCompat_android_id = 0;
 			
 			// aapt resource value: 0x2
 			public const int ViewStubCompat_android_inflatedId = 2;
@@ -9518,8 +9576,8 @@ namespace Walletico.Droid
 			// aapt resource value: 0x1
 			public const int View_android_focusable = 1;
 			
-			// aapt resource value: 0x7F010547
-			public const int View_android_theme = 2130773319;
+			// aapt resource value: 0x0
+			public const int View_android_theme = 0;
 			
 			// aapt resource value: 0x2
 			public const int View_paddingEnd = 2;
