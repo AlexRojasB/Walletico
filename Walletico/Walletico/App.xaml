@@ -39,5 +39,15 @@
             <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}"></Setter>
             <Setter Property="BarTextColor" Value="{StaticResource PrimaryLight}"></Setter>
         </Style>
+
+        <Style x:Key="TitleText" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource PrimaryText}" />
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+
+        <Style x:Key="SubtitleText" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource SecondaryText}" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
     </Application.Resources>
 </Application>
