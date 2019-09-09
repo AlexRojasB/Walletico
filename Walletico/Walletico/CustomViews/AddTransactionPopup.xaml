@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Walletico.CustomViews.AddTransactionPopup"
              VerticalOptions="Start">
-    <Grid>
+    <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="AUTO" />
-            <RowDefinition Height="200" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="250" />
         </Grid.RowDefinitions>
 
         <BoxView
@@ -14,9 +15,7 @@
             BackgroundColor="#101F2C"
             CornerRadius="20,20,0,0"
             HeightRequest="200">
-            <BoxView.GestureRecognizers>
-                <TapGestureRecognizer Tapped="IncomeFirstSectionTapped" />
-            </BoxView.GestureRecognizers>
+           
         </BoxView>
 
         <StackLayout Margin="30" InputTransparent="True" >
@@ -92,7 +91,50 @@
                     </StackLayout>
                 </Frame>
             </Grid>
-            <Entry Placeholder="0" HorizontalTextAlignment="End" BackgroundColor="{StaticResource SecondaryText}" PlaceholderColor="{StaticResource PrimaryText}" />
+        </StackLayout>
+        <BoxView Grid.Row="1" x:Name="EntrySection" CornerRadius="10,10,0,0"
+                 BackgroundColor="{StaticResource PrimaryLight}">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="IncomeFirstSectionTapped"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
+        <Entry x:Name="Amount" Grid.Row="1"  Placeholder="0" InputTransparent="True" Margin="10,0,10,0" HorizontalTextAlignment="End" />
+        <BoxView Grid.Row="2" 
+                 BackgroundColor="{StaticResource PrimaryLight}"
+                 HeightRequest="200"/>
+        <StackLayout Grid.Row="2" Margin="20,0,20,0">
+            <Grid RowSpacing="1" ColumnSpacing="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Text="1" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent" />
+                <Button Grid.Row="0" Grid.Column="1" Text="2" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
+                <Button Grid.Row="0" Grid.Column="2" Text="3" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
+                <!--<Button Grid.Row="0" Grid.Column="3" Text="+" Style="{StaticResource CalcButtons}"/>-->
+                <Button Grid.Row="1" Grid.Column="0" Text="4" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
+                <Button Grid.Row="1" Grid.Column="1" Text="5" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
+                <Button Grid.Row="1" Grid.Column="2" Text="6" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
+                <!--<Button Grid.Row="1" Grid.Column="3" Text="-" Style="{StaticResource CalcButtons}"/>-->
+                <Button Grid.Row="2" Grid.Column="0" Text="7" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
+                <Button Grid.Row="2" Grid.Column="1" Text="8" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
+                <Button Grid.Row="2" Grid.Column="2" Text="9" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
+                <!--<Button Grid.Row="2" Grid.Column="3" Text="x" Style="{StaticResource CalcButtons}"/>-->
+                <Button Grid.Row="3" Grid.Column="0" Text="." Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
+                <Button Grid.Row="3" Grid.Column="1" Text="0" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
+                <Button Grid.Row="3" Grid.Column="2" Text="del" Style="{StaticResource CalcButtons}" Clicked="DelButtonEvent"/>
+                <!--<Button Grid.Row="3" Grid.Column="3" Text="/" Style="{StaticResource CalcButtons}"/>-->
+
+                <Button Grid.Row="4" Grid.ColumnSpan="3" Text="Add Income" Style="{StaticResource CalcButtons}"/>
+            </Grid>
         </StackLayout>
     </Grid>
 </ContentView>
