@@ -35,6 +35,10 @@
             <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
             <Color x:Key="LightTextColor">#999999</Color>
         </ResourceDictionary>
+        <OnPlatform x:Key="FontAwesomeFamily" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Questrial" />
+            <On Platform="Android" Value="fa-regular-400.ttf#Font Awesome 5 Free Regular" />
+        </OnPlatform>
         <Style TargetType ="freshMvvm:FreshNavigationContainer">
             <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}"></Setter>
             <Setter Property="BarTextColor" Value="{StaticResource PrimaryLight}"></Setter>
