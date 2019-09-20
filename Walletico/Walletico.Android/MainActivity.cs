@@ -21,6 +21,7 @@ namespace Walletico.Droid
 
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            AiForms.Dialogs.Dialogs.Init(this);
             LoadApplication(new App());
         }
     }

@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using AiForms.Dialogs;
+using Walletico.CustomViews;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Walletico.Pages
@@ -45,6 +47,12 @@ namespace Walletico.Pages
             PageFader.IsVisible = true;
             await PageFader.FadeTo(1, AnimationSpeed, Easing.SinInOut);
             await AddTransPopup.TranslateTo(0, pageHeight - firstSection, AnimationSpeed, Easing.SinInOut);
+        }
+
+        private async void OutcomeTotalTapped(object sender, System.EventArgs e)
+        {
+            var ret = await Dialog.Instance.ShowAsync<LocationDialog>(new { Title = "Hello" });
+          //  ret = await reusableDialog.ShowAsync();
         }
     }
 }

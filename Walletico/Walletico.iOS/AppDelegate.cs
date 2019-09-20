@@ -22,7 +22,9 @@ namespace Walletico.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+
             global::Xamarin.Forms.Forms.Init();
+            AiForms.Dialogs.Dialogs.Init(this);
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

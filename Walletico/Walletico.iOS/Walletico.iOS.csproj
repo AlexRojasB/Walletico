@@ -123,6 +123,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AiForms.Dialogs">
+      <Version>0.5.2-pre</Version>
+    </PackageReference>
     <PackageReference Include="FreshMvvm">
       <Version>3.0.0</Version>
     </PackageReference>

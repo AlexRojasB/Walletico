@@ -89,6 +89,9 @@
             <Label TextColor="{StaticResource PrimaryText}" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Text="{Binding Income, Converter={StaticResource cnvDecCurr}}" />
         </StackLayout>
         <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal" BackgroundColor="#162935" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OutcomeTotalTapped" />
+            </StackLayout.GestureRecognizers>
             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
                 <Label HorizontalOptions="Center" VerticalOptions="Start" Text="Expense" TextColor="{StaticResource SecondaryText}" FontSize="8" Margin="5,5,0,0" />
                 <Image Source="down_arrow.png" BackgroundColor="#FE6D6D" HorizontalOptions="Center" VerticalOptions="Center" />
