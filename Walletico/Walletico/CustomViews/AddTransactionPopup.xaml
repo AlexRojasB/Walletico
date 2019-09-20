@@ -2,6 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Walletico.CustomViews.AddTransactionPopup"
+              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              VerticalOptions="Start">
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
@@ -29,7 +30,7 @@
                 HeightRequest="1" />
             <StackLayout Orientation="Horizontal" >
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Place" />
-                <Image Source="up_arrow.png" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Label VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource FontIconLabel}" TextColor="White" Text="&#xf3c5;"/>
             </StackLayout>
             <StackLayout >
                 <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="#314B5B" Padding="5" Margin="0">
@@ -48,59 +49,66 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Frame
+                <pancake:PancakeView
                     Padding="0"
-                    BackgroundColor="{StaticResource PrimaryLight}"
+                    BackgroundGradientAngle="360"
+                    BackgroundGradientStartColor="{StaticResource PrimaryLight}"
+                    BackgroundGradientEndColor="White"
                     Grid.Column="0"
                     CornerRadius="5">
-                    <StackLayout Margin="10">
-                        <Image Source="up_arrow.png" VerticalOptions="Start" HorizontalOptions="Start"/>
+                    
+
+                <StackLayout Margin="10">
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconLabel}" Text="&#xf53d;"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
                             Text="Sueldo"
                             TextColor="{StaticResource MediumGrayTextColor}" />
-                    </StackLayout>
-                </Frame>
-
-                <Frame
+                </StackLayout>
+                </pancake:PancakeView>
+                <pancake:PancakeView
                     Padding="0"
-                    BackgroundColor="{StaticResource PrimaryLight}"
+                    BackgroundGradientAngle="360"
+                    BackgroundGradientStartColor="{StaticResource PrimaryLight}"
+                    BackgroundGradientEndColor="White"
                     Grid.Column="1"
                     CornerRadius="5">
                     <StackLayout Margin="10">
-                        <Image Source="up_arrow.png" VerticalOptions="Start" HorizontalOptions="Start"/>
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconLabel}" Text="&#xf51e;"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
                             Text="Ahorro"
                             TextColor="{StaticResource MediumGrayTextColor}" />
                     </StackLayout>
-                </Frame>
+                </pancake:PancakeView>
 
 
-                <Frame
+                <pancake:PancakeView
                     Padding="0"
-                    BackgroundColor="{StaticResource PrimaryLight}"
+                    BackgroundGradientAngle="360"
+                    BackgroundGradientStartColor="{StaticResource PrimaryLight}"
+                    BackgroundGradientEndColor="White"
                     Grid.Column="2"
                     CornerRadius="5">
                     <StackLayout Margin="10">
-                        <Image Source="up_arrow.png" VerticalOptions="Start" HorizontalOptions="Start"/>
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconLabel}" Text="&#xf53c;"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
                             Text="Finanza"
                             TextColor="{StaticResource MediumGrayTextColor}" />
                     </StackLayout>
-                </Frame>
+                </pancake:PancakeView>
             </Grid>
         </StackLayout>
         <BoxView Grid.Row="1" x:Name="EntrySection" CornerRadius="10,10,0,0"
-                 BackgroundColor="{StaticResource PrimaryLight}">
+                 BackgroundColor="White">
             <BoxView.GestureRecognizers>
                 <TapGestureRecognizer Tapped="IncomeFirstSectionTapped"/>
             </BoxView.GestureRecognizers>
         </BoxView>
         <Entry x:Name="Amount" Grid.Row="1"  Placeholder="0" InputTransparent="True" Margin="10,0,10,0" HorizontalTextAlignment="End" />
         <BoxView Grid.Row="2" 
-                 BackgroundColor="{StaticResource PrimaryLight}"
+                 BackgroundColor="White"
                  HeightRequest="200"/>
         <StackLayout Grid.Row="2" Margin="20,0,20,0">
             <Grid RowSpacing="1" ColumnSpacing="1" >

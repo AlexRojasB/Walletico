@@ -18,7 +18,7 @@
                     <Label Text="Your Balance" TextColor="{StaticResource SecondaryText}" FontSize="14" />
                 </StackLayout>
             </ControlTemplate>-->
-            
+
             <Color x:Key="Primary">#213C4C</Color>
             <Color x:Key="PrimaryDark">#213C4C</Color>
             <Color x:Key="PrimaryLight">#6DFEFC</Color>
@@ -35,13 +35,19 @@
             <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
             <Color x:Key="LightTextColor">#999999</Color>
         </ResourceDictionary>
-        <OnPlatform x:Key="FontAwesomeFamily" x:TypeArguments="x:String">
+        <OnPlatform x:Key="FontAwesomeSolidFamily" x:TypeArguments="x:String">
             <On Platform="iOS" Value="Questrial" />
-            <On Platform="Android" Value="fa-regular-400.ttf#Font Awesome 5 Free Regular" />
+            <On Platform="Android" Value="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" />
         </OnPlatform>
         <Style TargetType ="freshMvvm:FreshNavigationContainer">
             <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}"></Setter>
             <Setter Property="BarTextColor" Value="{StaticResource PrimaryLight}"></Setter>
+        </Style>
+
+        <Style x:Key="FontIconLabel" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource FontAwesomeSolidFamily}"/>
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="Black" />
         </Style>
 
         <Style x:Key="TitleText" TargetType="Label">
@@ -55,7 +61,7 @@
         </Style>
 
         <Style x:Key="CalcButtons" TargetType="Button">
-            <Setter Property="BackgroundColor" Value="{StaticResource PrimaryLight}"/>
+            <Setter Property="BackgroundColor" Value="White"/>
             <Setter Property="BorderColor" Value="#101F2C" />
             <Setter Property="BorderWidth" Value="2" />
         </Style>
