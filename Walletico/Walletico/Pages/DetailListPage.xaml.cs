@@ -22,11 +22,13 @@ namespace Walletico.Pages
             PageFader.IsVisible = false;
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
             this.AddTransPopup.OnExpandTapped += ExpandPopup;
         }
+
+       
 
         private void ExpandPopup()
         {

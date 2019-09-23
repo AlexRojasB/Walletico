@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Walletico.Converters
 {
-    public class HighlightItemConverter : IValueConverter
+    public class BoolToStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -2,8 +2,19 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Walletico.CustomViews.AddTransactionPopup"
+             xmlns:converts="clr-namespace:Walletico.Converters"
+             xmlns:vm="clr-namespace:Walletico.ViewModels.CustomViewModels"
               xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              VerticalOptions="Start">
+    <ContentView.BindingContext>
+        <vm:AddTransactionPopupViewModel/>
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <x:String x:Key="locationIconString">locationicon.png|nolocationicon.png</x:String>
+            <converts:BoolToStringConverter x:Key="cnvBoolString"></converts:BoolToStringConverter>
+        </ResourceDictionary>
+    </ContentView.Resources>
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="AUTO" />
@@ -30,7 +41,12 @@
                 HeightRequest="1" />
             <StackLayout Orientation="Horizontal" >
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Place" />
-                <Label VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource FontIconLabel}" TextColor="White" Text="&#xf3c5;"/>
+                <ImageButton HorizontalOptions="End" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" Command="{Binding EnableLocation}" BackgroundColor="#101F2C" Source="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
+                <!--<Label VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource FontIconLabel}" TextColor="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" Text="&#xf3c5;">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer BindingContext="vm" Command="{Binding EnableLocation}" />
+                    </Label.GestureRecognizers>
+                </Label>-->
             </StackLayout>
             <StackLayout >
                 <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="#314B5B" Padding="5" Margin="0">
@@ -110,8 +126,7 @@
         <BoxView Grid.Row="2" 
                  BackgroundColor="White"
                  HeightRequest="200"/>
-        <StackLayout Grid.Row="2" Margin="20,0,20,0">
-            <Grid RowSpacing="1" ColumnSpacing="1" >
+            <Grid Grid.Row="2" Margin="20,0,20,0" RowSpacing="0" ColumnSpacing="0" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -141,8 +156,7 @@
                 <Button Grid.Row="3" Grid.Column="2" Text="del" Style="{StaticResource CalcButtons}" Clicked="DelButtonEvent"/>
                 <!--<Button Grid.Row="3" Grid.Column="3" Text="/" Style="{StaticResource CalcButtons}"/>-->
 
-                <Button Grid.Row="4" Grid.ColumnSpan="3" Text="Add Income" Style="{StaticResource CalcButtons}"/>
+                <Button Grid.Row="4" BackgroundColor="{StaticResource PrimaryLight}" FontAttributes="Bold" Grid.ColumnSpan="3" Text="Add Income" Style="{StaticResource CalcButtons}"/>
             </Grid>
-        </StackLayout>
     </Grid>
 </ContentView>

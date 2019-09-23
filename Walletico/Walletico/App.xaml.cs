@@ -11,7 +11,7 @@ namespace Walletico
     {
         public App()
         {
-            InitializeComponent();;
+            InitializeComponent();
             this.SetupIOC();
             var page = FreshPageModelResolver.ResolvePageModel<DetailListViewModel>();
             MainPage = new FreshNavigationContainer(page);

@@ -39,6 +39,9 @@
             <On Platform="iOS" Value="Questrial" />
             <On Platform="Android" Value="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" />
         </OnPlatform>
+        <OnPlatform x:Key="MaterialDesignFamily" x:TypeArguments="x:String">
+            <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+        </OnPlatform>
         <Style TargetType ="freshMvvm:FreshNavigationContainer">
             <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}"></Setter>
             <Setter Property="BarTextColor" Value="{StaticResource PrimaryLight}"></Setter>

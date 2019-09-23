@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Walletico.ViewModels.CustomViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,6 +15,15 @@ namespace Walletico.CustomViews
         {
             InitializeComponent();
             this.sbAmount = new StringBuilder();
+        }
+
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
+            if(this.BindingContext is null)
+            {
+                this.BindingContext = new AddTransactionPopupViewModel();
+            }
         }
 
         private void IncomeFirstSectionTapped(object sender, EventArgs e)
@@ -34,6 +44,8 @@ namespace Walletico.CustomViews
                 this.Amount.Text = sbAmount.ToString();
             }
         }
+
+     
 
         private void UpdateAmount(string digit)
         {

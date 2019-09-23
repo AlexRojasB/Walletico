@@ -2292,6 +2292,108 @@ namespace Walletico.Droid
 			global::AiForms.Dialogs.Resource.Styleable.ViewStubCompat_android_id = global::Walletico.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::AiForms.Dialogs.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Walletico.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::AiForms.Dialogs.Resource.Styleable.ViewStubCompat_android_layout = global::Walletico.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::Xamarin.Essentials.Resource.Attribute.font = global::Walletico.Droid.Resource.Attribute.font;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::Walletico.Droid.Resource.Attribute.fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderCerts = global::Walletico.Droid.Resource.Attribute.fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchStrategy = global::Walletico.Droid.Resource.Attribute.fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchTimeout = global::Walletico.Droid.Resource.Attribute.fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderPackage = global::Walletico.Droid.Resource.Attribute.fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderQuery = global::Walletico.Droid.Resource.Attribute.fontProviderQuery;
+			global::Xamarin.Essentials.Resource.Attribute.fontStyle = global::Walletico.Droid.Resource.Attribute.fontStyle;
+			global::Xamarin.Essentials.Resource.Attribute.fontWeight = global::Walletico.Droid.Resource.Attribute.fontWeight;
+			global::Xamarin.Essentials.Resource.Boolean.abc_action_bar_embed_tabs = global::Walletico.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::Xamarin.Essentials.Resource.Color.notification_action_color_filter = global::Walletico.Droid.Resource.Color.notification_action_color_filter;
+			global::Xamarin.Essentials.Resource.Color.notification_icon_bg_color = global::Walletico.Droid.Resource.Color.notification_icon_bg_color;
+			global::Xamarin.Essentials.Resource.Color.ripple_material_light = global::Walletico.Droid.Resource.Color.ripple_material_light;
+			global::Xamarin.Essentials.Resource.Color.secondary_text_default_material_light = global::Walletico.Droid.Resource.Color.secondary_text_default_material_light;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_horizontal_material = global::Walletico.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_vertical_material = global::Walletico.Droid.Resource.Dimension.compat_button_inset_vertical_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_horizontal_material = global::Walletico.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_vertical_material = global::Walletico.Droid.Resource.Dimension.compat_button_padding_vertical_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_control_corner_material = global::Walletico.Droid.Resource.Dimension.compat_control_corner_material;
+			global::Xamarin.Essentials.Resource.Dimension.notification_action_icon_size = global::Walletico.Droid.Resource.Dimension.notification_action_icon_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_action_text_size = global::Walletico.Droid.Resource.Dimension.notification_action_text_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_big_circle_margin = global::Walletico.Droid.Resource.Dimension.notification_big_circle_margin;
+			global::Xamarin.Essentials.Resource.Dimension.notification_content_margin_start = global::Walletico.Droid.Resource.Dimension.notification_content_margin_start;
+			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_height = global::Walletico.Droid.Resource.Dimension.notification_large_icon_height;
+			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_width = global::Walletico.Droid.Resource.Dimension.notification_large_icon_width;
+			global::Xamarin.Essentials.Resource.Dimension.notification_main_column_padding_top = global::Walletico.Droid.Resource.Dimension.notification_main_column_padding_top;
+			global::Xamarin.Essentials.Resource.Dimension.notification_media_narrow_margin = global::Walletico.Droid.Resource.Dimension.notification_media_narrow_margin;
+			global::Xamarin.Essentials.Resource.Dimension.notification_right_icon_size = global::Walletico.Droid.Resource.Dimension.notification_right_icon_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_right_side_padding_top = global::Walletico.Droid.Resource.Dimension.notification_right_side_padding_top;
+			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_background_padding = global::Walletico.Droid.Resource.Dimension.notification_small_icon_background_padding;
+			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_size_as_large = global::Walletico.Droid.Resource.Dimension.notification_small_icon_size_as_large;
+			global::Xamarin.Essentials.Resource.Dimension.notification_subtext_size = global::Walletico.Droid.Resource.Dimension.notification_subtext_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad = global::Walletico.Droid.Resource.Dimension.notification_top_pad;
+			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad_large_text = global::Walletico.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::Xamarin.Essentials.Resource.Drawable.notification_action_background = global::Walletico.Droid.Resource.Drawable.notification_action_background;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg = global::Walletico.Droid.Resource.Drawable.notification_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low = global::Walletico.Droid.Resource.Drawable.notification_bg_low;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_normal = global::Walletico.Droid.Resource.Drawable.notification_bg_low_normal;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_pressed = global::Walletico.Droid.Resource.Drawable.notification_bg_low_pressed;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal = global::Walletico.Droid.Resource.Drawable.notification_bg_normal;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal_pressed = global::Walletico.Droid.Resource.Drawable.notification_bg_normal_pressed;
+			global::Xamarin.Essentials.Resource.Drawable.notification_icon_background = global::Walletico.Droid.Resource.Drawable.notification_icon_background;
+			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_bg = global::Walletico.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_low_bg = global::Walletico.Droid.Resource.Drawable.notification_template_icon_low_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_tile_bg = global::Walletico.Droid.Resource.Drawable.notification_tile_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notify_panel_notification_icon_bg = global::Walletico.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Xamarin.Essentials.Resource.Id.action_container = global::Walletico.Droid.Resource.Id.action_container;
+			global::Xamarin.Essentials.Resource.Id.action_divider = global::Walletico.Droid.Resource.Id.action_divider;
+			global::Xamarin.Essentials.Resource.Id.action_image = global::Walletico.Droid.Resource.Id.action_image;
+			global::Xamarin.Essentials.Resource.Id.action_text = global::Walletico.Droid.Resource.Id.action_text;
+			global::Xamarin.Essentials.Resource.Id.actions = global::Walletico.Droid.Resource.Id.actions;
+			global::Xamarin.Essentials.Resource.Id.async = global::Walletico.Droid.Resource.Id.async;
+			global::Xamarin.Essentials.Resource.Id.blocking = global::Walletico.Droid.Resource.Id.blocking;
+			global::Xamarin.Essentials.Resource.Id.chronometer = global::Walletico.Droid.Resource.Id.chronometer;
+			global::Xamarin.Essentials.Resource.Id.forever = global::Walletico.Droid.Resource.Id.forever;
+			global::Xamarin.Essentials.Resource.Id.icon = global::Walletico.Droid.Resource.Id.icon;
+			global::Xamarin.Essentials.Resource.Id.icon_group = global::Walletico.Droid.Resource.Id.icon_group;
+			global::Xamarin.Essentials.Resource.Id.info = global::Walletico.Droid.Resource.Id.info;
+			global::Xamarin.Essentials.Resource.Id.italic = global::Walletico.Droid.Resource.Id.italic;
+			global::Xamarin.Essentials.Resource.Id.line1 = global::Walletico.Droid.Resource.Id.line1;
+			global::Xamarin.Essentials.Resource.Id.line3 = global::Walletico.Droid.Resource.Id.line3;
+			global::Xamarin.Essentials.Resource.Id.normal = global::Walletico.Droid.Resource.Id.normal;
+			global::Xamarin.Essentials.Resource.Id.notification_background = global::Walletico.Droid.Resource.Id.notification_background;
+			global::Xamarin.Essentials.Resource.Id.notification_main_column = global::Walletico.Droid.Resource.Id.notification_main_column;
+			global::Xamarin.Essentials.Resource.Id.notification_main_column_container = global::Walletico.Droid.Resource.Id.notification_main_column_container;
+			global::Xamarin.Essentials.Resource.Id.right_icon = global::Walletico.Droid.Resource.Id.right_icon;
+			global::Xamarin.Essentials.Resource.Id.right_side = global::Walletico.Droid.Resource.Id.right_side;
+			global::Xamarin.Essentials.Resource.Id.tag_transition_group = global::Walletico.Droid.Resource.Id.tag_transition_group;
+			global::Xamarin.Essentials.Resource.Id.text = global::Walletico.Droid.Resource.Id.text;
+			global::Xamarin.Essentials.Resource.Id.text2 = global::Walletico.Droid.Resource.Id.text2;
+			global::Xamarin.Essentials.Resource.Id.time = global::Walletico.Droid.Resource.Id.time;
+			global::Xamarin.Essentials.Resource.Id.title = global::Walletico.Droid.Resource.Id.title;
+			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::Walletico.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Xamarin.Essentials.Resource.Layout.notification_action = global::Walletico.Droid.Resource.Layout.notification_action;
+			global::Xamarin.Essentials.Resource.Layout.notification_action_tombstone = global::Walletico.Droid.Resource.Layout.notification_action_tombstone;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_custom_big = global::Walletico.Droid.Resource.Layout.notification_template_custom_big;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_icon_group = global::Walletico.Droid.Resource.Layout.notification_template_icon_group;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_part_chronometer = global::Walletico.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_part_time = global::Walletico.Droid.Resource.Layout.notification_template_part_time;
+			global::Xamarin.Essentials.Resource.String.status_bar_notification_info_overflow = global::Walletico.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification = global::Walletico.Droid.Resource.Style.TextAppearance_Compat_Notification;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Info = global::Walletico.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::Walletico.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Time = global::Walletico.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Title = global::Walletico.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionContainer = global::Walletico.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionText = global::Walletico.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::Walletico.Droid.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily = global::Walletico.Droid.Resource.Styleable.FontFamily;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderAuthority = global::Walletico.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderCerts = global::Walletico.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::Walletico.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::Walletico.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderPackage = global::Walletico.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderQuery = global::Walletico.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont = global::Walletico.Droid.Resource.Styleable.FontFamilyFont;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_font = global::Walletico.Droid.Resource.Styleable.FontFamilyFont_android_font;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontStyle = global::Walletico.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontWeight = global::Walletico.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_font = global::Walletico.Droid.Resource.Styleable.FontFamilyFont_font;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontStyle = global::Walletico.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontWeight = global::Walletico.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_in = global::Walletico.Droid.Resource.Animation.abc_fade_in;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_out = global::Walletico.Droid.Resource.Animation.abc_fade_out;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::Walletico.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -7176,112 +7278,118 @@ namespace Walletico.Droid
 			public const int ic_vol_type_tv_light = 2131165458;
 			
 			// aapt resource value: 0x7F070113
-			public const int mr_button_connected_dark = 2131165459;
+			public const int locationicon = 2131165459;
 			
 			// aapt resource value: 0x7F070114
-			public const int mr_button_connected_light = 2131165460;
+			public const int mr_button_connected_dark = 2131165460;
 			
 			// aapt resource value: 0x7F070115
-			public const int mr_button_connecting_dark = 2131165461;
+			public const int mr_button_connected_light = 2131165461;
 			
 			// aapt resource value: 0x7F070116
-			public const int mr_button_connecting_light = 2131165462;
+			public const int mr_button_connecting_dark = 2131165462;
 			
 			// aapt resource value: 0x7F070117
-			public const int mr_button_dark = 2131165463;
+			public const int mr_button_connecting_light = 2131165463;
 			
 			// aapt resource value: 0x7F070118
-			public const int mr_button_light = 2131165464;
+			public const int mr_button_dark = 2131165464;
 			
 			// aapt resource value: 0x7F070119
-			public const int mr_dialog_close_dark = 2131165465;
+			public const int mr_button_light = 2131165465;
 			
 			// aapt resource value: 0x7F07011A
-			public const int mr_dialog_close_light = 2131165466;
+			public const int mr_dialog_close_dark = 2131165466;
 			
 			// aapt resource value: 0x7F07011B
-			public const int mr_dialog_material_background_dark = 2131165467;
+			public const int mr_dialog_close_light = 2131165467;
 			
 			// aapt resource value: 0x7F07011C
-			public const int mr_dialog_material_background_light = 2131165468;
+			public const int mr_dialog_material_background_dark = 2131165468;
 			
 			// aapt resource value: 0x7F07011D
-			public const int mr_group_collapse = 2131165469;
+			public const int mr_dialog_material_background_light = 2131165469;
 			
 			// aapt resource value: 0x7F07011E
-			public const int mr_group_expand = 2131165470;
+			public const int mr_group_collapse = 2131165470;
 			
 			// aapt resource value: 0x7F07011F
-			public const int mr_media_pause_dark = 2131165471;
+			public const int mr_group_expand = 2131165471;
 			
 			// aapt resource value: 0x7F070120
-			public const int mr_media_pause_light = 2131165472;
+			public const int mr_media_pause_dark = 2131165472;
 			
 			// aapt resource value: 0x7F070121
-			public const int mr_media_play_dark = 2131165473;
+			public const int mr_media_pause_light = 2131165473;
 			
 			// aapt resource value: 0x7F070122
-			public const int mr_media_play_light = 2131165474;
+			public const int mr_media_play_dark = 2131165474;
 			
 			// aapt resource value: 0x7F070123
-			public const int mr_media_stop_dark = 2131165475;
+			public const int mr_media_play_light = 2131165475;
 			
 			// aapt resource value: 0x7F070124
-			public const int mr_media_stop_light = 2131165476;
+			public const int mr_media_stop_dark = 2131165476;
 			
 			// aapt resource value: 0x7F070125
-			public const int mr_vol_type_audiotrack_dark = 2131165477;
+			public const int mr_media_stop_light = 2131165477;
 			
 			// aapt resource value: 0x7F070126
-			public const int mr_vol_type_audiotrack_light = 2131165478;
+			public const int mr_vol_type_audiotrack_dark = 2131165478;
 			
 			// aapt resource value: 0x7F070127
-			public const int navigation_empty_icon = 2131165479;
+			public const int mr_vol_type_audiotrack_light = 2131165479;
 			
 			// aapt resource value: 0x7F070128
-			public const int notification_action_background = 2131165480;
+			public const int navigation_empty_icon = 2131165480;
 			
 			// aapt resource value: 0x7F070129
-			public const int notification_bg = 2131165481;
+			public const int nolocationicon = 2131165481;
 			
 			// aapt resource value: 0x7F07012A
-			public const int notification_bg_low = 2131165482;
+			public const int notification_action_background = 2131165482;
 			
 			// aapt resource value: 0x7F07012B
-			public const int notification_bg_low_normal = 2131165483;
+			public const int notification_bg = 2131165483;
 			
 			// aapt resource value: 0x7F07012C
-			public const int notification_bg_low_pressed = 2131165484;
+			public const int notification_bg_low = 2131165484;
 			
 			// aapt resource value: 0x7F07012D
-			public const int notification_bg_normal = 2131165485;
+			public const int notification_bg_low_normal = 2131165485;
 			
 			// aapt resource value: 0x7F07012E
-			public const int notification_bg_normal_pressed = 2131165486;
+			public const int notification_bg_low_pressed = 2131165486;
 			
 			// aapt resource value: 0x7F07012F
-			public const int notification_icon_background = 2131165487;
+			public const int notification_bg_normal = 2131165487;
 			
 			// aapt resource value: 0x7F070130
-			public const int notification_template_icon_bg = 2131165488;
+			public const int notification_bg_normal_pressed = 2131165488;
 			
 			// aapt resource value: 0x7F070131
-			public const int notification_template_icon_low_bg = 2131165489;
+			public const int notification_icon_background = 2131165489;
 			
 			// aapt resource value: 0x7F070132
-			public const int notification_tile_bg = 2131165490;
+			public const int notification_template_icon_bg = 2131165490;
 			
 			// aapt resource value: 0x7F070133
-			public const int notify_panel_notification_icon_bg = 2131165491;
+			public const int notification_template_icon_low_bg = 2131165491;
 			
 			// aapt resource value: 0x7F070134
-			public const int tooltip_frame_dark = 2131165492;
+			public const int notification_tile_bg = 2131165492;
 			
 			// aapt resource value: 0x7F070135
-			public const int tooltip_frame_light = 2131165493;
+			public const int notify_panel_notification_icon_bg = 2131165493;
 			
 			// aapt resource value: 0x7F070136
-			public const int up_arrow = 2131165494;
+			public const int tooltip_frame_dark = 2131165494;
+			
+			// aapt resource value: 0x7F070137
+			public const int tooltip_frame_light = 2131165495;
+			
+			// aapt resource value: 0x7F070138
+			public const int up_arrow = 2131165496;
 			
 			static Drawable()
 			{
@@ -11884,6 +11992,22 @@ namespace Walletico.Droid
 			}
 			
 			private Styleable()
+			{
+			}
+		}
+		
+		public partial class Xml
+		{
+			
+			// aapt resource value: 0x7F100000
+			public const int xamarin_essentials_fileprovider_file_paths = 2131755008;
+			
+			static Xml()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Xml()
 			{
 			}
 		}

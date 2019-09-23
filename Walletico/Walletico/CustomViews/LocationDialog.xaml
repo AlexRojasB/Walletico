@@ -3,20 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:extra="clr-namespace:AiForms.Dialogs.Abstractions;assembly=AiForms.Dialogs.Abstractions"
-             CornerRadius="10" OffsetX="0" OffsetY="0" UseCurrentPageLocation="false" 
+              OffsetX="0" OffsetY="0" UseCurrentPageLocation="false" 
              VerticalLayoutAlignment="Center" HorizontalLayoutAlignment="Center"
              mc:Ignorable="d"
              x:Class="Walletico.CustomViews.LocationDialog">
-    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="160"/>
-            <RowDefinition Height="40" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
-        </Grid.ColumnDefinitions>
-        
-        <Button Grid.Row="1" Text="Permitir" BackgroundColor="{StaticResource PrimaryLight}" />
-    </Grid>
+    <pancake:PancakeView
+        WidthRequest="300"
+        BackgroundColor="White"
+        Elevation="10"
+        CornerRadius="10">
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Label VerticalOptions="End" HorizontalOptions="Center" Style="{StaticResource FontIconLabel}" TextColor="{StaticResource Primary}" Text="&#xf3c5;"/>
+            <Label Grid.Row="1" Margin="20" FontSize="Medium" Text="Walletico necesita utilizar los servicios de ubicacion para proveer mejores resultados." />
+            <Button Grid.Row="2" Text="Permitir" BackgroundColor="{StaticResource PrimaryLight}" />
+        </Grid>
+    </pancake:PancakeView>
 </extra:DialogView>
