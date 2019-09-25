@@ -22,7 +22,7 @@ namespace Walletico.Pages
             PageFader.IsVisible = false;
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
             this.AddTransPopup.OnExpandTapped += ExpandPopup;
@@ -51,10 +51,9 @@ namespace Walletico.Pages
             await AddTransPopup.TranslateTo(0, pageHeight - firstSection, AnimationSpeed, Easing.SinInOut);
         }
 
-        private async void OutcomeTotalTapped(object sender, System.EventArgs e)
+        private void OutcomeTotalTapped(object sender, System.EventArgs e)
         {
-            var ret = await Dialog.Instance.ShowAsync<LocationDialog>(new { Title = "Hello" });
-          //  ret = await reusableDialog.ShowAsync();
+            
         }
     }
 }

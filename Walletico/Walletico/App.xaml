@@ -5,22 +5,8 @@
              x:Class="Walletico.App">
     <Application.Resources>
         <ResourceDictionary>
-            <!--<ControlTemplate x:Key="CurrentBalance">
-                <StackLayout Margin="10,0,0,0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-                    <Label FontSize="Large">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="25430" TextColor="{StaticResource PrimaryText}" FontSize="72" />
-                                <Span Text="CRC" TextColor="{StaticResource SecondaryText}" FontSize="18"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label Text="Your Balance" TextColor="{StaticResource SecondaryText}" FontSize="14" />
-                </StackLayout>
-            </ControlTemplate>-->
-
             <Color x:Key="Primary">#213C4C</Color>
-            <Color x:Key="PrimaryDark">#213C4C</Color>
+            <Color x:Key="PrimaryDark">#101F2C</Color>
             <Color x:Key="PrimaryLight">#6DFEFC</Color>
             <Color x:Key="Accent">#213C4C</Color>
             <Color x:Key="PrimaryText">#F6FEFE</Color>
@@ -36,10 +22,11 @@
             <Color x:Key="LightTextColor">#999999</Color>
         </ResourceDictionary>
         <OnPlatform x:Key="FontAwesomeSolidFamily" x:TypeArguments="x:String">
-            <On Platform="iOS" Value="Questrial" />
+            <On Platform="iOS" Value="Font Awesome 5 Free-Solid-900" />
             <On Platform="Android" Value="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" />
         </OnPlatform>
         <OnPlatform x:Key="MaterialDesignFamily" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="materialdesignicons-webfont" />
             <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
         </OnPlatform>
         <Style TargetType ="freshMvvm:FreshNavigationContainer">
@@ -47,7 +34,7 @@
             <Setter Property="BarTextColor" Value="{StaticResource PrimaryLight}"></Setter>
         </Style>
 
-        <Style x:Key="FontIconLabel" TargetType="Label">
+        <Style x:Key="FontIconAwesomeLabel" TargetType="Label">
             <Setter Property="FontFamily" Value="{StaticResource FontAwesomeSolidFamily}"/>
             <Setter Property="FontSize" Value="20" />
             <Setter Property="TextColor" Value="Black" />
@@ -65,8 +52,13 @@
 
         <Style x:Key="CalcButtons" TargetType="Button">
             <Setter Property="BackgroundColor" Value="White"/>
-            <Setter Property="BorderColor" Value="#101F2C" />
+            <Setter Property="BorderColor" Value="{StaticResource PrimaryDark}" />
             <Setter Property="BorderWidth" Value="2" />
+        </Style>
+
+        <Style x:Key="NormalGrid" TargetType="Grid" >
+            <Setter Property="RowSpacing" Value="0" />
+            <Setter Property="ColumnSpacing" Value="0" />
         </Style>
     </Application.Resources>
 </Application>

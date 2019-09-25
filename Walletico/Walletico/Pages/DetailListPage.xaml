@@ -78,7 +78,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
        
-        <StackLayout Grid.Row="3" Grid.Column="0" Orientation="Horizontal" BackgroundColor="#101F2C" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+        <StackLayout Grid.Row="3" Grid.Column="0" Orientation="Horizontal" BackgroundColor="{StaticResource PrimaryDark}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="IncomeTotalTapped" />
             </StackLayout.GestureRecognizers>
@@ -109,8 +109,7 @@
                 <TapGestureRecognizer Tapped="PageFader_Tapped" />
             </BoxView.GestureRecognizers>
         </BoxView>
-        <customViews:AddTransactionPopup x:Name="AddTransPopup" Grid.Row="0"  Grid.RowSpan="4" Grid.ColumnSpan="2" TranslationY="{Binding Source={x:Reference RootPage}, Path=Height}"  >
-            
+        <customViews:AddTransactionPopup x:Name="AddTransPopup" Grid.Row="0"  Grid.RowSpan="4" Grid.ColumnSpan="2" TotalAmount="1000" TranslationY="{Binding Source={x:Reference RootPage}, Path=Height}"  >
         </customViews:AddTransactionPopup>
     </Grid>
 </ContentPage>

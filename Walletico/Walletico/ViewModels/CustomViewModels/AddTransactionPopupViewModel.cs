@@ -9,6 +9,7 @@ using Xamarin.Forms;
 
 namespace Walletico.ViewModels.CustomViewModels
 {
+    [PropertyChanged.AddINotifyPropertyChangedInterface]
     public class AddTransactionPopupViewModel : FreshMvvm.FreshBasePageModel
     {
         public AddTransactionPopupViewModel()
@@ -27,7 +28,7 @@ namespace Walletico.ViewModels.CustomViewModels
                 {
                     if (!isAllowed)
                     {
-                        var ret = await Dialog.Instance.ShowAsync<LocationDialog>();
+                        await Dialog.Instance.ShowAsync<LocationDialog>();
                     }
                 }
 
@@ -82,7 +83,7 @@ namespace Walletico.ViewModels.CustomViewModels
             Preferences.Set(PreferenceKeys.IsLocationAllowed, false);
         }
 
-        public ICommand EnableLocation
+        public Command EnableLocation
         {
             get
             {

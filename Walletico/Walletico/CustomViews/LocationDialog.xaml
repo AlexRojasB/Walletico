@@ -14,13 +14,13 @@
         BackgroundColor="White"
         Elevation="10"
         CornerRadius="10">
-        <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid Style="{StaticResource NormalGrid}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="120"/>
                 <RowDefinition Height="40" />
             </Grid.RowDefinitions>
-            <Label VerticalOptions="End" HorizontalOptions="Center" Style="{StaticResource FontIconLabel}" TextColor="{StaticResource Primary}" Text="&#xf3c5;"/>
+            <Label VerticalOptions="End" HorizontalOptions="Center" Style="{StaticResource FontIconAwesomeLabel}" TextColor="{StaticResource Primary}" Text="&#xf3c5;"/>
             <Label Grid.Row="1" Margin="20" FontSize="Medium" Text="Walletico necesita utilizar los servicios de ubicacion para proveer mejores resultados." />
             <Button Grid.Row="2" Text="Permitir" BackgroundColor="{StaticResource PrimaryLight}" />
         </Grid>

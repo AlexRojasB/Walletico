@@ -11,21 +11,22 @@ namespace Walletico.ViewModels
     {
         private Transaction _transactionSelected;
         private Period _periodSelected;
-        private IEnumerable<Transaction> _transactions;
+        private decimal income;
         private readonly IDataService _dataService;
         public DetailListViewModel()
         {
-
+            this.Transactions = Enumerable.Empty<Transaction>();
         }
         public DetailListViewModel(IDataService dataService)
         {
             this._dataService = dataService;
             this.Transactions = this._dataService.GetAllPerMonthTransactions(1).ToList();
+            this.Income = this.Transactions.Where(t => t.TransType == 0).Sum(t => t.Amount);
             this.Periods = this._dataService.GetAllMonths().ToList();
         }
 
         #region Properties
-        public IEnumerable<Transaction> Transactions { get => _transactions ?? (_transactions = Enumerable.Empty<Transaction>()); set => _transactions = value; }
+        public IEnumerable<Transaction> Transactions { get; set; }
 
 
         public List<Period> Periods { get; set; }
@@ -62,7 +63,15 @@ namespace Walletico.ViewModels
             }
         }
 
-        public decimal Income => this.Transactions.Where(t => t.TransType == 0).Sum(t => t.Amount);
+        public decimal Income
+        {
+            get => income; set
+            {
+                income = value;
+                this.RaisePropertyChanged();
+            }
+        }
+
         public decimal Outcome => this.Transactions.Where(t => t.TransType == 1).Sum(t => t.Amount);
 
         public decimal Current => this.Income - this.Outcome;

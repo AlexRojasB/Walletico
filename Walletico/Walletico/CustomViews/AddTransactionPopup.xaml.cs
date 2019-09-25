@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Text;
-using Walletico.ViewModels.CustomViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,20 +10,13 @@ namespace Walletico.CustomViews
     public partial class AddTransactionPopup : ContentView
     {
         public delegate void ClickExpandDelegate();
-        private StringBuilder sbAmount;
+        private readonly StringBuilder sbAmount;
+
+        public static readonly BindableProperty TotalAmountProperty = BindableProperty.Create(nameof(TotalAmount), typeof(decimal), typeof(AddTransactionPopup), default(decimal), BindingMode.TwoWay);
         public AddTransactionPopup()
         {
             InitializeComponent();
             this.sbAmount = new StringBuilder();
-        }
-
-        protected override void OnBindingContextChanged()
-        {
-            base.OnBindingContextChanged();
-            if(this.BindingContext is null)
-            {
-                this.BindingContext = new AddTransactionPopupViewModel();
-            }
         }
 
         private void IncomeFirstSectionTapped(object sender, EventArgs e)
@@ -45,15 +38,24 @@ namespace Walletico.CustomViews
             }
         }
 
-     
-
         private void UpdateAmount(string digit)
         {
             this.sbAmount.Append(digit);
             this.Amount.Text = sbAmount.ToString();
         }
 
+        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            base.OnPropertyChanged(propertyName);
+            if(propertyName.Equals(TotalAmountProperty.PropertyName))
+            {
+                this.totalAmount.Text = TotalAmount.ToString();
+            }
+        }
+
         public ClickExpandDelegate OnExpandTapped { get; set; }
         public double IncomeFirstSectionHeigh => this.FirstSection.Height + this.EntrySection.Height;
+
+        public decimal TotalAmount { get => (decimal) GetValue(TotalAmountProperty); set => SetValue(TotalAmountProperty, value); }
     }
 }

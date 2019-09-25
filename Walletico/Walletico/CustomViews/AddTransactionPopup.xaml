@@ -11,11 +11,12 @@
     </ContentView.BindingContext>
     <ContentView.Resources>
         <ResourceDictionary>
-            <x:String x:Key="locationIconString">locationicon.png|nolocationicon.png</x:String>
+            <x:String x:Key="ItemHighlight">#6DFEFC|#FFFFFF</x:String>
+            <x:String x:Key="locationIconString">&#xF34E;|&#xF351;</x:String>
             <converts:BoolToStringConverter x:Key="cnvBoolString"></converts:BoolToStringConverter>
         </ResourceDictionary>
     </ContentView.Resources>
-    <Grid RowSpacing="0">
+    <Grid Style="{StaticResource NormalGrid}">
         <Grid.RowDefinitions>
             <RowDefinition Height="AUTO" />
             <RowDefinition Height="AUTO" />
@@ -24,15 +25,15 @@
 
         <BoxView
             x:Name="FirstSection"
-            BackgroundColor="#101F2C"
+            BackgroundColor="{StaticResource PrimaryDark}"
             CornerRadius="20,20,0,0"
             HeightRequest="200">
            
         </BoxView>
 
-        <StackLayout Margin="30" InputTransparent="True" >
+        <StackLayout Margin="30">
             <StackLayout Orientation="Horizontal">
-                <Label Text="8500,74" Style="{StaticResource TitleText}" />
+                <Label x:Name="totalAmount" Style="{StaticResource TitleText}" />
                 <Label Grid.Column="1" VerticalTextAlignment="End" Text="Incomes - Date: 21 Mar, 2019" Style="{StaticResource SubtitleText}" />
             </StackLayout>
             <BoxView
@@ -41,15 +42,10 @@
                 HeightRequest="1" />
             <StackLayout Orientation="Horizontal" >
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Place" />
-                <ImageButton HorizontalOptions="End" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" Command="{Binding EnableLocation}" BackgroundColor="#101F2C" Source="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
-                <!--<Label VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource FontIconLabel}" TextColor="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" Text="&#xf3c5;">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer BindingContext="vm" Command="{Binding EnableLocation}" />
-                    </Label.GestureRecognizers>
-                </Label>-->
+                <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center"  TextColor="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" Command="{Binding EnableLocation}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
             </StackLayout>
             <StackLayout >
-                <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="#314B5B" Padding="5" Margin="0">
+                <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="{StaticResource FrameHighlight}" Padding="5" Margin="0">
                     <Label Margin="3" Text="Restaurante Pollito" Style="{StaticResource SubtitleText}"/>
                 </Frame>
             </StackLayout>
@@ -75,7 +71,7 @@
                     
 
                 <StackLayout Margin="10">
-                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconLabel}" Text="&#xf53d;"/>
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="&#xf53d;"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
                             Text="Sueldo"
@@ -90,7 +86,7 @@
                     Grid.Column="1"
                     CornerRadius="5">
                     <StackLayout Margin="10">
-                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconLabel}" Text="&#xf51e;"/>
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="&#xf51e;"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
                             Text="Ahorro"
@@ -107,7 +103,7 @@
                     Grid.Column="2"
                     CornerRadius="5">
                     <StackLayout Margin="10">
-                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconLabel}" Text="&#xf53c;"/>
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="&#xf53c;"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
                             Text="Finanza"
@@ -126,7 +122,7 @@
         <BoxView Grid.Row="2" 
                  BackgroundColor="White"
                  HeightRequest="200"/>
-            <Grid Grid.Row="2" Margin="20,0,20,0" RowSpacing="0" ColumnSpacing="0" >
+            <Grid Grid.Row="2" Margin="20,0,20,0" Style="{StaticResource NormalGrid}" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -142,19 +138,15 @@
                 <Button Grid.Row="0" Grid.Column="0" Text="1" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent" />
                 <Button Grid.Row="0" Grid.Column="1" Text="2" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
                 <Button Grid.Row="0" Grid.Column="2" Text="3" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
-                <!--<Button Grid.Row="0" Grid.Column="3" Text="+" Style="{StaticResource CalcButtons}"/>-->
                 <Button Grid.Row="1" Grid.Column="0" Text="4" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
                 <Button Grid.Row="1" Grid.Column="1" Text="5" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
                 <Button Grid.Row="1" Grid.Column="2" Text="6" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
-                <!--<Button Grid.Row="1" Grid.Column="3" Text="-" Style="{StaticResource CalcButtons}"/>-->
                 <Button Grid.Row="2" Grid.Column="0" Text="7" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
                 <Button Grid.Row="2" Grid.Column="1" Text="8" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
                 <Button Grid.Row="2" Grid.Column="2" Text="9" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
-                <!--<Button Grid.Row="2" Grid.Column="3" Text="x" Style="{StaticResource CalcButtons}"/>-->
                 <Button Grid.Row="3" Grid.Column="0" Text="." Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
                 <Button Grid.Row="3" Grid.Column="1" Text="0" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
                 <Button Grid.Row="3" Grid.Column="2" Text="del" Style="{StaticResource CalcButtons}" Clicked="DelButtonEvent"/>
-                <!--<Button Grid.Row="3" Grid.Column="3" Text="/" Style="{StaticResource CalcButtons}"/>-->
 
                 <Button Grid.Row="4" BackgroundColor="{StaticResource PrimaryLight}" FontAttributes="Bold" Grid.ColumnSpan="3" Text="Add Income" Style="{StaticResource CalcButtons}"/>
             </Grid>
