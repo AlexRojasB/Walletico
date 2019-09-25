@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Walletico.Android", "Wallet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Walletico.iOS", "Walletico\Walletico.iOS\Walletico.iOS.csproj", "{226C3F88-2DE9-4DAD-9AB0-999CD054E946}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Walletico", "Walletico\Walletico\Walletico.csproj", "{C8FBE216-ABA6-470C-81C9-262CC5861B12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Walletico", "Walletico\Walletico\Walletico.csproj", "{C8FBE216-ABA6-470C-81C9-262CC5861B12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
