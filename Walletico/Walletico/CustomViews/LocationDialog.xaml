@@ -22,7 +22,7 @@
             </Grid.RowDefinitions>
             <Label VerticalOptions="End" HorizontalOptions="Center" Style="{StaticResource FontIconAwesomeLabel}" TextColor="{StaticResource Primary}" Text="&#xf3c5;"/>
             <Label Grid.Row="1" Margin="20" FontSize="Medium" Text="Walletico necesita utilizar los servicios de ubicacion para proveer mejores resultados." />
-            <Button Grid.Row="2" Text="Permitir" BackgroundColor="{StaticResource PrimaryLight}" />
+            <Button Grid.Row="2" Text="Permitir" BackgroundColor="{StaticResource PrimaryLight}" Clicked="Handle_OK_Clicked" />
         </Grid>
     </pancake:PancakeView>
 </extra:DialogView>

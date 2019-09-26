@@ -38,15 +38,6 @@ namespace Walletico.CustomViews
             }
         }
 
-        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            base.OnPropertyChanged(propertyName);
-            if (propertyName.Equals(TotalAmountProperty.PropertyName))
-            {
-                
-            }
-        }
-
         private void UpdateAmount(string digit)
         {
             this.sbAmount.Append(digit);

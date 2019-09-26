@@ -12,66 +12,58 @@ namespace Walletico.ViewModels.CustomViewModels
     [PropertyChanged.AddINotifyPropertyChangedInterface]
     public class AddTransactionPopupViewModel : FreshMvvm.FreshBasePageModel
     {
+        private readonly bool _isAllowed;
         public AddTransactionPopupViewModel()
         {
-            this.ReadAndReconfigureLocationPreferences();
             this.IsLocationEnabled = Preferences.Get(PreferenceKeys.IsLocationEnabled, false);
+            _isAllowed = Preferences.Get(PreferenceKeys.IsLocationAllowed, false);
+            this.ReadAndReconfigureLocationPreferences();
         }
+
 
         private async Task VerifyGpsLocation()
         {
             try
             {
-                bool isAllowed = Preferences.Get(PreferenceKeys.IsLocationAllowed, false);
-                this.IsLocationEnabled = !this.IsLocationEnabled;
                 if (this.IsLocationEnabled)
                 {
-                    if (!isAllowed)
+                    if (!_isAllowed)
                     {
                         await Dialog.Instance.ShowAsync<LocationDialog>();
                     }
-                }
+                    var location = await Geolocation.GetLastKnownLocationAsync();
 
-                var location = await Geolocation.GetLastKnownLocationAsync();
-
-                if (location != null)
-                {
-                    Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    if (location != null)
+                    {
+                        Preferences.Set(PreferenceKeys.IsLocationAllowed, true);
+                        Preferences.Set(PreferenceKeys.IsLocationEnabled, true);
+                        Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    }
+                    else
+                    {
+                        this.DisableLocationPreferences();
+                    }
                 }
                 else
                 {
-                    this.DisableLocationPreferences();
+                    Preferences.Set(PreferenceKeys.IsLocationEnabled, false);
                 }
-            }
-            catch (FeatureNotSupportedException fnsEx)
+            } catch (Exception)
             {
-                // Handle not supported on device exception
-                this.DisableLocationPreferences();
-            }
-            catch (FeatureNotEnabledException fneEx)
-            {
-                // Handle not enabled on device exception
-                this.DisableLocationPreferences();
-
-            }
-            catch (PermissionException pEx)
-            {
-                // Handle permission exception
-                this.DisableLocationPreferences();
-
-            }
-            catch (Exception ex)
-            {
-                // Unable to get location
                 this.DisableLocationPreferences();
             }
         }
 
-        private void ReadAndReconfigureLocationPreferences()
+        private async void ReadAndReconfigureLocationPreferences()
         {
-            bool isAllowed = Preferences.Get(PreferenceKeys.IsLocationAllowed, false);
-
-            if (!isAllowed)
+            if (_isAllowed)
+            {
+                if (this.IsLocationEnabled)
+                {
+                    await this.VerifyGpsLocation();
+                }
+            }
+            else
             {
                 Preferences.Set(PreferenceKeys.IsLocationEnabled, false);
             }
@@ -89,6 +81,7 @@ namespace Walletico.ViewModels.CustomViewModels
             {
                 return new Command(async () =>
                 {
+                    this.IsLocationEnabled = !this.IsLocationEnabled;
                     await this.VerifyGpsLocation();
                 });
 
