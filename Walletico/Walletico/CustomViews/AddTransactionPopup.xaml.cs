@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace Walletico.CustomViews
         public delegate void ClickExpandDelegate();
         private readonly StringBuilder sbAmount;
 
-        public static readonly BindableProperty TotalAmountProperty = BindableProperty.Create(nameof(TotalAmount), typeof(string), typeof(AddTransactionPopup), default(string));
+        public static readonly BindableProperty TotalAmountProperty = BindableProperty.Create(nameof(TotalAmount), typeof(decimal), typeof(AddTransactionPopup), decimal.Zero);
         public AddTransactionPopup()
         {
             InitializeComponent();
@@ -37,6 +38,15 @@ namespace Walletico.CustomViews
             }
         }
 
+        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (propertyName.Equals(TotalAmountProperty.PropertyName))
+            {
+                
+            }
+        }
+
         private void UpdateAmount(string digit)
         {
             this.sbAmount.Append(digit);
@@ -46,6 +56,6 @@ namespace Walletico.CustomViews
         public ClickExpandDelegate OnExpandTapped { get; set; }
         public double IncomeFirstSectionHeigh => this.FirstSection.Height + this.EntrySection.Height;
 
-        public string TotalAmount { get => (string) GetValue(TotalAmountProperty); set => SetValue(TotalAmountProperty, value); }
+        public decimal TotalAmount { get => (decimal) GetValue(TotalAmountProperty); set => SetValue(TotalAmountProperty, value); }
     }
 }
