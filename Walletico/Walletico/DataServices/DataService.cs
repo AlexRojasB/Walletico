@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using Walletico.Models;
+using Walletico.Shared;
 
 namespace Walletico.DataServices
 {
@@ -28,5 +30,11 @@ namespace Walletico.DataServices
                     TransType = 0
                 },
             };
+
+        public async Task<string[]> PlacesNearby(string latitud, string longitud)
+        {
+            var pato = await HttpClientSingleton.HttpClient.GetAsync($"https://api.mapbox.com/geocoding/v5/mapbox.places/{longitud},{latitud}.json?access_token={Secrets.PlaceAPIKey}");
+            return null;
+        }
     }
 }
