@@ -1,9 +1,14 @@
 ﻿using AiForms.Dialogs;
+using Newtonsoft.Json;
 using System;
+using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Walletico.CustomViews;
+using Walletico.Service;
 using Walletico.Shared;
+using Walletico.Shared.BoundaryHelper;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -12,12 +17,17 @@ namespace Walletico.ViewModels.CustomViewModels
     [PropertyChanged.AddINotifyPropertyChangedInterface]
     public class AddTransactionPopupViewModel : FreshMvvm.FreshBasePageModel
     {
-        public AddTransactionPopupViewModel()
+        private IMapService _mapService;
+        public AddTransactionPopupViewModel(IMapService mapService)
         {
+            this._mapService = mapService;
             this.ReadAndReconfigureLocationPreferences();
             this.IsLocationEnabled = Preferences.Get(PreferenceKeys.IsLocationEnabled, false);
         }
+        public AddTransactionPopupViewModel()
+        {
 
+        }
         private async Task VerifyGpsLocation()
         {
             try
@@ -36,7 +46,13 @@ namespace Walletico.ViewModels.CustomViewModels
 
                 if (location != null)
                 {
-                    Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    MapPoint userLocation = new MapPoint
+                    {
+                        Latitude = location.Latitude,
+                        Longitude = location.Longitude
+                    };
+                    var places = await this._mapService.GetPlacesNearby(userLocation, 1.5d);
+                    var placesNames = places.Select(x => x.Place_name).ToArray();
                 }
                 else
                 {

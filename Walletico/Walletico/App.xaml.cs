@@ -1,5 +1,6 @@
 ﻿using FreshMvvm;
 using Walletico.DataServices;
+using Walletico.Service;
 using Walletico.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,6 +21,7 @@ namespace Walletico
         private void SetupIOC()
         {
             FreshIOC.Container.Register<IDataService, DataService>();
+            FreshIOC.Container.Register<IMapService, MapService>();
         }
 
         protected override void OnStart()
