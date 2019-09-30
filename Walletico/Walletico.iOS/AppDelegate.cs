@@ -24,7 +24,7 @@ namespace Walletico.iOS
         {
 
             global::Xamarin.Forms.Forms.Init();
-            AiForms.Dialogs.Dialogs.Init(this);
+            AiForms.Dialogs.Dialogs.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

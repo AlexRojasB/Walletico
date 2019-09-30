@@ -1,9 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using AiForms.Dialogs;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
+using Walletico.CustomViews;
 using Walletico.DataServices;
 using Walletico.Models;
 using Walletico.Models.Base;
+using Walletico.Service;
+using Walletico.Shared;
+using Walletico.Shared.BoundaryHelper;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Walletico.ViewModels
 {
@@ -13,16 +22,98 @@ namespace Walletico.ViewModels
         private Period _periodSelected;
         private decimal income;
         private readonly IDataService _dataService;
+        private readonly IMapService _mapService;
+        private readonly bool _isAllowed;
+
         public DetailListViewModel()
         {
             this.Transactions = Enumerable.Empty<Transaction>();
         }
-        public DetailListViewModel(IDataService dataService)
+        public DetailListViewModel(IDataService dataService, IMapService mapService)
         {
             this._dataService = dataService;
+            this._mapService = mapService;
+            this.IsLocationEnabled = Preferences.Get(PreferenceKeys.IsLocationEnabled, false);
+            _isAllowed = Preferences.Get(PreferenceKeys.IsLocationAllowed, false);
+            this.ReadAndReconfigureLocationPreferences();
             this.Transactions = this._dataService.GetAllPerMonthTransactions(1).ToList();
             this.Income = this.Transactions.Where(t => t.TransType == 0).Sum(t => t.Amount);
             this.Periods = this._dataService.GetAllMonths().ToList();
+        }
+
+        private async void ReadAndReconfigureLocationPreferences()
+        {
+            if (_isAllowed)
+            {
+                if (this.IsLocationEnabled)
+                {
+                    await this.VerifyGpsLocation();
+                }
+            }
+            else
+            {
+                Preferences.Set(PreferenceKeys.IsLocationEnabled, false);
+            }
+        }
+
+        private async Task VerifyGpsLocation()
+        {
+            try
+            {
+                if (this.IsLocationEnabled)
+                {
+                    if (!_isAllowed)
+                    {
+                        await Dialog.Instance.ShowAsync<LocationDialog>();
+                    }
+                    var location = await Geolocation.GetLastKnownLocationAsync();
+
+                    if (location != null)
+                    {
+                        MapPoint userLocation = new MapPoint
+                        {
+                            Latitude = location.Latitude,
+                            Longitude = location.Longitude
+                        };
+                      //  var places = await this._mapService.GetPlacesNearby(userLocation, 1.5d);
+                      //  var placesNames = places.Select(x => x.Place_name).ToArray();
+                        Preferences.Set(PreferenceKeys.IsLocationAllowed, true);
+                        Preferences.Set(PreferenceKeys.IsLocationEnabled, true);
+                    }
+                    else
+                    {
+                        this.DisableLocationPreferences();
+                    }
+                }
+                else
+                {
+                    Preferences.Set(PreferenceKeys.IsLocationEnabled, false);
+                }
+            }
+            catch (Exception)
+            {
+                this.DisableLocationPreferences();
+            }
+        }
+
+
+        private void DisableLocationPreferences()
+        {
+            Preferences.Set(PreferenceKeys.IsLocationEnabled, false);
+            Preferences.Set(PreferenceKeys.IsLocationAllowed, false);
+        }
+
+        public Command EnableLocation
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    this.IsLocationEnabled = !this.IsLocationEnabled;
+                    await this.VerifyGpsLocation();
+                });
+
+            }
         }
 
         #region Properties
@@ -75,6 +166,8 @@ namespace Walletico.ViewModels
         public decimal Outcome => this.Transactions.Where(t => t.TransType == 1).Sum(t => t.Amount);
 
         public decimal Current => this.Income - this.Outcome;
+        public bool IsLocationEnabled { get; set; }
+
         #endregion
     }
 }

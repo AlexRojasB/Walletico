@@ -3,13 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Walletico.CustomViews.AddTransactionPopup"
              xmlns:converts="clr-namespace:Walletico.Converters"
-             xmlns:vm="clr-namespace:Walletico.ViewModels.CustomViewModels"
               xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Name="TransactionPopup"
              VerticalOptions="Start">
-    <ContentView.BindingContext>
-        <vm:AddTransactionPopupViewModel/>
-    </ContentView.BindingContext>
     <ContentView.Resources>
         <ResourceDictionary>
             <x:String x:Key="ItemHighlight">#6DFEFC|#FFFFFF</x:String>
@@ -43,7 +39,7 @@
                 HeightRequest="1" />
             <StackLayout Orientation="Horizontal" >
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Place" />
-                <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center"  TextColor="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" Command="{Binding EnableLocation}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
+                <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding Source={x:Reference TransactionPopup}, Path=Command}" TextColor="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
             </StackLayout>
             <StackLayout >
                 <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="{StaticResource FrameHighlight}" Padding="5" Margin="0">
