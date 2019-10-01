@@ -1,6 +1,6 @@
 # Walletico
 
-Exploring Xamarin.Forms, we are creating the Wallet app using the Jagan Wallent design. The idea is to learn how to create awesome UI design in Xamarin.Forms.
+Exploring Xamarin.Forms, we are creating the Walletico app using the Jagan Wallent design. The idea is to learn how to create awesome UI design and a complex application using Xamarin.Forms.
 
 ## Technologies
 
@@ -9,7 +9,6 @@ Xamarin.Forms allows you to build native UIs for iOS, Android, Windows, Linux, m
 - XAML UI
 - MVVM
 - Reactive
-- CollectionView
 - Sqlite
 - Converters
 - IoC
@@ -17,7 +16,7 @@ Xamarin.Forms allows you to build native UIs for iOS, Android, Windows, Linux, m
 
 ## Platforms
 
-Wallent app is available for this platflorms:
+Walletico app is available for this platflorms:
 
 - Android
 - iOS
