@@ -21,6 +21,7 @@ namespace Walletico.ViewModels
         private Transaction _transactionSelected;
         private Period _periodSelected;
         private decimal income;
+        private bool isLocationEnabled;
         private readonly IDataService _dataService;
         private readonly IMapService _mapService;
         private readonly bool _isAllowed;
@@ -75,8 +76,8 @@ namespace Walletico.ViewModels
                             Latitude = location.Latitude,
                             Longitude = location.Longitude
                         };
-                      //  var places = await this._mapService.GetPlacesNearby(userLocation, 1.5d);
-                      //  var placesNames = places.Select(x => x.Place_name).ToArray();
+                        //  var places = await this._mapService.GetPlacesNearby(userLocation, 1.5d);
+                        //  var placesNames = places.Select(x => x.Place_name).ToArray();
                         Preferences.Set(PreferenceKeys.IsLocationAllowed, true);
                         Preferences.Set(PreferenceKeys.IsLocationEnabled, true);
                     }
@@ -166,7 +167,14 @@ namespace Walletico.ViewModels
         public decimal Outcome => this.Transactions.Where(t => t.TransType == 1).Sum(t => t.Amount);
 
         public decimal Current => this.Income - this.Outcome;
-        public bool IsLocationEnabled { get; set; }
+        public bool IsLocationEnabled
+        {
+            get => isLocationEnabled; set
+            {
+                isLocationEnabled = value;
+                this.RaisePropertyChanged();
+            }
+        }
 
         #endregion
     }

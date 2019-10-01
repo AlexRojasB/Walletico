@@ -14,7 +14,7 @@ namespace Walletico.CustomViews
         private readonly StringBuilder sbAmount;
 
         public static readonly BindableProperty TotalAmountProperty = BindableProperty.Create(nameof(TotalAmount), typeof(decimal), typeof(AddTransactionPopup), decimal.Zero);
-        public static readonly BindableProperty EnableLocationProperty = BindableProperty.Create(nameof(EnableLocation), typeof(bool), typeof(AddTransactionPopup), default(bool));
+        public static readonly BindableProperty EnableLocationProperty = BindableProperty.Create(nameof(EnableLocation), typeof(bool), typeof(AddTransactionPopup), default(bool), BindingMode.TwoWay);
         public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(AddTransactionPopup), null);
 
         public AddTransactionPopup()
@@ -41,6 +41,14 @@ namespace Walletico.CustomViews
                 this.Amount.Text = sbAmount.ToString();
             }
         }
+        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (propertyName.Equals(EnableLocationProperty.PropertyName))
+            {
+                base.OnPropertyChanged(propertyName);
+            }
+        }
 
         private void UpdateAmount(string digit)
         {
@@ -51,8 +59,15 @@ namespace Walletico.CustomViews
         public ClickExpandDelegate OnExpandTapped { get; set; }
         public double IncomeFirstSectionHeigh => this.FirstSection.Height + this.EntrySection.Height;
 
-        public decimal TotalAmount { get => (decimal) GetValue(TotalAmountProperty); set => SetValue(TotalAmountProperty, value); }
-        public bool EnableLocation { get => (bool) GetValue(EnableLocationProperty); set => SetValue(EnableLocationProperty, value); }
-        public ICommand Command { get => (ICommand) GetValue(CommandProperty); set => SetValue(CommandProperty, value); }
+        public decimal TotalAmount { get => (decimal)GetValue(TotalAmountProperty); set => SetValue(TotalAmountProperty, value); }
+        public bool EnableLocation
+        {
+            get => (bool)GetValue(EnableLocationProperty); 
+            set {
+                SetValue(EnableLocationProperty, value);
+                
+            }
+        }
+        public ICommand Command { get => (ICommand)GetValue(CommandProperty); set => SetValue(CommandProperty, value); }
     }
 }

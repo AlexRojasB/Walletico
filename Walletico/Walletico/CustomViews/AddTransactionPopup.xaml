@@ -30,7 +30,7 @@
 
         <StackLayout Margin="30">
             <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding Source={x:Reference TransactionPopup}, Path=TotalAmount, Mode=TwoWay}" Style="{StaticResource TitleText}" />
+                <Label Text="{Binding Source={x:Reference TransactionPopup}, Path=TotalAmount}" Style="{StaticResource TitleText}" />
                 <Label Grid.Column="1" VerticalTextAlignment="End" Text="Incomes - Date: 21 Mar, 2019" Style="{StaticResource SubtitleText}" />
             </StackLayout>
             <BoxView
@@ -39,7 +39,7 @@
                 HeightRequest="1" />
             <StackLayout Orientation="Horizontal" >
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Place" />
-                <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding Source={x:Reference TransactionPopup}, Path=Command}" TextColor="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding IsLocationEnabled, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
+                <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding Source={x:Reference TransactionPopup}, Path=Command}" TextColor="{Binding Source={x:Reference TransactionPopup}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding Source={x:Reference TransactionPopup}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
             </StackLayout>
             <StackLayout >
                 <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="{StaticResource FrameHighlight}" Padding="5" Margin="0">
