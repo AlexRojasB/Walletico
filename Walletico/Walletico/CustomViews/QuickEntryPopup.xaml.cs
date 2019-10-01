@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
@@ -8,16 +9,16 @@ using Xamarin.Forms.Xaml;
 namespace Walletico.CustomViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddTransactionPopup : ContentView
+    public partial class QuickEntryPopup : ContentView
     {
         public delegate void ClickExpandDelegate();
         private readonly StringBuilder sbAmount;
 
-        public static readonly BindableProperty TotalAmountProperty = BindableProperty.Create(nameof(TotalAmount), typeof(decimal), typeof(AddTransactionPopup), decimal.Zero);
-        public static readonly BindableProperty EnableLocationProperty = BindableProperty.Create(nameof(EnableLocation), typeof(bool), typeof(AddTransactionPopup), default(bool), BindingMode.TwoWay);
-        public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(AddTransactionPopup), null);
+        public static readonly BindableProperty TotalAmountProperty = BindableProperty.Create(nameof(TotalAmount), typeof(decimal), typeof(QuickEntryPopup), decimal.Zero);
+        public static readonly BindableProperty EnableLocationProperty = BindableProperty.Create(nameof(EnableLocation), typeof(bool), typeof(QuickEntryPopup), default(bool), BindingMode.TwoWay);
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(QuickEntryPopup), null);
 
-        public AddTransactionPopup()
+        public QuickEntryPopup()
         {
             InitializeComponent();
             this.sbAmount = new StringBuilder();
@@ -62,12 +63,10 @@ namespace Walletico.CustomViews
         public decimal TotalAmount { get => (decimal)GetValue(TotalAmountProperty); set => SetValue(TotalAmountProperty, value); }
         public bool EnableLocation
         {
-            get => (bool)GetValue(EnableLocationProperty); 
-            set {
-                SetValue(EnableLocationProperty, value);
-                
-            }
+            get => (bool)GetValue(EnableLocationProperty);
+            set => SetValue(EnableLocationProperty, value);
         }
         public ICommand Command { get => (ICommand)GetValue(CommandProperty); set => SetValue(CommandProperty, value); }
+        public IEnumerable<string> Places { get; set; }
     }
 }

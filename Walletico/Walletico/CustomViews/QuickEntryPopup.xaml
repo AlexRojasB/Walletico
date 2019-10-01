@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Walletico.CustomViews.AddTransactionPopup"
+             x:Class="Walletico.CustomViews.QuickEntryPopup"
              xmlns:converts="clr-namespace:Walletico.Converters"
               xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Name="TransactionPopup"
+             x:Name="QuickEntry"
              VerticalOptions="Start">
     <ContentView.Resources>
         <ResourceDictionary>
@@ -30,7 +30,7 @@
 
         <StackLayout Margin="30">
             <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding Source={x:Reference TransactionPopup}, Path=TotalAmount}" Style="{StaticResource TitleText}" />
+                <Label Text="{Binding Source={x:Reference QuickEntry}, Path=TotalAmount}" Style="{StaticResource TitleText}" />
                 <Label Grid.Column="1" VerticalTextAlignment="End" Text="Incomes - Date: 21 Mar, 2019" Style="{StaticResource SubtitleText}" />
             </StackLayout>
             <BoxView
@@ -39,13 +39,17 @@
                 HeightRequest="1" />
             <StackLayout Orientation="Horizontal" >
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Place" />
-                <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding Source={x:Reference TransactionPopup}, Path=Command}" TextColor="{Binding Source={x:Reference TransactionPopup}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding Source={x:Reference TransactionPopup}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
+                <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding Source={x:Reference QuickEntry}, Path=Command}" TextColor="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
             </StackLayout>
-            <StackLayout >
-                <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="{StaticResource FrameHighlight}" Padding="5" Margin="0">
-                    <Label Margin="3" Text="Restaurante Pollito" Style="{StaticResource SubtitleText}"/>
-                </Frame>
-            </StackLayout>
+            <CollectionView  ItemsSource="{Binding Periods}" SelectedItem="{Binding PeriodSelected, Mode=TwoWay}"  HorizontalOptions="FillAndExpand" SelectionMode="Single" ItemsLayout="{x:Static ListItemsLayout.Horizontal}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="{StaticResource FrameHighlight}" Padding="5" Margin="0">
+                            <Label Margin="3" Text="Restaurante Pollito" Style="{StaticResource SubtitleText}"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
             <StackLayout Orientation="Horizontal" >
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Quick Entry" />
             </StackLayout>

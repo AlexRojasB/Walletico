@@ -80,7 +80,7 @@
        
         <StackLayout Grid.Row="3" Grid.Column="0" Orientation="Horizontal" BackgroundColor="{StaticResource PrimaryDark}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Tapped="IncomeTotalTapped" />
+                <TapGestureRecognizer Tapped="IncomeTotalTapped" Command="{Binding OpenPopup}" />
             </StackLayout.GestureRecognizers>
             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
                 <Label HorizontalOptions="Center" VerticalOptions="Start" Text="Income" TextColor="{StaticResource SecondaryText}" FontSize="8" Margin="5,5,0,0" />
@@ -109,7 +109,7 @@
                 <TapGestureRecognizer Tapped="PageFader_Tapped" />
             </BoxView.GestureRecognizers>
         </BoxView>
-        <customViews:AddTransactionPopup x:Name="AddTransPopup" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="2" Command="{Binding EnableLocation}" EnableLocation="{Binding IsLocationEnabled, Mode=TwoWay}" TotalAmount="{Binding Income}" TranslationY="{Binding Source={x:Reference RootPage}, Path=Height}"  >
-        </customViews:AddTransactionPopup>
+        <customViews:QuickEntryPopup x:Name="AddTransPopup" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="2" Command="{Binding EnableLocation}" EnableLocation="{Binding IsLocationEnabled, Mode=TwoWay}" TotalAmount="{Binding Income}" TranslationY="{Binding Source={x:Reference RootPage}, Path=Height}"  >
+        </customViews:QuickEntryPopup>
     </Grid>
 </ContentPage>

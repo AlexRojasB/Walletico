@@ -117,6 +117,9 @@ namespace Walletico.ViewModels
             }
         }
 
+        public Command OpenPopup => new Command(async () => { await this.VerifyGpsLocation(); });
+
+
         #region Properties
         public IEnumerable<Transaction> Transactions { get; set; }
 
