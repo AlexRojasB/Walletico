@@ -76,13 +76,14 @@
                     BackgroundGradientEndColor="White"
                     Grid.Column="0"
                     CornerRadius="5">
-                    
-
-                <StackLayout Margin="10">
-                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="&#xf53d;"/>
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="StartQuickEntryTapped" />
+                    </pancake:PancakeView.GestureRecognizers>
+                    <StackLayout Margin="10" BindingContext="{Binding Source={x:Reference QuickEntry}, Path=StartQuickEntryCategory}">
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="{Binding IconCode}"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
-                            Text="Sueldo"
+                            Text="{Binding Description}"
                             TextColor="{StaticResource MediumGrayTextColor}" />
                 </StackLayout>
                 </pancake:PancakeView>
@@ -93,11 +94,14 @@
                     BackgroundGradientEndColor="White"
                     Grid.Column="1"
                     CornerRadius="5">
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="CenterQuickEntryTapped" />
+                    </pancake:PancakeView.GestureRecognizers>
                     <StackLayout Margin="10">
-                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="&#xf51e;"/>
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="{Binding Source={x:Reference QuickEntry}, Path=CenterQuickEntryCategory.IconCode}"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
-                            Text="Ahorro"
+                            Text="{Binding Source={x:Reference QuickEntry}, Path=CenterQuickEntryCategory.Description}"
                             TextColor="{StaticResource MediumGrayTextColor}" />
                     </StackLayout>
                 </pancake:PancakeView>
@@ -110,11 +114,14 @@
                     BackgroundGradientEndColor="White"
                     Grid.Column="2"
                     CornerRadius="5">
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EndQuickEntryTapped" />
+                    </pancake:PancakeView.GestureRecognizers>
                     <StackLayout Margin="10">
-                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="&#xf53c;"/>
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="{Binding Source={x:Reference QuickEntry}, Path=EndQuickEntryCategory.IconCode}"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
-                            Text="Finanza"
+                            Text="{Binding Source={x:Reference QuickEntry}, Path=EndQuickEntryCategory.Description}"
                             TextColor="{StaticResource MediumGrayTextColor}" />
                     </StackLayout>
                 </pancake:PancakeView>

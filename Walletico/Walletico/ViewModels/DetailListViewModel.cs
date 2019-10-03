@@ -23,6 +23,9 @@ namespace Walletico.ViewModels
         private decimal income;
         private bool isLocationEnabled;
         private IEnumerable<Geoplace> nearPlaces;
+        private Category startIncomeCategory;
+        private Category centerIncomeCategory;
+        private Category endIncomeCategory;
         private readonly IDataService _dataService;
         private readonly IMapService _mapService;
         private readonly bool _isAllowed;
@@ -41,6 +44,25 @@ namespace Walletico.ViewModels
             this.Transactions = this._dataService.GetAllPerMonthTransactions(1).ToList();
             this.Income = this.Transactions.Where(t => t.TransType == 0).Sum(t => t.Amount);
             this.Periods = this._dataService.GetAllMonths().ToList();
+            this.StartIncomeCategory = new Category
+            {
+                Id = 1,
+                IconCode = "\uf53d",
+                Description = "Sueldo"
+            };
+            this.CenterIncomeCategory = new Category
+            {
+                Id = 2,
+                IconCode = "\uf51e",
+                Description = "Ahorro"
+            };
+            this.EndIncomeCategory = new Category
+            {
+                Id = 3,
+                IconCode = "\uf53c",
+                Description = "Finanza"
+
+            };
         }
 
         private void ReadAndReconfigureLocationPreferences()
@@ -70,7 +92,7 @@ namespace Walletico.ViewModels
                             Latitude = location.Latitude,
                             Longitude = location.Longitude
                         };
-                        var places = await this._mapService.GetPlacesNearby(userLocation, 1.5d);
+                        var places = await this._mapService.GetPlacesNearby(userLocation, 1d);
                         this.NearPlaces = places.Select(x => new Geoplace { PlaceName = x.Text, Coordenates = new MapPoint { Latitude = x.Geometry.Coordinates[0], Longitude = x.Geometry.Coordinates[1] } }).ToArray();
                         Preferences.Set(PreferenceKeys.IsLocationAllowed, true);
                         Preferences.Set(PreferenceKeys.IsLocationEnabled, true);
@@ -179,6 +201,32 @@ namespace Walletico.ViewModels
             set
             {
                 nearPlaces = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Category StartIncomeCategory
+        {
+            get => startIncomeCategory;
+            set
+            {
+                startIncomeCategory = value;
+                RaisePropertyChanged();
+            }
+        }
+        public Category CenterIncomeCategory
+        {
+            get => centerIncomeCategory; set
+            {
+                centerIncomeCategory = value;
+                RaisePropertyChanged();
+            }
+        }
+        public Category EndIncomeCategory
+        {
+            get => endIncomeCategory; set
+            {
+                endIncomeCategory = value;
                 RaisePropertyChanged();
             }
         }
