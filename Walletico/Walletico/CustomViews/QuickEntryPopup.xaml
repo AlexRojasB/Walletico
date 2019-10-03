@@ -39,7 +39,7 @@
                 HeightRequest="1" />
             <StackLayout Orientation="Horizontal" >
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Place" />
-                <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding Source={x:Reference QuickEntry}, Path=Command}" TextColor="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
+                <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding Source={x:Reference QuickEntry}, Path=GPSCommand}" TextColor="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
             </StackLayout>
             <CollectionView HeightRequest="30" ItemsSource="{Binding Source={x:Reference QuickEntry}, Path=Places}" VerticalOptions="Fill" HorizontalOptions="Fill" SelectionMode="Single">
                 <CollectionView.ItemsLayout>
@@ -72,7 +72,7 @@
                 <pancake:PancakeView
                     Padding="0"
                     BackgroundGradientAngle="360"
-                    BackgroundGradientStartColor="{StaticResource PrimaryLight}"
+                    BackgroundGradientStartColor="White"
                     BackgroundGradientEndColor="White"
                     x:Name="StartQuickEntry"
                     BindingContext="{Binding Source={x:Reference QuickEntry}, Path=StartQuickEntryCategory}"
@@ -92,7 +92,7 @@
                 <pancake:PancakeView
                     Padding="0"
                     BackgroundGradientAngle="360"
-                    BackgroundGradientStartColor="{StaticResource PrimaryLight}"
+                    BackgroundGradientStartColor="White"
                     BackgroundGradientEndColor="White"
                     x:Name="CenterQuickEntry"
                     BindingContext="{Binding Source={x:Reference QuickEntry}, Path=CenterQuickEntryCategory}"
@@ -114,7 +114,7 @@
                 <pancake:PancakeView
                     Padding="0"
                     BackgroundGradientAngle="360"
-                    BackgroundGradientStartColor="{StaticResource PrimaryLight}"
+                    BackgroundGradientStartColor="White"
                     BackgroundGradientEndColor="White"
                     x:Name="EndQuickEntry"
                     BindingContext="{Binding Source={x:Reference QuickEntry}, Path=EndQuickEntryCategory}"

@@ -16,10 +16,13 @@ namespace Walletico.CustomViews
     public partial class QuickEntryPopup : ContentView
     {
         public delegate void ClickExpandDelegate();
+        private const uint colorAnimationSpeed = 200;
         private readonly StringBuilder sbAmount;
+        private readonly Color quickEntryTappedColor;
+        private readonly Color quickEntryUnTappedColor;
         public static readonly BindableProperty TotalAmountProperty = BindableProperty.Create(nameof(TotalAmount), typeof(decimal), typeof(QuickEntryPopup), decimal.Zero);
         public static readonly BindableProperty EnableLocationProperty = BindableProperty.Create(nameof(EnableLocation), typeof(bool), typeof(QuickEntryPopup), default(bool), BindingMode.TwoWay);
-        public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(QuickEntryPopup), null);
+        public static readonly BindableProperty GPSCommandProperty = BindableProperty.Create(nameof(GPSCommand), typeof(ICommand), typeof(QuickEntryPopup), null);
         public static readonly BindableProperty PlacesProperty = BindableProperty.Create(nameof(Places), typeof(IEnumerable<Geoplace>), typeof(QuickEntryPopup), Enumerable.Empty<Geoplace>(), BindingMode.TwoWay);
         public static readonly BindableProperty StartQuickEntryCategoryProperty = BindableProperty.Create(nameof(StartQuickEntryCategory), typeof(Category), typeof(QuickEntryPopup), default(string), BindingMode.TwoWay);
         public static readonly BindableProperty CenterQuickEntryCategoryProperty = BindableProperty.Create(nameof(CenterQuickEntryCategory), typeof(Category), typeof(QuickEntryPopup), default(string), BindingMode.TwoWay);
@@ -29,6 +32,8 @@ namespace Walletico.CustomViews
         {
             InitializeComponent();
             this.sbAmount = new StringBuilder();
+            this.quickEntryTappedColor = (Color)Application.Current.Resources["PrimaryLight"];
+            this.quickEntryUnTappedColor = Color.White;
         }
 
         private void IncomeFirstSectionTapped(object sender, EventArgs e)
@@ -45,31 +50,32 @@ namespace Walletico.CustomViews
 
             if (!quickCategory.IsSelected)
             {
-                await this.UnselectAllCategories();
+                var selectTask = quickControl.ColorTo(this.quickEntryUnTappedColor, this.quickEntryTappedColor, c => quickControl.BackgroundGradientEndColor = c, colorAnimationSpeed, Easing.SinIn);
+                await Task.WhenAll(this.UnselectAllCategories(), selectTask);
                 quickCategory.IsSelected = true;
-                await quickControl.ColorTo(Color.FromHex("#FFF"), (Color)Application.Current.Resources["PrimaryLight"], c => quickControl.BackgroundGradientEndColor = c, 200, Easing.SinIn);
             }
         }
 
 
-        private async Task UnselectAllCategories()
+        private Task<bool> UnselectAllCategories()
         {
             if (this.StartQuickEntryCategory.IsSelected)
             {
-                await this.StartQuickEntry.ColorTo((Color)Application.Current.Resources["PrimaryLight"], Color.FromHex("#FFF"), c => this.StartQuickEntry.BackgroundGradientEndColor = c, 200, Easing.SinIn);
+                this.StartQuickEntryCategory.IsSelected = false;
+                return this.StartQuickEntry.ColorTo(this.quickEntryTappedColor, this.quickEntryUnTappedColor, c => this.StartQuickEntry.BackgroundGradientEndColor = c, colorAnimationSpeed, Easing.SinIn);
             }
-            if (this.CenterQuickEntryCategory.IsSelected)
+            else if (this.CenterQuickEntryCategory.IsSelected)
             {
-                await this.CenterQuickEntry.ColorTo((Color)Application.Current.Resources["PrimaryLight"], Color.FromHex("#FFF"), c => this.CenterQuickEntry.BackgroundGradientEndColor = c, 200, Easing.SinIn);
+                this.CenterQuickEntryCategory.IsSelected = false;
+                return this.CenterQuickEntry.ColorTo(this.quickEntryTappedColor, this.quickEntryUnTappedColor, c => this.CenterQuickEntry.BackgroundGradientEndColor = c, colorAnimationSpeed, Easing.SinIn);
 
             }
-            if (this.EndQuickEntryCategory.IsSelected)
+            else if (this.EndQuickEntryCategory.IsSelected)
             {
-                await this.EndQuickEntry.ColorTo((Color)Application.Current.Resources["PrimaryLight"], Color.FromHex("#FFF"), c => this.EndQuickEntry.BackgroundGradientEndColor = c, 200, Easing.SinIn);
+                this.EndQuickEntryCategory.IsSelected = false;
+                return this.EndQuickEntry.ColorTo(this.quickEntryTappedColor, this.quickEntryUnTappedColor, c => this.EndQuickEntry.BackgroundGradientEndColor = c, colorAnimationSpeed, Easing.SinIn);
             }
-            this.StartQuickEntryCategory.IsSelected = false;
-            this.CenterQuickEntryCategory.IsSelected = false;
-            this.EndQuickEntryCategory.IsSelected = false;
+            return Task.FromResult(false);
         }
 
         private void NumberButtonEvent(object sender, EventArgs e)
@@ -101,7 +107,7 @@ namespace Walletico.CustomViews
             get => (bool)GetValue(EnableLocationProperty);
             set => SetValue(EnableLocationProperty, value);
         }
-        public ICommand Command { get => (ICommand)GetValue(CommandProperty); set => SetValue(CommandProperty, value); }
+        public ICommand GPSCommand { get => (ICommand)GetValue(GPSCommandProperty); set => SetValue(GPSCommandProperty, value); }
         public IEnumerable<Geoplace> Places { get => (IEnumerable<Geoplace>)GetValue(PlacesProperty); set => SetValue(PlacesProperty, value); }
 
 
