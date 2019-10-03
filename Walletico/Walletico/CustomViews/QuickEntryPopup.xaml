@@ -74,12 +74,14 @@
                     BackgroundGradientAngle="360"
                     BackgroundGradientStartColor="{StaticResource PrimaryLight}"
                     BackgroundGradientEndColor="White"
+                    x:Name="StartQuickEntry"
+                    BindingContext="{Binding Source={x:Reference QuickEntry}, Path=StartQuickEntryCategory}"
                     Grid.Column="0"
                     CornerRadius="5">
                     <pancake:PancakeView.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="StartQuickEntryTapped" />
+                        <TapGestureRecognizer Tapped="QuickEntryItemTapped" />
                     </pancake:PancakeView.GestureRecognizers>
-                    <StackLayout Margin="10" BindingContext="{Binding Source={x:Reference QuickEntry}, Path=StartQuickEntryCategory}">
+                    <StackLayout Margin="10">
                         <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="{Binding IconCode}"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
@@ -92,16 +94,18 @@
                     BackgroundGradientAngle="360"
                     BackgroundGradientStartColor="{StaticResource PrimaryLight}"
                     BackgroundGradientEndColor="White"
+                    x:Name="CenterQuickEntry"
+                    BindingContext="{Binding Source={x:Reference QuickEntry}, Path=CenterQuickEntryCategory}"
                     Grid.Column="1"
                     CornerRadius="5">
                     <pancake:PancakeView.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="CenterQuickEntryTapped" />
+                        <TapGestureRecognizer Tapped="QuickEntryItemTapped" />
                     </pancake:PancakeView.GestureRecognizers>
                     <StackLayout Margin="10">
-                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="{Binding Source={x:Reference QuickEntry}, Path=CenterQuickEntryCategory.IconCode}"/>
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="{Binding IconCode}"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
-                            Text="{Binding Source={x:Reference QuickEntry}, Path=CenterQuickEntryCategory.Description}"
+                            Text="{Binding Description}"
                             TextColor="{StaticResource MediumGrayTextColor}" />
                     </StackLayout>
                 </pancake:PancakeView>
@@ -112,16 +116,18 @@
                     BackgroundGradientAngle="360"
                     BackgroundGradientStartColor="{StaticResource PrimaryLight}"
                     BackgroundGradientEndColor="White"
+                    x:Name="EndQuickEntry"
+                    BindingContext="{Binding Source={x:Reference QuickEntry}, Path=EndQuickEntryCategory}"
                     Grid.Column="2"
                     CornerRadius="5">
                     <pancake:PancakeView.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="EndQuickEntryTapped" />
+                        <TapGestureRecognizer Tapped="QuickEntryItemTapped" />
                     </pancake:PancakeView.GestureRecognizers>
                     <StackLayout Margin="10">
-                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="{Binding Source={x:Reference QuickEntry}, Path=EndQuickEntryCategory.IconCode}"/>
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="{Binding IconCode}"/>
                         <Label
                             Style="{StaticResource SubtitleText}"
-                            Text="{Binding Source={x:Reference QuickEntry}, Path=EndQuickEntryCategory.Description}"
+                            Text="{Binding Description}"
                             TextColor="{StaticResource MediumGrayTextColor}" />
                     </StackLayout>
                 </pancake:PancakeView>

@@ -2,7 +2,7 @@
 
 namespace Walletico.Models
 {
-    public class Category : BaseModel
+    public class Category : SelectableModel
     {
         public string Description { get; set; }
         public string IconCode { get; set; }
