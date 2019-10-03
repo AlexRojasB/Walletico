@@ -22,6 +22,7 @@ namespace Walletico.ViewModels
         private Period _periodSelected;
         private decimal income;
         private bool isLocationEnabled;
+        private IEnumerable<Geoplace> nearPlaces;
         private readonly IDataService _dataService;
         private readonly IMapService _mapService;
         private readonly bool _isAllowed;
@@ -42,16 +43,9 @@ namespace Walletico.ViewModels
             this.Periods = this._dataService.GetAllMonths().ToList();
         }
 
-        private async void ReadAndReconfigureLocationPreferences()
+        private void ReadAndReconfigureLocationPreferences()
         {
-            if (_isAllowed)
-            {
-                if (this.IsLocationEnabled)
-                {
-                    await this.VerifyGpsLocation();
-                }
-            }
-            else
+            if (!_isAllowed)
             {
                 Preferences.Set(PreferenceKeys.IsLocationEnabled, false);
             }
@@ -76,8 +70,8 @@ namespace Walletico.ViewModels
                             Latitude = location.Latitude,
                             Longitude = location.Longitude
                         };
-                        //  var places = await this._mapService.GetPlacesNearby(userLocation, 1.5d);
-                        //  var placesNames = places.Select(x => x.Place_name).ToArray();
+                        var places = await this._mapService.GetPlacesNearby(userLocation, 1.5d);
+                        this.NearPlaces = places.Select(x => new Geoplace { PlaceName = x.Text, Coordenates = new MapPoint { Latitude = x.Geometry.Coordinates[0], Longitude = x.Geometry.Coordinates[1] } }).ToArray();
                         Preferences.Set(PreferenceKeys.IsLocationAllowed, true);
                         Preferences.Set(PreferenceKeys.IsLocationEnabled, true);
                     }
@@ -89,6 +83,7 @@ namespace Walletico.ViewModels
                 else
                 {
                     Preferences.Set(PreferenceKeys.IsLocationEnabled, false);
+                    this.NearPlaces = Enumerable.Repeat(new Geoplace { PlaceName = "Somewhere", Coordenates = new MapPoint { Latitude = 0, Longitude = 0 } }, 1);
                 }
             }
             catch (Exception)
@@ -178,7 +173,15 @@ namespace Walletico.ViewModels
                 this.RaisePropertyChanged();
             }
         }
-
+        public IEnumerable<Geoplace> NearPlaces
+        {
+            get => nearPlaces;
+            set
+            {
+                nearPlaces = value;
+                RaisePropertyChanged();
+            }
+        }
         #endregion
     }
 }

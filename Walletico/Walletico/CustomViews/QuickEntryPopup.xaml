@@ -41,11 +41,18 @@
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Place" />
                 <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding Source={x:Reference QuickEntry}, Path=Command}" TextColor="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
             </StackLayout>
-            <CollectionView  ItemsSource="{Binding Periods}" SelectedItem="{Binding PeriodSelected, Mode=TwoWay}"  HorizontalOptions="FillAndExpand" SelectionMode="Single" ItemsLayout="{x:Static ListItemsLayout.Horizontal}">
+            <CollectionView HeightRequest="30" ItemsSource="{Binding Source={x:Reference QuickEntry}, Path=Places}" VerticalOptions="Fill" HorizontalOptions="Fill" SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <ListItemsLayout ItemSpacing="3">
+                        <x:Arguments>
+                            <ItemsLayoutOrientation>Horizontal</ItemsLayoutOrientation>
+                        </x:Arguments>
+                    </ListItemsLayout>
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="{StaticResource FrameHighlight}" Padding="5" Margin="0">
-                            <Label Margin="3" Text="Restaurante Pollito" Style="{StaticResource SubtitleText}"/>
+                        <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="{StaticResource FrameHighlight}" Padding="3" Margin="3,0,3,0" >
+                            <Label HorizontalOptions="Center" Margin="3" Text="{Binding PlaceName}" Style="{StaticResource SubtitleText}"/>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

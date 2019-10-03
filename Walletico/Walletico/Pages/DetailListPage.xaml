@@ -109,7 +109,7 @@
                 <TapGestureRecognizer Tapped="PageFader_Tapped" />
             </BoxView.GestureRecognizers>
         </BoxView>
-        <customViews:QuickEntryPopup x:Name="AddTransPopup" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="2" Command="{Binding EnableLocation}" EnableLocation="{Binding IsLocationEnabled, Mode=TwoWay}" TotalAmount="{Binding Income}" TranslationY="{Binding Source={x:Reference RootPage}, Path=Height}"  >
+        <customViews:QuickEntryPopup x:Name="AddTransPopup" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="2" Places="{Binding NearPlaces}" Command="{Binding EnableLocation}" EnableLocation="{Binding IsLocationEnabled, Mode=TwoWay}" TotalAmount="{Binding Income}" TranslationY="{Binding Source={x:Reference RootPage}, Path=Height}"  >
         </customViews:QuickEntryPopup>
     </Grid>
 </ContentPage>
