@@ -87,6 +87,7 @@ namespace Walletico.ViewModels
 
                     if (location != null)
                     {
+                        await GetBetterLocation().ConfigureAwait(false);
                         MapPoint userLocation = new MapPoint
                         {
                             Latitude = location.Latitude,
@@ -113,7 +114,6 @@ namespace Walletico.ViewModels
                 this.DisableLocationPreferences();
             }
         }
-
 
         private void DisableLocationPreferences()
         {

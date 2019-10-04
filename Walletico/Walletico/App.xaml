@@ -51,9 +51,11 @@
         </Style>
 
         <Style x:Key="CalcButtons" TargetType="Button">
-            <Setter Property="BackgroundColor" Value="White"/>
-            <Setter Property="BorderColor" Value="{StaticResource PrimaryDark}" />
-            <Setter Property="BorderWidth" Value="2" />
+            <Setter Property="BackgroundColor" Value="{StaticResource PrimaryDark}"/>
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BorderColor" Value="White" />
+            <Setter Property="BorderWidth" Value="1" />
+            
         </Style>
 
         <Style x:Key="NormalGrid" TargetType="Grid" >
