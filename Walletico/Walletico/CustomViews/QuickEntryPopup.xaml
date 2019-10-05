@@ -10,6 +10,7 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <x:String x:Key="ItemHighlight">#6DFEFC|#FFFFFF</x:String>
+            <x:String x:Key="PlaceHighlight">#6DFEFC|#9CB6C6</x:String>
             <x:String x:Key="locationIconString">&#xF34E;|&#xF351;</x:String>
             <converts:BoolToStringConverter x:Key="cnvBoolString"></converts:BoolToStringConverter>
         </ResourceDictionary>
@@ -42,7 +43,7 @@
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Place" />
                 <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding Source={x:Reference QuickEntry}, Path=GPSCommand}" TextColor="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
             </StackLayout>
-            <CollectionView HeightRequest="30" ItemsSource="{Binding Source={x:Reference QuickEntry}, Path=Places}" VerticalOptions="Fill" HorizontalOptions="Fill" SelectionMode="Single">
+            <CollectionView HeightRequest="30" ItemsSource="{Binding Source={x:Reference QuickEntry}, Path=Places, Mode=TwoWay}" SelectionChanged="PlacesSelectedItemChanged" VerticalOptions="Fill" HorizontalOptions="Fill" SelectionMode="Single">
                 <CollectionView.ItemsLayout>
                     <ListItemsLayout ItemSpacing="3">
                         <x:Arguments>
@@ -53,7 +54,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame HorizontalOptions="Start" CornerRadius="20" BackgroundColor="{StaticResource FrameHighlight}" Padding="3" Margin="3,0,3,0" >
-                            <Label HorizontalOptions="Center" Margin="3" Text="{Binding PlaceName}" Style="{StaticResource SubtitleText}"/>
+                            <Label HorizontalOptions="Center" Margin="3" Text="{Binding PlaceName}" TextColor="{Binding IsSelected,  Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}"  Style="{StaticResource SubtitleText}"/>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

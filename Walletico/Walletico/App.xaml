@@ -55,7 +55,8 @@
             <Setter Property="TextColor" Value="White" />
             <Setter Property="BorderColor" Value="White" />
             <Setter Property="BorderWidth" Value="1" />
-            
+            <Setter Property="CornerRadius" Value="6" />
+
         </Style>
 
         <Style x:Key="NormalGrid" TargetType="Grid" >

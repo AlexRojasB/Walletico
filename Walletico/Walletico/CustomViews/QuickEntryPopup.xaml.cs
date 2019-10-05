@@ -51,7 +51,7 @@ namespace Walletico.CustomViews
             if (!quickCategory.IsSelected)
             {
                 var selectTask = quickControl.ColorTo(this.quickEntryUnTappedColor, this.quickEntryTappedColor, c => quickControl.BackgroundGradientEndColor = c, colorAnimationSpeed, Easing.SinIn);
-                await Task.WhenAll(this.UnselectAllCategories(), selectTask);
+                await Task.WhenAll(UnselectAllCategories(), selectTask).ConfigureAwait(false);
                 quickCategory.IsSelected = true;
             }
         }
@@ -115,6 +115,16 @@ namespace Walletico.CustomViews
         public Category CenterQuickEntryCategory { get => (Category)GetValue(CenterQuickEntryCategoryProperty); set => SetValue(CenterQuickEntryCategoryProperty, value); }
         public Category EndQuickEntryCategory { get => (Category)GetValue(EndQuickEntryCategoryProperty); set => SetValue(EndQuickEntryCategoryProperty, value); }
 
-
+        private void PlacesSelectedItemChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((e.PreviousSelection.Count > 0) && e.PreviousSelection[0] is Geoplace previous)
+            {
+                previous.IsSelected = false;
+            }
+            if ((e.CurrentSelection.Count > 0) && e.CurrentSelection[0] is Geoplace current)
+            {
+                current.IsSelected = true;
+            }
+        }
     }
 }

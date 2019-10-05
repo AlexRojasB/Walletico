@@ -81,9 +81,9 @@ namespace Walletico.ViewModels
                 {
                     if (!_isAllowed)
                     {
-                        await Dialog.Instance.ShowAsync<LocationDialog>();
+                        await Dialog.Instance.ShowAsync<LocationDialog>().ConfigureAwait(true);
                     }
-                    var location = await Geolocation.GetLastKnownLocationAsync();
+                    var location = await Geolocation.GetLastKnownLocationAsync().ConfigureAwait(true);
 
                     if (location != null)
                     {
@@ -92,7 +92,7 @@ namespace Walletico.ViewModels
                             Latitude = location.Latitude,
                             Longitude = location.Longitude
                         };
-                        var places = await this._mapService.GetPlacesNearby(userLocation, 1d);
+                        var places = await _mapService.GetPlacesNearby(userLocation, 1d).ConfigureAwait(false);
                         this.NearPlaces = places.Select(x => new Geoplace { PlaceName = x.Text, Coordenates = new MapPoint { Latitude = x.Geometry.Coordinates[0], Longitude = x.Geometry.Coordinates[1] } }).ToArray();
                         Preferences.Set(PreferenceKeys.IsLocationAllowed, true);
                         Preferences.Set(PreferenceKeys.IsLocationEnabled, true);
@@ -127,13 +127,13 @@ namespace Walletico.ViewModels
                 return new Command(async () =>
                 {
                     this.IsLocationEnabled = !this.IsLocationEnabled;
-                    await this.VerifyGpsLocation();
+                    await VerifyGpsLocation().ConfigureAwait(false);
                 });
 
             }
         }
 
-        public Command OpenPopup => new Command(async () => { await this.VerifyGpsLocation(); });
+        public Command OpenPopup => new Command(async () => { await VerifyGpsLocation().ConfigureAwait(false); });
 
 
         #region Properties
