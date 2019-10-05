@@ -9,5 +9,7 @@ namespace Walletico.Models
         public DateTime EntryDate { get; set; }
         public decimal Amount { get; set; }
         public byte TransType { get; set; }
+        public Category Category { get; set; }
+        public Geoplace Location { get; set; }
     }
 }

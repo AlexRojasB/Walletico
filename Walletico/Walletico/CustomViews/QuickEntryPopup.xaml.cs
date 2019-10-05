@@ -16,6 +16,7 @@ namespace Walletico.CustomViews
     public partial class QuickEntryPopup : ContentView
     {
         public delegate void ClickExpandDelegate();
+        private Category categorySelected;
         private const uint colorAnimationSpeed = 200;
         private readonly StringBuilder sbAmount;
         private readonly Color quickEntryTappedColor;
@@ -47,9 +48,9 @@ namespace Walletico.CustomViews
             if (quickControl is null) return;
             var quickCategory = (quickControl.BindingContext as Category);
             if (quickCategory is null) return;
-
             if (!quickCategory.IsSelected)
             {
+                this.categorySelected = quickCategory;
                 var selectTask = quickControl.ColorTo(this.quickEntryUnTappedColor, this.quickEntryTappedColor, c => quickControl.BackgroundGradientEndColor = c, colorAnimationSpeed, Easing.SinIn);
                 await Task.WhenAll(UnselectAllCategories(), selectTask).ConfigureAwait(false);
                 quickCategory.IsSelected = true;
@@ -98,9 +99,29 @@ namespace Walletico.CustomViews
             this.Amount.Text = sbAmount.ToString();
         }
 
+        private void PlacesSelectedItemChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((e.PreviousSelection.Count > 0) && e.PreviousSelection[0] is Geoplace previous)
+            {
+                previous.IsSelected = false;
+            }
+            if ((e.CurrentSelection.Count > 0) && e.CurrentSelection[0] is Geoplace current)
+            {
+                current.IsSelected = true;
+            }
+        }
+
+        private void AddQuickTransactionEvent(object sender, EventArgs e)
+        {
+            Transaction transaction = new Transaction();
+            transaction.Category = this.categorySelected;
+            transaction.Location = this.PlaceSelected;
+            transaction.Amount = decimal.Parse(this.sbAmount.ToString());
+        }
+
         public ClickExpandDelegate OnExpandTapped { get; set; }
         public double IncomeFirstSectionHeigh => this.FirstSection.Height + this.EntrySection.Height;
-
+        public Geoplace PlaceSelected { get; set; }
         public decimal TotalAmount { get => (decimal)GetValue(TotalAmountProperty); set => SetValue(TotalAmountProperty, value); }
         public bool EnableLocation
         {
@@ -114,17 +135,5 @@ namespace Walletico.CustomViews
         public Category StartQuickEntryCategory { get => (Category)GetValue(StartQuickEntryCategoryProperty); set => SetValue(StartQuickEntryCategoryProperty, value); }
         public Category CenterQuickEntryCategory { get => (Category)GetValue(CenterQuickEntryCategoryProperty); set => SetValue(CenterQuickEntryCategoryProperty, value); }
         public Category EndQuickEntryCategory { get => (Category)GetValue(EndQuickEntryCategoryProperty); set => SetValue(EndQuickEntryCategoryProperty, value); }
-
-        private void PlacesSelectedItemChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if ((e.PreviousSelection.Count > 0) && e.PreviousSelection[0] is Geoplace previous)
-            {
-                previous.IsSelected = false;
-            }
-            if ((e.CurrentSelection.Count > 0) && e.CurrentSelection[0] is Geoplace current)
-            {
-                current.IsSelected = true;
-            }
-        }
     }
 }

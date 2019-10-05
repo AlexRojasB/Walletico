@@ -43,7 +43,7 @@
                 <Label HorizontalOptions="FillAndExpand" Style="{StaticResource SubtitleText}" Text="Place" />
                 <Button FontFamily="{StaticResource MaterialDesignFamily}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding Source={x:Reference QuickEntry}, Path=GPSCommand}" TextColor="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource ItemHighlight}}" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource PrimaryDark}" Margin="0" Padding="0" FontSize="20" Text="{Binding Source={x:Reference QuickEntry}, Path=EnableLocation, Converter={StaticResource cnvBoolString}, ConverterParameter={StaticResource locationIconString}}" />
             </StackLayout>
-            <CollectionView HeightRequest="30" ItemsSource="{Binding Source={x:Reference QuickEntry}, Path=Places, Mode=TwoWay}" SelectionChanged="PlacesSelectedItemChanged" VerticalOptions="Fill" HorizontalOptions="Fill" SelectionMode="Single">
+            <CollectionView HeightRequest="30" ItemsSource="{Binding Source={x:Reference QuickEntry}, Path=Places, Mode=TwoWay}" SelectedItem="{Binding Source={x:Reference QuickEntry}, Path=PlaceSelected}" SelectionChanged="PlacesSelectedItemChanged" VerticalOptions="Fill" HorizontalOptions="Fill" SelectionMode="Single">
                 <CollectionView.ItemsLayout>
                     <ListItemsLayout ItemSpacing="3">
                         <x:Arguments>
@@ -171,7 +171,7 @@
                 <Button Grid.Row="3" Grid.Column="1" Text="0" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
                 <Button Grid.Row="3" Grid.Column="2" Text="del" Style="{StaticResource CalcButtons}" Clicked="DelButtonEvent"/>
 
-                <Button Grid.Row="4" BackgroundColor="{StaticResource SecondaryText}" FontAttributes="Bold" Grid.ColumnSpan="3" Text="Add Income" Style="{StaticResource CalcButtons}"/>
+            <Button Grid.Row="4" BackgroundColor="{StaticResource SecondaryText}" Clicked="AddQuickTransactionEvent" FontAttributes="Bold" Grid.ColumnSpan="3" Text="Add Income" Style="{StaticResource CalcButtons}"/>
             </Grid>
     </Grid>
 </ContentView>
