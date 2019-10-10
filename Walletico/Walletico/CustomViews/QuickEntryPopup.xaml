@@ -171,7 +171,7 @@
                 <Button Grid.Row="3" Grid.Column="1" Text="0" Style="{StaticResource CalcButtons}" Clicked="NumberButtonEvent"/>
                 <Button Grid.Row="3" Grid.Column="2" Text="del" Style="{StaticResource CalcButtons}" Clicked="DelButtonEvent"/>
 
-            <Button Grid.Row="4" BackgroundColor="{StaticResource SecondaryText}" Clicked="AddQuickTransactionEvent" FontAttributes="Bold" Grid.ColumnSpan="3" Text="Add Income" Style="{StaticResource CalcButtons}"/>
+            <Button Command="{Binding Source={x:Reference QuickEntry}, Path=AddTransactionCommand}" Grid.Row="4" BackgroundColor="{StaticResource SecondaryText}"  FontAttributes="Bold" Grid.ColumnSpan="3" Text="Add Income" Style="{StaticResource CalcButtons}"/>
             </Grid>
     </Grid>
 </ContentView>

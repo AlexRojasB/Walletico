@@ -116,7 +116,10 @@
                                      TranslationY="{Binding Source={x:Reference RootPage}, Path=Height}"
                                      StartQuickEntryCategory="{Binding StartIncomeCategory}"
                                      CenterQuickEntryCategory="{Binding CenterIncomeCategory}"
-                                     EndQuickEntryCategory="{Binding EndIncomeCategory}">
+                                     EndQuickEntryCategory="{Binding EndIncomeCategory}"
+                                     AddTransactionCommand="{Binding TransactnAdded, Mode=TwoWay}" 
+                                     PlaceSelected="{Binding PlaceSelected, Mode=TwoWay}" CategorySelected="{Binding CategorySelected, Mode=TwoWay}"
+                                     AmountEntered="{Binding AmountEntered, Mode=TwoWay}">
         </customViews:QuickEntryPopup>
     </Grid>
 </ContentPage>

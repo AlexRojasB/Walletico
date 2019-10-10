@@ -133,6 +133,13 @@ namespace Walletico.ViewModels
             }
         }
 
+        public Command TransactnAdded => new Command(() =>
+        {
+            Transaction transaction = new Transaction();
+            transaction.Amount = this.AmountEntered;
+            transaction.Category = this.CategorySelected;
+            transaction.Location = this.PlaceSelected;
+        });
         public Command OpenPopup => new Command(async () => { await VerifyGpsLocation().ConfigureAwait(false); });
 
 
@@ -229,6 +236,9 @@ namespace Walletico.ViewModels
                 RaisePropertyChanged();
             }
         }
+        public Geoplace PlaceSelected { get; set; }
+        public Category CategorySelected { get; set; }
+        public decimal AmountEntered { get; set; }
         #endregion
     }
 }

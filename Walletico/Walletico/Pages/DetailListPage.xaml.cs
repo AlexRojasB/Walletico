@@ -1,5 +1,6 @@
 ﻿using AiForms.Dialogs;
 using Walletico.CustomViews;
+using Walletico.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,8 +18,8 @@ namespace Walletico.Pages
 
         private async void PageFader_Tapped(object sender, System.EventArgs e)
         {
-            await AddTransPopup.TranslateTo(0, Height, AnimationSpeed, Easing.SinInOut);
-            await PageFader.FadeTo(0, AnimationSpeed, Easing.SinInOut);
+            await AddTransPopup.TranslateTo(0, Height, AnimationSpeed, Easing.SinInOut).ConfigureAwait(true);
+            await PageFader.FadeTo(0, AnimationSpeed, Easing.SinInOut).ConfigureAwait(true);
             PageFader.IsVisible = false;
         }
 
@@ -26,6 +27,7 @@ namespace Walletico.Pages
         {
             base.OnAppearing();
             this.AddTransPopup.OnExpandTapped += ExpandPopup;
+            //this.AddTransPopup.OnAddTransactionClicked += AddTransactionClicked;
         }
 
        
@@ -36,10 +38,16 @@ namespace Walletico.Pages
             this.AddTransPopup.TranslateTo(0, this.Height - height, AnimationSpeed, Easing.SinInOut);
         }
 
+        private void AddTransactionClicked(Transaction transaction)
+        {
+
+        }
+
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
             this.AddTransPopup.OnExpandTapped -= ExpandPopup;
+            //this.AddTransPopup.OnAddTransactionClicked -= AddTransactionClicked;
         }
 
         private async void IncomeTotalTapped(object sender, System.EventArgs e)
@@ -47,8 +55,8 @@ namespace Walletico.Pages
             var pageHeight = Height;
             var firstSection = AddTransPopup.IncomeFirstSectionHeigh;
             PageFader.IsVisible = true;
-            await PageFader.FadeTo(1, AnimationSpeed, Easing.SinInOut);
-            await AddTransPopup.TranslateTo(0, pageHeight - firstSection, AnimationSpeed, Easing.SinInOut);
+            await PageFader.FadeTo(1, AnimationSpeed, Easing.SinInOut).ConfigureAwait(false);
+            await AddTransPopup.TranslateTo(0, pageHeight - firstSection, AnimationSpeed, Easing.SinInOut).ConfigureAwait(false);
         }
 
         private void OutcomeTotalTapped(object sender, System.EventArgs e)
