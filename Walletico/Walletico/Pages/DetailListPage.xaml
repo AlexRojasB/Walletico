@@ -80,7 +80,7 @@
 
         <StackLayout Grid.Row="3" Grid.Column="0" Orientation="Horizontal" BackgroundColor="{StaticResource PrimaryDark}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Tapped="IncomeTotalTapped" Command="{Binding OpenPopup}" />
+                <TapGestureRecognizer Tapped="IncomeTotalTapped" Command="{Binding OpenPopup}"  CommandParameter="0"/>
             </StackLayout.GestureRecognizers>
             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
                 <Label HorizontalOptions="Center" VerticalOptions="Start" Text="Income" TextColor="{StaticResource SecondaryText}" FontSize="8" Margin="5,5,0,0" />
@@ -117,9 +117,9 @@
                                      StartQuickEntryCategory="{Binding StartIncomeCategory}"
                                      CenterQuickEntryCategory="{Binding CenterIncomeCategory}"
                                      EndQuickEntryCategory="{Binding EndIncomeCategory}"
-                                     AddTransactionCommand="{Binding TransactnAdded, Mode=TwoWay}" 
-                                     PlaceSelected="{Binding PlaceSelected, Mode=TwoWay}" CategorySelected="{Binding CategorySelected, Mode=TwoWay}"
-                                     AmountEntered="{Binding AmountEntered, Mode=TwoWay}">
+                                     AddTransactionCommand="{Binding AddTransactionCommand, Mode=TwoWay}" 
+                                     PlaceSelected="{Binding QuicTransaction.Location, Mode=TwoWay}" CategorySelected="{Binding QuicTransaction.Category, Mode=TwoWay}"
+                                     AmountEntered="{Binding QuicTransaction.Amount, Mode=TwoWay}">
         </customViews:QuickEntryPopup>
     </Grid>
 </ContentPage>

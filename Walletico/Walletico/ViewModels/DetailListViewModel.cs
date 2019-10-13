@@ -135,12 +135,17 @@ namespace Walletico.ViewModels
 
         public Command TransactnAdded => new Command(() =>
         {
-            Transaction transaction = new Transaction();
-            transaction.Amount = this.AmountEntered;
-            transaction.Category = this.CategorySelected;
-            transaction.Location = this.PlaceSelected;
+            QuicTransaction.Amount = this.AmountEntered;
+            QuicTransaction.Category = this.CategorySelected;
+            QuicTransaction.Location = this.PlaceSelected;
         });
-        public Command OpenPopup => new Command(async () => { await VerifyGpsLocation().ConfigureAwait(false); });
+
+        public Command OpenPopup => new Command(async transType =>
+        {
+            this.QuicTransaction = new Transaction();
+            this.QuicTransaction.TransType = Convert.ToByte(transType);
+            await VerifyGpsLocation().ConfigureAwait(false);
+        });
 
 
         #region Properties
@@ -239,6 +244,7 @@ namespace Walletico.ViewModels
         public Geoplace PlaceSelected { get; set; }
         public Category CategorySelected { get; set; }
         public decimal AmountEntered { get; set; }
+        public Transaction QuicTransaction { get; set; }
         #endregion
     }
 }
