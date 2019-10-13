@@ -44,25 +44,6 @@ namespace Walletico.ViewModels
             this.Transactions = this._dataService.GetAllPerMonthTransactions(1).ToList();
             this.Income = this.Transactions.Where(t => t.TransType == 0).Sum(t => t.Amount);
             this.Periods = this._dataService.GetAllMonths().ToList();
-            this.StartIncomeCategory = new Category
-            {
-                Id = 1,
-                IconCode = "\uf53d",
-                Description = "Sueldo"
-            };
-            this.CenterIncomeCategory = new Category
-            {
-                Id = 2,
-                IconCode = "\uf51e",
-                Description = "Ahorro"
-            };
-            this.EndIncomeCategory = new Category
-            {
-                Id = 3,
-                IconCode = "\uf53c",
-                Description = "Finanza"
-
-            };
         }
 
         private void ReadAndReconfigureLocationPreferences()
@@ -119,6 +100,52 @@ namespace Walletico.ViewModels
             Preferences.Set(PreferenceKeys.IsLocationEnabled, false);
             Preferences.Set(PreferenceKeys.IsLocationAllowed, false);
         }
+        private void BuildIncomingPopup()
+        {
+            this.StartIncomeCategory = new Category
+            {
+                Id = 1,
+                IconCode = "\uf53d",
+                Description = "Sueldo"
+            };
+          
+            this.CenterIncomeCategory = new Category
+            {
+                Id = 2,
+                IconCode = "\uf51e",
+                Description = "Ahorro"
+            };
+          
+            this.EndIncomeCategory = new Category
+            {
+                Id = 3,
+                IconCode = "\uf53c",
+                Description = "Finanza"
+
+            };
+        }
+
+        private void BuildOutcomePopup()
+        {
+            this.StartIncomeCategory = new Category
+            {
+                Id = 4,
+                IconCode = "\uf2e7",
+                Description = "Restaurante"
+            };
+            this.CenterIncomeCategory = new Category
+            {
+                Id = 5,
+                IconCode = "\uf54f",
+                Description = "Tiendas"
+            };
+            this.EndIncomeCategory = new Category
+            {
+                Id = 6,
+                IconCode = "\uf07a",
+                Description = "Mercado"
+            };
+        }
 
         public Command EnableLocation
         {
@@ -144,6 +171,13 @@ namespace Walletico.ViewModels
         {
             this.QuicTransaction = new Transaction();
             this.QuicTransaction.TransType = Convert.ToByte(transType);
+            if(this.QuicTransaction.TransType == (byte) TransType.Income)
+            {
+                this.BuildIncomingPopup();
+            } else
+            {
+                this.BuildOutcomePopup();
+            }
             await VerifyGpsLocation().ConfigureAwait(false);
         });
 
@@ -185,7 +219,6 @@ namespace Walletico.ViewModels
                 this.RaisePropertyChanged();
             }
         }
-
         public decimal Income
         {
             get => income; set
@@ -194,9 +227,7 @@ namespace Walletico.ViewModels
                 this.RaisePropertyChanged();
             }
         }
-
         public decimal Outcome => this.Transactions.Where(t => t.TransType == 1).Sum(t => t.Amount);
-
         public decimal Current => this.Income - this.Outcome;
         public bool IsLocationEnabled
         {
@@ -215,7 +246,6 @@ namespace Walletico.ViewModels
                 RaisePropertyChanged();
             }
         }
-
         public Category StartIncomeCategory
         {
             get => startIncomeCategory;

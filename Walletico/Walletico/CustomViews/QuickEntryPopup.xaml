@@ -84,7 +84,7 @@
                         <TapGestureRecognizer Tapped="QuickEntryItemTapped" />
                     </pancake:PancakeView.GestureRecognizers>
                     <StackLayout Margin="10">
-                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="{Binding IconCode}"/>
+                        <Label VerticalOptions="Start" HorizontalOptions="Start" Style="{StaticResource FontIconAwesomeLabel}" Text="&#xf07a;" />
                         <Label
                             Style="{StaticResource SubtitleText}"
                             Text="{Binding Description}"

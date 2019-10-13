@@ -90,7 +90,7 @@
         </StackLayout>
         <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal" BackgroundColor="#162935" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OutcomeTotalTapped" />
+                <TapGestureRecognizer Tapped="IncomeTotalTapped" Command="{Binding OpenPopup}"  CommandParameter="1" />
             </StackLayout.GestureRecognizers>
             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
                 <Label HorizontalOptions="Center" VerticalOptions="Start" Text="Expense" TextColor="{StaticResource SecondaryText}" FontSize="8" Margin="5,5,0,0" />
